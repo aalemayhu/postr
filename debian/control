@@ -7,7 +7,7 @@ Standards-Version: 3.7.2
 
 Package: postr
 Architecture: all
-Depends: ${python:Depends}, python-gtk2, python-glade2, python-gconf, python-twisted-web, python-elementtree
+Depends: ${python:Depends}, python-gtk2, python-glade2, python-gnome2, python-twisted-web, python-elementtree
 Description: upload photos to Flickr
  Postr is a tool to upload photographs to Flickr, with tight integration into
  the GNOME desktop.

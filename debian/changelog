@@ -1,3 +1,9 @@
+postr (0.5-2) unstable; urgency=low
+
+  * Fix dependency on python-gconf, which doesn't exist in Sid.
+
+ -- Ross Burton <ross@debian.org>  Wed,  7 Mar 2007 16:37:15 +0000
+
 postr (0.5-1) unstable; urgency=low
 
   * New upstream release.

@@ -1,3 +1,9 @@
+postr (0.5-3) unstable; urgency=low
+
+  * Depend on epiphany-browser | www-browser (Closes: #424995)
+
+ -- Ross Burton <ross@debian.org>  Sat, 19 May 2007 13:43:58 +0100
+
 postr (0.5-2) unstable; urgency=low
 
   * Fix dependency on python-gconf, which doesn't exist in Sid.

@@ -1,3 +1,10 @@
+postr (0.8-1) unstable; urgency=low
+
+  * New upstream release
+    - Better error handling (Closes: #433645)
+
+ -- Ross Burton <ross@debian.org>  Tue, 21 Aug 2007 10:20:33 +0100
+
 postr (0.7-1) unstable; urgency=low
 
   * New upstream release

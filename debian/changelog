@@ -1,3 +1,10 @@
+postr (0.9-1) unstable; urgency=low
+
+  * New upstream release
+    - Handle images with EXIF tags better (Closes: #441010)
+
+ -- Ross Burton <ross@debian.org>  Sun, 23 Sep 2007 15:38:03 +0100
+
 postr (0.8-1) unstable; urgency=low
 
   * New upstream release

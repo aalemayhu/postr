@@ -1,3 +1,10 @@
+postr (0.10-2) unstable; urgency=low
+
+  * Conform to Python Policy, partially based on a patch by Barry
+    deFreese. (Closes: #445403)
+
+ -- Ross Burton <ross@debian.org>  Wed, 13 Feb 2008 19:04:37 +0000
+
 postr (0.10-1) unstable; urgency=low
 
   * New upstream release

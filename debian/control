@@ -3,11 +3,13 @@ Section: graphics
 Priority: optional
 Maintainer: Ross Burton <ross@debian.org>
 Build-Depends: debhelper (>= 5.0.0), cdbs, python
-Standards-Version: 3.7.2
+Build-Depends-Indep: python-support (>= 0.5.3)
+Standards-Version: 3.7.3
 
 Package: postr
 Architecture: all
 Depends: ${python:Depends}, python-gtk2, python-glade2, python-gnome2, python-twisted-web, python-elementtree, epiphany-browser | www-browser
+XB-Python-Version: ${python:Versions}
 Description: upload photos to Flickr
  Postr is a tool to upload photographs to Flickr, with tight integration into
  the GNOME desktop.

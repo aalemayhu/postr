@@ -1,3 +1,9 @@
+postr (0.11-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Ross Burton <ross@debian.org>  Sun, 20 Apr 2008 15:40:03 +0100
+
 postr (0.10-2) unstable; urgency=low
 
   * Conform to Python Policy, partially based on a patch by Barry

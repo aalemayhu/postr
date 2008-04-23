@@ -1,3 +1,11 @@
+postr (0.12-1) unstable; urgency=low
+
+  * New upstream release
+    - Added Switch User action (Closes: #470966)
+    - Support both Nautilus extension ABIs (Closes: #475235)
+
+ -- Ross Burton <ross@debian.org>  Wed, 23 Apr 2008 10:10:08 +0100
+
 postr (0.11-1) unstable; urgency=low
 
   * New upstream release.

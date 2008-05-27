@@ -1,3 +1,10 @@
+postr (0.12.1-1) unstable; urgency=low
+
+  * New upstream release
+    - Fix URL handler parsing (Closes: #459486)
+
+ -- Ross Burton <ross@debian.org>  Tue, 27 May 2008 09:57:33 +0100
+
 postr (0.12-1) unstable; urgency=low
 
   * New upstream release

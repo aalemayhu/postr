@@ -1,3 +1,21 @@
+postr (0.12.3-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Drop Python 2.4 from Debian; thanks to Luca Falavigna for the report and
+    Jakub Wilk for the patch; Closes: #562465
+    - debian/control
+      + added XS-Python-Version, set to 2.5 minimum
+      + drop python-elementtree from Depends, included in Python >= 2.5
+  * debian/control
+    - replaced python-gnome2 with python-gconf in Depends; thanks to Josselin
+      Mouette for the report and patch; Closes: #541589
+    - added ${misc:Depends} to Depends
+  * debian/watch
+    - updated to reflect the new upstream location; thanks to Pablo Castellano
+      for the report and patch; Closes: #561316
+
+ -- Sandro Tosi <morph@debian.org>  Mon, 11 Jan 2010 23:26:02 +0100
+
 postr (0.12.3-1) unstable; urgency=low
 
   * New upstream release

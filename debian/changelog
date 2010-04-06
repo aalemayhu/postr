@@ -9,8 +9,12 @@ postr (0.12.4-1) UNRELEASED; urgency=low
     - bump Standards-Version to 3.8.4, no changes needed.
     - bumpe python-support B-D to >= 0.90.0~
     - rewrap dependency fields for easier diff'ing
+  * debian/copyright:
+    - updated with Python license, MIT and BSD-2 for other files
+      contained in the source tree
+    - made it DEP-5-compliant
 
- -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:21:41 +0200
+ -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:47:10 +0200
 
 postr (0.12.3-1.1) unstable; urgency=low
 

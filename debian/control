@@ -25,5 +25,11 @@ Depends:
  , epiphany-browser | www-browser
 XB-Python-Version: ${python:Versions}
 Description: upload photos to Flickr
- Postr is a tool to upload photographs to Flickr, with tight integration into
- the GNOME desktop.
+ Postr is a Flickr  uploading tool for the GNOME desktop, which aims to be
+ simple to use but exposing enough of Flickr to be useful.
+ .
+ It has a simple user interface, and lets you set common attributes for
+ your photos: title, description, tags, sets, groups, privacy, licence, etc.
+ .
+ It is integrated with Nautilus: you can either run postr when you are
+ browsing your photos or just drag them from Nautilus to drop them in Postr.

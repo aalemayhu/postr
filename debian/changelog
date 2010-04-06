@@ -11,6 +11,7 @@ postr (0.12.4-1) UNRELEASED; urgency=low
     - bumpe python-support B-D to >= 0.90.0~
     - rewrap dependency fields for easier diff'ing
     - added Vcs-* fields
+    - added Homepage field
   * debian/copyright:
     - updated with Python license, MIT and BSD-2 for other files
       contained in the source tree
@@ -20,7 +21,7 @@ postr (0.12.4-1) UNRELEASED; urgency=low
     - 00-fix_desktop_file.patch added, removes deprecated "Encoding"
       field
 
- -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 22:35:50 +0200
+ -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 22:46:21 +0200
 
 postr (0.12.3-1.1) unstable; urgency=low
 

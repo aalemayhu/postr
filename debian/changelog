@@ -8,8 +8,9 @@ postr (0.12.4-1) UNRELEASED; urgency=low
   * debian/control:
     - bump Standards-Version to 3.8.4, no changes needed.
     - bumpe python-support B-D to >= 0.90.0~
+    - rewrap dependency fields for easier diff'ing
 
- -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:19:51 +0200
+ -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:21:41 +0200
 
 postr (0.12.3-1.1) unstable; urgency=low
 

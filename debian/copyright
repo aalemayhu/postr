@@ -20,6 +20,10 @@ Copyright: © 2001-2004, Twisted Matrix Laboratories
 License: MIT
 X-Comment: see /usr/share/doc/python-twisted-web/copyright
 
+Files: nautilus/postrExtension.py
+Copyright: © 2007, Germán Póo-Caamaño <gpoo@gnome.org>
+License: GPL-2+
+
 Files: *
 Copyright: © 2006-2009, Ross Burton <ross@burtonini.com>
  © 2010, Germán Póo-Caamaño <gpoo@gnome.org>

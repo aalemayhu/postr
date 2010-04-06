@@ -1,6 +1,7 @@
 postr (0.12.4-1) UNRELEASED; urgency=low
 
   * New upstream release
+    - fixed Upload button behaviour (Closes: #570954)
   * New maintainer, thanks Ross for your work!
   * debian/compat bumped to 7
   * debian/rules:

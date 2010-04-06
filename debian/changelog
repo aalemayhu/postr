@@ -1,4 +1,4 @@
-postr (0.12.4-1) UNRELEASED; urgency=low
+postr (0.12.4-1) unstable; urgency=low
 
   * New upstream release
     - fixed Upload button behaviour (Closes: #570954)
@@ -22,7 +22,7 @@ postr (0.12.4-1) UNRELEASED; urgency=low
     - 00-fix_desktop_file.patch added, removes deprecated "Encoding"
       field
 
- -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 22:49:21 +0200
+ -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 22:50:03 +0200
 
 postr (0.12.3-1.1) unstable; urgency=low
 

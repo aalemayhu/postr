@@ -7,8 +7,9 @@ postr (0.12.4-1) UNRELEASED; urgency=low
     - use dh7
   * debian/control:
     - bump Standards-Version to 3.8.4, no changes needed.
+    - bumpe python-support B-D to >= 0.90.0~
 
- -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:18:39 +0200
+ -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:19:51 +0200
 
 postr (0.12.3-1.1) unstable; urgency=low
 

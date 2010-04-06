@@ -15,8 +15,9 @@ postr (0.12.4-1) UNRELEASED; urgency=low
     - updated with Python license, MIT and BSD-2 for other files
       contained in the source tree
     - made it DEP-5-compliant
+  * debian/source/format: use 3.0 (quilt)
 
- -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:52:19 +0200
+ -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 22:16:41 +0200
 
 postr (0.12.3-1.1) unstable; urgency=low
 

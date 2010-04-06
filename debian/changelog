@@ -2,8 +2,9 @@ postr (0.12.4-1) UNRELEASED; urgency=low
 
   * New upstream release
   * New maintainer, thanks Ross for your work!
+  * debian/compat bumped to 7
 
- -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:11:14 +0200
+ -- David Paleino <dapal@debian.org>  Tue, 06 Apr 2010 21:16:20 +0200
 
 postr (0.12.3-1.1) unstable; urgency=low
 

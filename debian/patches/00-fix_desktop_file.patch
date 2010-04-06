@@ -1,0 +1,16 @@
+From: David Paleino <dapal@debian.org>
+Subject: remove deprecated field
+Forwarded: no
+
+---
+ data/postr.desktop |    1 -
+ 1 file changed, 1 deletion(-)
+
+--- postr.orig/data/postr.desktop
++++ postr/data/postr.desktop
+@@ -1,5 +1,4 @@
+ [Desktop Entry]
+-Encoding=UTF-8
+ Name=Flickr Uploader
+ Comment=Upload photos to Flickr
+ Icon=postr

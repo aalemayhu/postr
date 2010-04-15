@@ -22,6 +22,7 @@ Depends:
  , python-glade2
  , python-gconf
  , python-twisted-web
+ , python-nautilus
  , epiphany-browser | www-browser
 XB-Python-Version: ${python:Versions}
 Description: upload photos to Flickr

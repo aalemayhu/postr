@@ -1,8 +1,11 @@
 postr (0.12.4-2) UNRELEASED; urgency=low
 
   * debian/control: added dependency on python-nautilus
+  * debian/patches/:
+    - 00-fix_desktop_file.patch refreshed, added MimeType association,
+      ported from Ubuntu (LP: #349623)
 
- -- David Paleino <dapal@debian.org>  Thu, 15 Apr 2010 23:34:08 +0200
+ -- David Paleino <dapal@debian.org>  Sat, 17 Apr 2010 09:31:29 +0200
 
 postr (0.12.4-1) unstable; urgency=low
 

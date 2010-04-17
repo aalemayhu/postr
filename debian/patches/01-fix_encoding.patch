@@ -1,0 +1,21 @@
+From: David Paleino <dapal@debian.org>
+Subject: fix encoding issues
+Bug-Ubuntu: https://bugs.edge.launchpad.net/ubuntu/+source/postr/+bug/281999
+Forwarded: no
+
+---
+ src/flickrest.py |    3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+--- postr.orig/src/flickrest.py
++++ postr/src/flickrest.py
+@@ -152,7 +152,8 @@ class Flickr:
+             # Otherwise just hope it is string-like and encode it to
+             # UTF-8. TODO: this breaks when val is binary data.
+             else:
+-                lines.append(str(val).encode('utf-8'))
++                # GtkEntry seems to always return utf-8
++                lines.append(str(val))
+         # Add final boundary.
+         lines.append("--" + boundary.encode("utf-8"))
+         return (boundary, '\r\n'.join(lines))

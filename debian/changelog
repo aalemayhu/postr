@@ -1,3 +1,11 @@
+postr (0.12.4-3) UNRELEASED; urgency=low
+
+  * debian/patches/:
+    - 01-fix_encoding.patch added, fix issues with UTF-8 encoding
+      (LP: #281999)
+
+ -- David Paleino <dapal@debian.org>  Sat, 17 Apr 2010 13:16:54 +0200
+
 postr (0.12.4-2) unstable; urgency=low
 
   * debian/control: added dependency on python-nautilus

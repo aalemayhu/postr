@@ -1,7 +1,8 @@
 Source: postr
 Section: graphics
 Priority: optional
-Maintainer: David Paleino <dapal@debian.org>
+Maintainer: Python Applications Packaging Team <python-apps-team@lists.alioth.debian.org>
+Uploaders: Alexander Alemayhu <alexander@bitraf.no>, Yoann Gauthier <yoann.gauthier9@gmail.com>
 Build-Depends:
  debhelper (>= 7)
  , python
@@ -18,11 +19,13 @@ Architecture: all
 Depends:
  ${misc:Depends}
  , ${python:Depends}
+ , python-bsddb3
  , python-gtk2
  , python-glade2
  , python-gconf
  , python-twisted-web
  , python-nautilus
+ , python-gnome2
  , epiphany-browser | www-browser
 XB-Python-Version: ${python:Versions}
 Description: upload photos to Flickr

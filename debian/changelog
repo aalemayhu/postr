@@ -8,6 +8,9 @@ postr (0.13-1) UNRELEASED; urgency=low
   [ Alexander Alemayhu ]
   * New maintainer (Closes: #711833)
   * New upstream release
+  * debian/patches/:
+    - 02-fix-glade-path.patch added, fix looking for postr.glade in wrong
+      directory.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

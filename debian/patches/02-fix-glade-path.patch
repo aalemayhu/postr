@@ -1,0 +1,11 @@
+--- a/src/postr.py
++++ b/src/postr.py
+@@ -82,7 +82,7 @@ class Postr(UniqueApp):
+         
+         gtk.window_set_default_icon_name("postr")
+         gtk.glade.set_custom_handler(self.get_custom_handler)
+-        glade = gtk.glade.XML(os.path.join(os.path.dirname(__file__), "postr.glade"))
++        glade = gtk.glade.XML(os.path.join(os.path.dirname("/usr/share/postr/"), "postr.glade"))
+         glade.signal_autoconnect(self)
+ 
+         get_glade_widgets(glade, self,

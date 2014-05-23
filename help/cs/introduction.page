@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" id="introduction" xml:lang="cs">
+
+<info>
+    <link type="guide" xref="index"/>
+    <desc>Úvod do aplikace <app>Postr</app> pro nahrávání na Flickr.</desc>
+    <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Úvod</title>
+
+  <p>Aplikace <app>Postr</app> je nástroj pro pracovní prostředí GNOME sloužící k nahrávání obrázků do <link href="http://flickr.com/">služby Flickr</link>. Pomůže vám sdílet vaše obrázky s vaší rodinou, přáteli, kontakty nebo úplně všemi.</p>
+  <p>Aplikace <app>Postr</app> podporuje většinu běžných vlastností obrázků na službě Flickr, jako je název, popis a štítky. Podporuje rovněž skupiny, kdy můžete sdílet své obrázky pro skupiny, jejichž členy již jste.</p>
+  <p>Při používání aplikace <app>Postr</app> si můžete definovat sady svých obrázků, nové nebo stávající, ve kterých chcete své obrázky udržovat uspořádané.</p>
+  <p>Abyste mohli aplikaci <app>Postr</app> používat, potřebujete zřízený účet na <link href="http://flickr.com/">službě Flickr</link>.</p>
+
+  <figure>
+    <title>Okno <app>Postr</app></title>
+    <desc>Hlavní okno <app>Postr</app></desc>
+    <media type="image" src="figures/postr-main-window.png" mime="image/png" style="right">
+      <p>Hlavní okno aplikace <app>Postr</app>.</p>
+    </media>
+  </figure>
+
+</page>

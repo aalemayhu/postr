@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="sets" xml:lang="es">
+<info>
+  <link type="guide" xref="index#properties"/>
+  <desc>Agrupar fotografías por álbumes.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+  <credit type="author">
+    <name>Germán Póo-Caamaño</name>
+    <email>gpoo@gnome.org</email>
+  </credit>
+</info>
+
+<title>Agrupar fotografías por álbumes</title>
+
+  <section id="what-is-a-set">
+    <info>
+      <title type="link">¿Qué es un álbum?</title>
+    </info>
+    <title>¿Qué es un álbum?</title>
+  </section>
+
+  <section id="creating-a-set">
+    <info>
+      <title type="link">Crear un álbum</title>
+    </info>
+    <title>Crear un álbum</title>
+  </section>
+
+  <section id="choosing-a-set">
+    <info>
+      <title type="link">Elegir un álbum</title>
+    </info>
+    <title>Elegir un álbum</title>
+  </section>
+
+</page>

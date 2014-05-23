@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="groups" xml:lang="de">
+
+    <info>
+        <link type="guide" xref="index#properties"/>
+        <desc>Freigeben Ihrer Fotos für Andere.</desc>
+        <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+        <credit type="author">
+            <name>Germán Póo-Caamaño</name>
+            <email>gpoo@gnome.org</email>
+        </credit>
+        <credit type="author">
+            <name>Sergio Infante Montero</name>
+            <email>raulsergio9@gmail.com</email>
+        </credit>
+    </info>
+    <title>Übertragen Sie Ihre Fotos zu bestimmten Gruppen</title>
+    <steps>
+        <item><p>Wählen Sie ein Bild zum Hochladen aus.</p></item>
+        <item><p>Klicken Sie auf die Option <gui>An Gruppen senden</gui>. Daraufhin sollte eine Liste verfügbarer Gruppen angezeigt werden.</p></item>
+        <item><p>Wählen Sie aus, zu welcher Gruppe oder zu welchen Gruppen Sie das Bild übertragen wollen.</p></item>
+    </steps>
+    <note style="warning">
+    <p>Bevor Sie die Option <gui>An Gruppen senden</gui> verwenden können, muss mindestens eine Gruppe vorhanden sein.</p>
+    </note>
+</page>

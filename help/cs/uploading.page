@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="uploading" xml:lang="cs">
+<info>
+  <link type="guide" xref="index#getting-started"/>
+  <desc>Sdílejte své fotografie se svojí rodinou, přáteli nebo s celým světem.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Nahrávání fotografií na Flickr</title>
+    <steps>
+        <item><p>Klikněte na <gui>Přidat fotky…</gui></p></item>
+        <item><p>V okně <gui>Přidání fotek</gui> zvolte fotografie, které chcete do služby Flickr nahrát. Můžete vybrat jednu nebo více fotografií naráz.</p></item>
+        <item><p>Zvolte obrázek a upravte název, popis, štítky, soukromí, zabezpečení, typ, licenci a další informace o obrázku</p></item>
+        <item><p>Až zadávání doplňujících informací dokončíte, klikněte na tlačítko Nahrát</p></item>
+    </steps>
+    <note style="tip">
+      <p>Fotografie můžete také přetahovat ze správce souborů (<gui>Nautilus</gui>) do panelu vlevo.</p>
+    </note>
+</page>

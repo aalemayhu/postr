@@ -18,7 +18,7 @@
 import gobject, gtk
 
 # Column indexes
-(COL_FILENAME, # The filename of an image (can be None)
+(COL_URI, # The filename of an image (can be None)
  COL_SIZE, # Integer, file size
  COL_IMAGE, # The image data (if filename is None)
  COL_PREVIEW, # A 512x512 preview of the image
@@ -30,12 +30,14 @@ import gobject, gtk
  COL_GROUPS, # Pyton list of group IDs
  COL_PRIVACY, # Iterator containing privacy rules
  COL_SAFETY, # Iterator containing safety
- COL_VISIBLE # If the image is searchable
- ) = range (0, 13)
+ COL_VISIBLE, # If the image is searchable
+ COL_CONTENT_TYPE, # Iterator containing content type
+ COL_LICENSE # Iterator containing license
+ ) = range (0, 15)
 
 class ImageStore (gtk.ListStore):
     def __init__(self):
-        gtk.ListStore.__init__(self, gobject.TYPE_STRING, # COL_FILENAME
+        gtk.ListStore.__init__(self, gobject.TYPE_STRING, # COL_URI
                                gobject.TYPE_INT, # COL_SIZE
                                gtk.gdk.Pixbuf, # COL_IMAGE
                                gtk.gdk.Pixbuf, # COL_PREVIEW
@@ -47,4 +49,17 @@ class ImageStore (gtk.ListStore):
                                object, # COL_GROUPS
                                gtk.TreeIter, # COL_PRIVACY
                                gtk.TreeIter, # COL_SAFETY
-                               gobject.TYPE_BOOLEAN) # COL_VISIBLE
+                               gobject.TYPE_BOOLEAN, # COL_VISIBLE
+                               gtk.TreeIter, # COL_CONTENT_TYPE
+                               gtk.TreeIter) # COL_LICENSE
+        self._dirty = False
+        self.connect("row-changed", self._on_row_changed)
+
+    def dirty(self):
+        return self._dirty
+
+    def markClean(self):
+        self._dirty = False
+
+    def _on_row_changed(self, model, path, iter):
+        self._dirty = self.iter_n_children(None) > 0

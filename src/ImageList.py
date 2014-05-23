@@ -48,11 +48,18 @@ class ImageList(gtk.TreeView):
         selection.set_mode(gtk.SELECTION_MULTIPLE)
 
         # Setup the drag and drop
-        self.drag_dest_set (gtk.DEST_DEFAULT_ALL, (), gtk.gdk.ACTION_COPY)
-        targets = self.drag_dest_get_target_list()
-        targets = gtk.target_list_add_image_targets (targets, DRAG_IMAGE, False)
-        targets = gtk.target_list_add_uri_targets (targets, DRAG_URI)
-        self.drag_dest_set_target_list (targets)
+        self.targets = self.drag_dest_get_target_list()
+        self.targets = gtk.target_list_add_image_targets (self.targets, DRAG_IMAGE, False)
+        self.targets = gtk.target_list_add_uri_targets (self.targets, DRAG_URI)
+        self.drag_dest_set (gtk.DEST_DEFAULT_ALL, self.targets, gtk.gdk.ACTION_COPY)
+
+    def enable_targets(self):
+        """Enable the drag and drop destination. """
+        self.drag_dest_set(gtk.DEST_DEFAULT_ALL, self.targets, gtk.gdk.ACTION_COPY)
+
+    def unable_targets(self):
+        """Unable the drag and drop destination. """
+        self.drag_dest_unset()
 
     def data_func(self, column, cell, model, it):
         from xml.sax.saxutils import escape
@@ -69,7 +76,7 @@ class ImageList(gtk.TreeView):
             # TODO: Clip at 20 characters, or the first line.
             info_desc = description[:20]
         else:
-            info_desc = _("No description")
+            info_desc = ""
 
         s = "<b><big>%s</big></b>\n%s\n" % (escape (info_title), escape (info_desc))
         if tags:

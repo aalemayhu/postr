@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="topic" style="task"
+      id="login">
+<info>
+  <link type="guide" xref="index#getting-started"/>
+  <desc>Connecting <app>Postr</app> to your Flickr account.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+<title>Log in on Flickr</title>
+
+  <p>
+    <app>Postr</app> requires authorization from your Flickr account to
+    upload your photos.  In order to connect <app>Postr</app> with your
+    Flickr account, the first time you run <app>Postr</app>, you will be
+    asked to login to Flickr with the following dialog:
+  </p>
+
+  <figure>
+    <title><app>Postr</app> Login to Flickr window</title>
+    <desc><app>Postr</app> Switch account and Login to Flickr window</desc>
+    <media type="image" src="figures/postr-login-flickr.png" mime="image/png" style="right"></media>
+  </figure>
+  <steps>
+    <item><p>Click on <gui>Login to Flickr</gui>. This action will
+    open the Flickr authentication page on your default web
+    browser.</p></item>
+    <item><p>Follow the instructions on Flickr website to authorize
+    <app>Postr</app>.  The permissions requested are for read and write,
+    but not delete.</p></item>
+    <item><p>Go back to <gui>Login to Flickr</gui> window on
+    <app>Postr</app> and click on <gui>Continue</gui>.</p></item>
+  </steps>
+
+  <note style="tip">
+    <p>
+      To use <app>Postr</app> with another Flickr account, you have to
+      to select <guiseq><gui>File</gui><gui>Switch user...</gui></guiseq>
+      and repeat the procedure.
+    </p>
+  </note>
+</page>

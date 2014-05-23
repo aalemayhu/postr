@@ -20,23 +20,33 @@ from urlparse import urlparse
 from os.path import basename
 
 import pygtk; pygtk.require ("2.0")
-import gobject, gtk, gtk.glade, gconf
+import gobject, gtk, gtk.glade, gconf, gio
+import gnome.ui
+
+
+try:
+    import gtkspell
+    has_gtkspell = True
+except:
+    has_gtkspell = False
 
 from AboutDialog import AboutDialog
 from AuthenticationDialog import AuthenticationDialog
 from ProgressDialog import ProgressDialog
 from ErrorDialog import ErrorDialog
-import ImageStore, ImageList, StatusBar, PrivacyCombo, SafetyCombo, GroupSelector
+import ImageStore, ImageList, StatusBar, PrivacyCombo, SafetyCombo, GroupSelector, ContentTypeCombo
+from proxyclient import EXTRA_STEP_SET_ID, EXTRA_STEP_GROUPS, EXTRA_STEP_LICENSE, EXTRA_STEP_NEW_SET, UploadProgressTracker
 
 from flickrest import Flickr
-from twisted.web.client import getPage
 import EXIF
 from iptcinfo import IPTCInfo
 from util import *
-
+from datetime import datetime
+import shelve
 
 try:
-    from gtkunique import UniqueApp
+    import PyUnique
+    from PyUnique import UniqueApp
 except ImportError:
     from DummyUnique import UniqueApp
 
@@ -49,12 +59,16 @@ except ImportError:
  ROTATED_90_CCW
  ) = (1, 3, 6, 8)
 
+_FILE_ATTRIBUTES = ",".join([gio.FILE_ATTRIBUTE_STANDARD_TYPE,
+                             gio.FILE_ATTRIBUTE_STANDARD_NAME,
+                             gio.FILE_ATTRIBUTE_STANDARD_SIZE,
+                             gio.FILE_ATTRIBUTE_STANDARD_DISPLAY_NAME])
 
-class Postr (UniqueApp):
+class Postr(UniqueApp):
     def __init__(self):
         UniqueApp.__init__(self, 'com.burtonini.Postr')
         try:
-            self.connect("message", self.on_message)
+            self.connect("message-received", self.on_message_pyunique)
         except AttributeError:
             pass
 
@@ -64,28 +78,40 @@ class Postr (UniqueApp):
                              secret="7db1b8ef68979779",
                              perms="write")
 
+        self.logo_icon_size = gtk.icon_size_register("logo", 128, 128)
+        
         gtk.window_set_default_icon_name("postr")
         gtk.glade.set_custom_handler(self.get_custom_handler)
-        glade = gtk.glade.XML(os.path.join (os.path.dirname(__file__), "postr.glade"))
+        glade = gtk.glade.XML(os.path.join(os.path.dirname(__file__), "postr.glade"))
         glade.signal_autoconnect(self)
 
-        get_glade_widgets (glade, self,
+        get_glade_widgets(glade, self,
                            ("window",
                             "upload_menu",
                             "upload_button",
+                            "remove_menu",
+                            "remove_button",
+                            "save_session_menu",
+                            "avatar_image",
                             "statusbar",
                             "thumbnail_image",
+                            "info_table",
                             "title_entry",
                             "desc_view",
                             "tags_entry",
                             "set_combo",
+                            "rename_button",
                             "group_selector",
                             "privacy_combo",
                             "safety_combo",
                             "visible_check",
+                            "content_type_combo",
+                            "license_combo",
                             "thumbview")
                            )
-        align_labels(glade, ("title_label", "desc_label", "tags_label", "set_label", "privacy_label", "safety_label"))
+        align_labels(glade, ("title_label", "desc_label",
+                             "tags_label", "set_label",
+                             "privacy_label", "safety_label"))
         
         # Just for you, Daniel.
         try:
@@ -94,15 +120,37 @@ class Postr (UniqueApp):
         except Exception:
             pass
         
-        self.model = ImageStore.ImageStore ()
+        self.model = ImageStore.ImageStore()
         self.model.connect("row-inserted", self.on_model_changed)
         self.model.connect("row-deleted", self.on_model_changed)
         
         self.thumbview.set_model(self.model)
-        self.thumbview.connect("drag_data_received", self.on_drag_data_received)
 
+        self.set_combo.connect("changed", self.on_set_combo_changed)
+        
         selection = self.thumbview.get_selection()
         selection.connect("changed", self.on_selection_changed)
+
+        self.drag_signals = []
+        self.drag_signals.append((self.thumbview, self.thumbview.connect(
+                            "drag_data_received", self.on_drag_data_received)))
+
+        self.thumbview.connect("row-activated",
+                               self.on_row_activated,
+                               self.title_entry)
+
+        self.drop_disabled = False
+        self.drag_started = False
+
+        self.thumbview.connect("button_press_event",
+                                self.on_button_press_cb)
+        self.thumbview.connect("button_release_event",
+                                self.on_button_release_cb)
+        self.thumbview.connect("drag_begin", self.drag_begin_cb)
+        self.thumbview.connect("drag_end", self.drag_end_cb)
+
+        if has_gtkspell:
+          gtkspell.Spell(self.desc_view)
 
         # TODO: remove this
         self.current_it = None
@@ -120,26 +168,13 @@ class Postr (UniqueApp):
         self.change_signals.append((self.privacy_combo, self.privacy_combo.connect('changed', self.on_field_changed, ImageStore.COL_PRIVACY)))
         self.change_signals.append((self.safety_combo, self.safety_combo.connect('changed', self.on_field_changed, ImageStore.COL_SAFETY)))
         self.change_signals.append((self.visible_check, self.visible_check.connect('toggled', self.on_field_changed, ImageStore.COL_VISIBLE)))
+        self.change_signals.append((self.content_type_combo, self.content_type_combo.connect('changed', self.on_field_changed, ImageStore.COL_CONTENT_TYPE)))
+        self.change_signals.append((self.license_combo, self.license_combo.connect('changed', self.on_field_changed, ImageStore.COL_LICENSE)))
         
         self.thumbnail_image.connect('size-allocate', self.update_thumbnail)
         self.old_thumb_allocation = None
 
-        # The set selector combo
-        self.sets = gtk.ListStore (gobject.TYPE_STRING, # ID
-                                   gobject.TYPE_STRING, # Name
-                                   gtk.gdk.Pixbuf) # Thumbnail
-        self.sets.set (self.sets.append(), 0, None, 1, "None")
-        self.set_combo.set_model (self.sets)
-        self.set_combo.set_active (-1)
-
         self.on_selection_changed(selection)
-
-        renderer = gtk.CellRendererPixbuf()
-        self.set_combo.pack_start (renderer, expand=False)
-        self.set_combo.set_attributes(renderer, pixbuf=2)
-        renderer = gtk.CellRendererText()
-        self.set_combo.pack_start (renderer, expand=False)
-        self.set_combo.set_attributes(renderer, text=1)
         
         # The upload progress dialog
         self.uploading = False
@@ -149,8 +184,13 @@ class Postr (UniqueApp):
             self.cancel_upload = True
         self.progress_dialog = ProgressDialog(cancel)
         self.progress_dialog.set_transient_for(self.window)
+        self.upload_progress_tracker = UploadProgressTracker(self.progress_dialog.image_progress)
+        self.avatar_image.clear()
         # Disable the Upload menu until the user has authenticated
         self.update_upload()
+
+        # We don't have any photos yet, disable remove buttons
+        self.update_remove()
 
         # Update the proxy configuration
         client = gconf.client_get_default()
@@ -160,7 +200,10 @@ class Postr (UniqueApp):
         
         # Connect to flickr, go go go
         self.flickr.authenticate_1().addCallbacks(self.auth_open_url, self.twisted_error)
-    
+
+    def open_uri(self, uri):
+        return self.send_message(self.commands['OPEN'], uri)
+
     def twisted_error(self, failure):
         self.update_upload()
         
@@ -200,34 +243,52 @@ class Postr (UniqueApp):
             widget.show()
             return widget
 
-    def group_selector_new (self, *args):
+    def group_selector_new(self, *args):
         w = GroupSelector.GroupSelector(self.flickr)
         w.show()
         return w
+
+    def set_combo_new(self, *args):
+        import SetCombo
+        w = SetCombo.SetCombo(self.flickr)
+        w.show()
+        return w
+
+    def license_combo_new(self, *args):
+        import LicenseCombo
+        w = LicenseCombo.LicenseCombo(self.flickr)
+        w.show()
+        return w
     
-    def image_list_new (self, *args):
+    def image_list_new(self, *args):
         """Custom widget creation function to make the image list."""
-        view = ImageList.ImageList ()
+        view = ImageList.ImageList()
         view.show()
         return view
 
-    def status_bar_new (self, *args):
+    def status_bar_new(self, *args):
         bar = StatusBar.StatusBar(self.flickr)
         bar.show()
         return bar
-    
-    def on_message(self, app, command, command_data, startup_id, screen, workspace):
-        """Callback from UniqueApp, when a message arrives."""
-        if command == gtkunique.OPEN:
-            self.add_image_filename(command_data)
-            return gtkunique.RESPONSE_OK
+    def tag_entry_new(self, *args):
+        import TagsEntry
+        entry = TagsEntry.TagsEntry(self.flickr)
+        return entry
+
+    def on_message_pyunique(self, instance, command, data):
+        """ PyUnique callback for receiving a message """
+        if command == self.commands['OPEN']:
+            self.add_image_filename(data)
+            self.window.present()
+            return PyUnique.RESPONSE_OK
         else:
-            return gtkunique.RESPONSE_ABORT
+            return PyUnique.RESPONSE_INVALID
 
     def on_model_changed(self, *args):
         # We don't care about the arguments, because we just want to know when
         # the model was changed, not what was changed.
         self.update_upload()
+        self.update_remove()
     
     def auth_open_url(self, state):
         """Callback from midway through Flickr authentication.  At this point we
@@ -248,12 +309,28 @@ class Postr (UniqueApp):
             self.update_upload()
             self.statusbar.update_quota()
             self.group_selector.update()
-            self.flickr.photosets_getList().addCallbacks(self.got_photosets, self.twisted_error)
+            self.set_combo.update()
+            self.license_combo.update()
+            self.update_avatar()
+            self.update_tag_list()
 
+    def on_statusbar_box_expose(self, widget, event):
+        """
+        Expose callback for the event box containing the status bar, to paint it
+        in a different colour.
+        """
+        widget.window.draw_rectangle(widget.style.dark_gc[gtk.STATE_NORMAL], True, *event.area)
+        
     def update_upload(self):
         connected = self.is_connected and self.model.iter_n_children(None) > 0
         self.upload_menu.set_sensitive(connected)
         self.upload_button.set_sensitive(connected)
+
+    def update_remove(self):
+        have_photos = self.model.iter_n_children(None) > 0
+        self.remove_menu.set_sensitive(have_photos)
+        self.remove_button.set_sensitive(have_photos)
+        self.save_session_menu.set_sensitive(have_photos)
 
     def update_statusbar(self):
         """Recalculate how much is to be uploaded, and update the status bar."""
@@ -262,23 +339,23 @@ class Postr (UniqueApp):
             size += row[ImageStore.COL_SIZE]
         self.statusbar.set_upload(size)
     
-    def got_set_thumb(self, page, it):
-        loader = gtk.gdk.PixbufLoader()
-        loader.set_size (32, 32)
-        loader.write(page)
-        loader.close()
-        self.sets.set (it, 2, loader.get_pixbuf())
-    
-    def got_photosets(self, rsp):
-        """Callback for the photosets.getList call"""
-        for photoset in rsp.findall("photosets/photoset"):
-            it = self.sets.append()
-            self.sets.set (it,
-                           0, photoset.get("id"),
-                           1, photoset.find("title").text)
-
-            url = "http://static.flickr.com/%s/%s_%s%s.jpg" % (photoset.get("server"), photoset.get("primary"), photoset.get("secret"), "_s")
-            getPage (url).addCallback (self.got_set_thumb, it).addErrback(self.twisted_error)
+    def update_avatar(self):
+        """
+        Update the avatar displayed at the top of the window.  Called when
+        authentication is completed.
+        """
+        def getinfo_cb(rsp):
+            p = rsp.find("person")
+            data = {
+                "nsid": self.flickr.get_nsid(),
+                "iconfarm": p.get("iconfarm"),
+                "iconserver": p.get("iconserver")
+            }
+            def get_buddyicon_cb(icon):
+                self.avatar_image.set_from_pixbuf(icon)
+            get_buddyicon(self.flickr, data).addCallbacks(get_buddyicon_cb, self.twisted_error)
+        # Need to call people.getInfo to get the iconserver/iconfarm
+        self.flickr.people_getInfo(user_id=self.flickr.get_nsid()).addCallbacks(getinfo_cb, self.twisted_error)
     
     def on_field_changed(self, widget, column):
         """Callback when the entry fields are changed."""
@@ -292,23 +369,44 @@ class Postr (UniqueApp):
             value = widget.get_selected_groups()
         else:
             raise "Unhandled widget type %s" % widget
-        
         selection = self.thumbview.get_selection()
         (model, items) = selection.get_selected_rows()
-        for path in items:
+        self._set_value_in_model(column, value, items)
+
+    def _set_value_in_model(self, column, value, rows):
+        for path in rows:
             it = self.model.get_iter(path)
-            self.model.set_value (it, column, value)
+            self.model.set_value(it, column, value)
 
     # TODO: remove this and use the field-changed logic
     def on_set_combo_changed(self, combo):
         """Callback when the set combo is changed."""
         set_it = self.set_combo.get_active_iter()
+
+        (id, ) = self.set_combo.get_id_for_iter(set_it) if set_it else (None, )
+        self._update_rename_button(id)
+
         selection = self.thumbview.get_selection()
         (model, items) = selection.get_selected_rows()
         for path in items:
             it = self.model.get_iter(path)
-            self.model.set_value (it, ImageStore.COL_SET, set_it)
-    
+            self.model.set_value(it, ImageStore.COL_SET, set_it)
+
+    def _update_rename_button(self, id):
+        if id == '-1':
+            self.info_table.child_set(self.set_combo,
+                                      "right-attach",
+                                      2)
+            self.rename_button.set_sensitive(True)
+        else:
+            self.info_table.child_set(self.set_combo,
+                                      "right-attach",
+                                      3)
+            self.rename_button.set_sensitive(False)
+
+    def on_rename_activate(self, button):
+        self.set_combo.name_new_photoset()
+
     def on_add_photos_activate(self, widget):
         """Callback from the File->Add Photos menu item or Add button."""
         dialog = gtk.FileChooserDialog(title=_("Add Photos"), parent=self.window,
@@ -319,7 +417,7 @@ class Postr (UniqueApp):
                                                 gtk.RESPONSE_OK))
         dialog.set_select_multiple(True)
         if self.last_folder:
-            dialog.set_current_folder(self.last_folder)
+            dialog.set_current_folder_uri(self.last_folder)
 
         # Add filters for all reasonable image types
         filters = gtk.FileFilter()
@@ -334,22 +432,55 @@ class Postr (UniqueApp):
         # Add a preview widget
         preview = gtk.Image()
         dialog.set_preview_widget(preview)
+
+        def get_thumbnail(uri):
+            # Given a uri, return a Pixbuf with the thumbnail or
+            # None in case is not possible to get it or
+            # generate it.
+
+            gfile = gio.File(uri)
+            ginfo = gfile.query_info('time::modified,standard::content-type')
+            mtime = ginfo.get_modification_time()
+            mime = ginfo.get_content_type()
+
+            factory = gnome.ui.ThumbnailFactory(gnome.ui.THUMBNAIL_SIZE_NORMAL)
+            thumb_path = factory.lookup(uri, int(mtime))
+
+            if thumb_path:
+                return gtk.gdk.pixbuf_new_from_file(thumb_path)
+
+            # There is no thumbmail, we will try to generate one
+            # or return None if not possible
+            if factory.can_thumbnail(uri, mime, int(mtime)):
+                thumbnail = factory.generate_thumbnail(uri, mime)
+                if thumbnail is not None:
+                    factory.save_thumbnail(thumbnail, uri, int(mtime))
+                return thumbnail
+            else:
+                return None
+
         def update_preview_cb(file_chooser, preview):
             filename = file_chooser.get_preview_filename()
-            try:
-                pixbuf = gtk.gdk.pixbuf_new_from_file_at_size(filename, 128, 128)
-                preview.set_from_pixbuf(pixbuf)
+            uri = file_chooser.get_preview_uri()
+
+            if uri:
+                thumbnail = get_thumbnail(uri)
+
+            if uri and thumbnail:
+                preview.set_from_pixbuf(thumbnail)
                 have_preview = True
-            except:
+            else:
                 have_preview = False
+
             file_chooser.set_preview_widget_active(have_preview)
+
         dialog.connect("update-preview", update_preview_cb, preview)
         
         if dialog.run() == gtk.RESPONSE_OK:
             dialog.hide()
-            self.last_folder = dialog.get_current_folder()
-            for f in dialog.get_filenames():
-                self.add_image_filename(f)
+            self.last_folder = dialog.get_current_folder_uri()
+            for uri in dialog.get_uris():
+                self.add_image_uri(uri)
         dialog.destroy()
             
     def on_quit_activate(self, widget, *args):
@@ -357,52 +488,74 @@ class Postr (UniqueApp):
         if self.uploading:
             dialog = gtk.MessageDialog(type=gtk.MESSAGE_WARNING, parent=self.window)
             dialog.add_buttons(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                               gtk.STOCK_SAVE, gtk.RESPONSE_ACCEPT,
                                gtk.STOCK_QUIT, gtk.RESPONSE_OK)
             dialog.set_markup(_('<b>Currently Uploading</b>'))
             dialog.format_secondary_text(_('Photos are still being uploaded. '
-                                         'Are you sure you want to quit?'))
+                                           'Are you sure you want to quit? '
+                                           'You can also save your pending upload set for later.'))
+            dialog.set_default_response(gtk.RESPONSE_OK)
             response = dialog.run()
             dialog.destroy()
             if response == gtk.RESPONSE_CANCEL:
                 return True
-        elif self.is_connected and self.model.iter_n_children(None) > 0:
+            elif response == gtk.RESPONSE_ACCEPT:
+                self.save_upload_set()
+        elif self.is_connected and self.model.iter_n_children(None) > 0 and self.model.dirty():
             dialog = gtk.MessageDialog(type=gtk.MESSAGE_WARNING, parent=self.window)
             dialog.add_buttons(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                               gtk.STOCK_SAVE, gtk.RESPONSE_ACCEPT,
                                gtk.STOCK_QUIT, gtk.RESPONSE_OK)
             dialog.set_markup(_('<b>Photos to be uploaded</b>'))
             dialog.format_secondary_text(_('There are photos pending to '
-                                         'be uploaded. '
-                                         'Are you sure you want to quit?'))
+                                           'be uploaded. '
+                                           'Are you sure you want to quit? '
+                                           'You can also save your pending upload set for later.'))
+            dialog.set_default_response(gtk.RESPONSE_OK)
             response = dialog.run()
             dialog.destroy()
             if response == gtk.RESPONSE_CANCEL:
                 return True
+            elif response == gtk.RESPONSE_ACCEPT:
+                self.save_upload_set()
 
         import twisted.internet.reactor
         twisted.internet.reactor.stop()
-    
+
+    def on_save_session_activate(self, widget):
+        """Callback from File->Save session."""
+        self.save_upload_set()
+
+    def on_load_session_activate(self, widget):
+        self.load_upload_set()
+
     def on_remove_activate(self, widget):
         """Callback from File->Remove or Remove button."""
-        selection = self.thumbview.get_selection()
-        (model, items) = selection.get_selected_rows()
         
-        # Remove the items
-        for path in items:
-            self.model.remove(self.model.get_iter(path))
+        def get_selected_iter(model, path, iter, selectList):
+            selectIter = model.get_iter(path)
+            selectList.append(selectIter)
 
-        # Select a new row
-        try:
-            self.thumbview.set_cursor(self.model[items[0]].path)
-        except IndexError:
-            # TODO: It appears that the ability to simply do
-            # gtk_tree_path_previous() is missing in PyGTK.
-            path = list(items[-1])
-            if path[0]:
-                path[0] -= 1
-                self.thumbview.set_cursor(self.model[tuple(path)].path)
-        
+        select_list = []
+
+        selection = self.thumbview.get_selection()
+        selection.selected_foreach(get_selected_iter, select_list)
+        model = self.thumbview.get_model()
+
+        next_select_iter = model.iter_next(select_list[-1])
+
+        # actual removal of rows
+        for iter in select_list:
+            model.remove(iter)
+
         self.update_statusbar()
-        
+
+        if next_select_iter:
+            self.thumbview.set_cursor(model.get_path(next_select_iter))
+        elif len(model) > 0:
+            self.thumbview.set_cursor(model[-1].path)
+
+
     def on_select_all_activate(self, menuitem):
         """Callback from Edit->Select All."""
         selection = self.thumbview.get_selection()
@@ -441,18 +594,25 @@ class Postr (UniqueApp):
 
         self.upload_menu.set_sensitive(False)
         self.upload_button.set_sensitive(False)
+        self.remove_menu.set_sensitive(False)
+        self.remove_button.set_sensitive(False)
+        self.rename_button.set_sensitive(False)
         self.uploading = True
         self.thumbview.set_sensitive(False)
         self.progress_dialog.show()
 
-        self.upload_count = self.model.iter_n_children (None)
+        self.upload_count = self.model.iter_n_children(None)
         self.upload_index = 0
+        self.list_failed_it = []
         self.upload()
-        
+       
+    def on_help_activate(self, menuitem):
+        """Callback from Help->Contents."""
+        gtk.show_uri(None,"ghelp:postr",gtk.gdk.CURRENT_TIME);
+
     def on_about_activate(self, menuitem):
         """Callback from Help->About."""
-        dialog = AboutDialog()
-        dialog.set_transient_for(self.window)
+        dialog = AboutDialog(self.window)
         dialog.run()
         dialog.destroy()
 
@@ -499,7 +659,7 @@ class Postr (UniqueApp):
             if isinstance(field, gtk.Entry):
                 field.set_text(value)
             elif isinstance(field, gtk.TextView):
-                field.get_buffer().set_text (value)
+                field.get_buffer().set_text(value)
             elif isinstance(field, gtk.ToggleButton):
                 field.set_active(value)
             elif isinstance(field, gtk.ComboBox):
@@ -517,7 +677,7 @@ class Postr (UniqueApp):
             if isinstance(field, gtk.Entry):
                 field.set_text("")
             elif isinstance(field, gtk.TextView):
-                field.get_buffer().set_text ("")
+                field.get_buffer().set_text("")
             elif isinstance(field, gtk.ToggleButton):
                 field.set_active(True)
             elif isinstance(field, gtk.ComboBox):
@@ -528,20 +688,24 @@ class Postr (UniqueApp):
                 raise "Unhandled widget type %s" % field
 
         (model, items) = selection.get_selected_rows()
-        
+
         if items:
             # TODO: do something clever with multiple selections
             self.current_it = self.model.get_iter(items[0])
-            (title, desc, tags, set_it, groups, privacy_it, safety_it, visible) = self.model.get(self.current_it,
-                                                                                                 ImageStore.COL_TITLE,
-                                                                                                 ImageStore.COL_DESCRIPTION,
-                                                                                                 ImageStore.COL_TAGS,
-                                                                                                 ImageStore.COL_SET,
-                                                                                                 ImageStore.COL_GROUPS,
-                                                                                                 ImageStore.COL_PRIVACY,
-                                                                                                 ImageStore.COL_SAFETY,
-                                                                                                 ImageStore.COL_VISIBLE)
-            
+            (title, desc, tags, set_it, groups,
+             privacy_it, safety_it, visible,
+             content_type_it, license_it) = self.model.get(self.current_it,
+                           ImageStore.COL_TITLE,
+                           ImageStore.COL_DESCRIPTION,
+                           ImageStore.COL_TAGS,
+                           ImageStore.COL_SET,
+                           ImageStore.COL_GROUPS,
+                           ImageStore.COL_PRIVACY,
+                           ImageStore.COL_SAFETY,
+                           ImageStore.COL_VISIBLE,
+                           ImageStore.COL_CONTENT_TYPE,
+                           ImageStore.COL_LICENSE)
+
             enable_field(self.title_entry, title)
             enable_field(self.desc_view, desc)
             enable_field(self.tags_entry, tags)
@@ -550,7 +714,9 @@ class Postr (UniqueApp):
             enable_field(self.privacy_combo, privacy_it)
             enable_field(self.safety_combo, safety_it)
             enable_field(self.visible_check, visible)
-            
+            enable_field(self.content_type_combo, content_type_it)
+            enable_field(self.license_combo, license_it)
+
             self.update_thumbnail(self.thumbnail_image)
         else:
             self.current_it = None
@@ -562,52 +728,100 @@ class Postr (UniqueApp):
             disable_field(self.privacy_combo)
             disable_field(self.safety_combo)
             disable_field(self.visible_check)
+            disable_field(self.content_type_combo)
+            disable_field(self.license_combo)
 
-            self.thumbnail_image.set_from_pixbuf(None)
-
+            self.thumbnail_image.set_from_icon_name("postr", self.logo_icon_size)
         [obj.handler_unblock(i) for obj,i in self.change_signals]
 
-    def add_image_filename(self, filename):
+    def add_image_dir_file(self, gfile):
+        children = gfile.enumerate_children(_FILE_ATTRIBUTES, flags=gio.FILE_QUERY_INFO_NONE)
+        child_info = children.next_file()
+        while child_info:
+            file_type = child_info.get_file_type()
+            if file_type == gio.FILE_TYPE_REGULAR:
+                self.add_image_fileinfo(gfile, child_info)
+            elif file_type == gio.FILE_TYPE_DIRECTORY:
+                dirname = os.path.join(gfile.get_uri(), child_info.get_name())
+                self.add_image_dir_file(gio.File(dirname))
+            else:
+                print "Unhandled file %s" % gfile.get_uri()
+            child_info = children.next_file()
+        children.close()
+
+    def add_image_uri(self, uri):
         """Add a file to the image list.  Called by the File->Add Photo and drag
         and drop callbacks."""
-        # TODO: MIME type check
+        return self.add_image_filename(uri)
 
-        # Check the file size
-        try:
-            filesize = os.path.getsize(filename)
-        except os.error:
-            d = ErrorDialog(self.window)
-            d.set_from_string("File at %s does not exist or is currently inaccessible." % filename)
-            d.show_all()
-            return
+    def add_image_filename(self, filename):
+        gfile = gio.File(filename)
+        fileinfo = gfile.query_info(_FILE_ATTRIBUTES, flags=gio.FILE_QUERY_INFO_NONE)
+        self.add_image_file(gfile, fileinfo)
 
-        if filesize > 20 * 1024 * 1024:
+    def add_image_fileinfo(self, parent, fileinfo):
+        filename = os.path.join(parent.get_uri(), fileinfo.get_name())
+        gfile = gio.File(filename)
+        self.add_image_file(gfile, fileinfo)
+
+    def _on_preview_size_prepared(self, loader, width, height):
+        """Appropriately scale the image preview to fit inside 512x512"""
+        if width > height:
+            new_width = 512
+            new_height = 512 * height / width
+        else:
+            new_width = 512 * width / height
+            new_height = 512
+        loader.set_size(new_width, new_height)
+
+    def add_image_file(self, gfile, fileinfo):
+        filesize = fileinfo.get_size()
+        if filesize > self.statusbar.maxfile * 1024 * 1024:
             d = ErrorDialog(self.window)
-            d.set_from_string("Image %s is too large, images must be no larger than 20MB in size." % filename)
+            d.set_from_string(_("Image %s is too large, images must be no larger than %dMB in size.") % (gfile.get_path(), self.statusbar.maxfile))
             d.show_all()
             return
         
         # TODO: we open the file three times now, which is madness, especially
         # if gnome-vfs is used to read remote files.  Need to find/write EXIF
         # and IPTC parsers that are incremental.
-        
+
+        # only opening the file_stream
+        file_stream = gfile.read()
+
         # First we load the image scaled to 512x512 for the preview.
         try:
-            preview = gtk.gdk.pixbuf_new_from_file_at_size(filename, 512, 512)
+            if gfile.is_native():
+                preview = gtk.gdk.pixbuf_new_from_file_at_size(gfile.get_path(), 512, 512)
+            else:
+                loader = gtk.gdk.PixbufLoader()
+                loader.connect("size-prepared", self._on_preview_size_prepared)
+                loader.write(file_stream.read())
+                loader.close()
+                preview = loader.get_pixbuf()
         except Exception, e:
             d = ErrorDialog(self.window)
             d.set_from_exception(e)
             d.show_all()
             return
         
+        # type 1 is beginning of file
+        if not file_stream.can_seek() or not file_stream.seek(0, type=1):
+            file_stream = gfile.read()
+
         # On a file that doesn't contain EXIF, like a PNG, this just returns an
         # empty set.
         try:
-            exif = EXIF.process_file(open(filename, 'rb'))
+            exif = EXIF.process_file(file_stream)
         except:
             exif = {}
+
+        # type 1 is beginning of file
+        if not file_stream.can_seek() or not file_stream.seek(0, type=1):
+            file_stream = gfile.read()
+
         try:
-            iptc = IPTCInfo(open(filename, 'rb')).data
+            iptc = IPTCInfo(file_stream).data
         except:
             iptc = {}
         
@@ -642,20 +856,20 @@ class Postr (UniqueApp):
             for (data, tag) in tags:
                 if data.has_key(tag):
                     value = data[tag]
-                    if isinstance (value, list):
-                        return ' '.join(map (lambda s: '"' + s + '"', value))
-                    elif not isinstance (value, str):
+                    if isinstance(value, list):
+                        return ' '.join(map(lambda s: '"' + s + '"', value))
+                    elif not isinstance(value, str):
                         value = str(value)
                     if value:
                         return value
             return default
         
-        title = slurp(title_tags, os.path.splitext(os.path.basename(filename))[0])
+        title = slurp(title_tags, os.path.splitext(fileinfo.get_display_name())[0])
         desc = slurp(desc_tags)
         tags = slurp(tag_tags)
         
         self.model.set(self.model.append(),
-                       ImageStore.COL_FILENAME, filename,
+                       ImageStore.COL_URI, gfile.get_uri(),
                        ImageStore.COL_SIZE, filesize,
                        ImageStore.COL_IMAGE, None,
                        ImageStore.COL_PREVIEW, preview,
@@ -676,10 +890,10 @@ class Postr (UniqueApp):
             # TODO: don't scale up if the image is smaller than 512/512
             
             # Scale the pixbuf to a preview
-            sizes = get_thumb_size (pixbuf.get_width(), pixbuf.get_height(), 512, 512)
+            sizes = get_thumb_size(pixbuf.get_width(), pixbuf.get_height(), 512, 512)
             preview = pixbuf.scale_simple(sizes[0], sizes[1], gtk.gdk.INTERP_BILINEAR)
             # Now scale to a thumbnail
-            sizes = get_thumb_size (pixbuf.get_width(), pixbuf.get_height(), 64, 64)
+            sizes = get_thumb_size(pixbuf.get_width(), pixbuf.get_height(), 64, 64)
             thumb = pixbuf.scale_simple(sizes[0], sizes[1], gtk.gdk.INTERP_BILINEAR)
 
             # TODO: This is wrong, and should generate a PNG here and use the
@@ -689,7 +903,7 @@ class Postr (UniqueApp):
             self.model.set(self.model.append(),
                            ImageStore.COL_IMAGE, pixbuf,
                            ImageStore.COL_SIZE, size,
-                           ImageStore.COL_FILENAME, None,
+                           ImageStore.COL_URI, None,
                            ImageStore.COL_PREVIEW, preview,
                            ImageStore.COL_THUMBNAIL, thumb,
                            ImageStore.COL_TITLE, "",
@@ -700,19 +914,15 @@ class Postr (UniqueApp):
         
         elif targetType == ImageList.DRAG_URI:
             for uri in selection.get_uris():
-                # TODO: use gnome-vfs to handle remote files
-                filename = urllib.unquote(urlparse(uri)[2])
-                if os.path.isfile(filename):
-                    self.add_image_filename(filename)
-                elif os.path.isdir(filename):
-                    for root, dirs, files in os.walk(filename):
-                        for f in files:
-                            # TODO: handle symlinks to directories as they are
-                            # in files
-                            self.add_image_filename (os.path.join(root, f))
+                gfile = gio.File(uri)
+                fileinfo = gfile.query_info(_FILE_ATTRIBUTES)
+                file_type = fileinfo.get_file_type()
+                if file_type == gio.FILE_TYPE_REGULAR:
+                    self.add_image_file(gfile, fileinfo)
+                elif file_type == gio.FILE_TYPE_DIRECTORY:
+                    self.add_image_dir_file(gfile)
                 else:
-                    print "Unhandled file %s" % filename
-                    
+                    print "Unhandled file %s" % gfile.get_uri()
         else:
             print "Unhandled target type %d" % targetType
 
@@ -731,8 +941,6 @@ class Postr (UniqueApp):
             self.progress_dialog.thumbnail.set_from_pixbuf(None)
             self.progress_dialog.thumbnail.hide()
 
-        self.progress_dialog.progress.set_fraction(float(self.upload_index) / float(self.upload_count))
-
         # Use named args for i18n
         data = {
             "index": self.upload_index+1,
@@ -747,6 +955,7 @@ class Postr (UniqueApp):
         """Callback from the upload method to add the picture to a set."""
         photo_id=rsp.find("photoid").text
         self.flickr.photosets_addPhoto(photo_id=photo_id, photoset_id=set).addErrback(self.twisted_error)
+        self.upload_progress_tracker.complete_extra_step(EXTRA_STEP_SET_ID)
         return rsp
 
     def add_to_groups(self, rsp, groups):
@@ -756,8 +965,17 @@ class Postr (UniqueApp):
             def error(failure):
                 # Code 6 means "moderated", which isn't an error
                 if failure.value.code != 6:
-                    twisted_error(self, failure)
+                    self.twisted_error(failure)
             self.flickr.groups_pools_add(photo_id=photo_id, group_id=group).addErrback(error)
+        self.upload_progress_tracker.complete_extra_step(EXTRA_STEP_GROUPS)
+        return rsp
+
+    def set_license(self, rsp, license):
+        """Callback from the upload method to set license for the picture."""
+        photo_id=rsp.find("photoid").text
+        self.flickr.photos_licenses_setLicense(photo_id=photo_id,
+                                               license_id=license).addErrback(self.twisted_error)
+        self.upload_progress_tracker.complete_extra_step(EXTRA_STEP_LICENSE)
         return rsp
 
     def upload_done(self):
@@ -765,17 +983,29 @@ class Postr (UniqueApp):
         self.window.set_title(_("Flickr Uploader"))
         self.upload_menu.set_sensitive(True)
         self.upload_button.set_sensitive(True)
+        self.update_remove()
         self.uploading = False
         self.progress_dialog.hide()
         self.thumbview.set_sensitive(True)
         self.update_statusbar()
         self.statusbar.update_quota()
         self.current_upload_it = None
+        # Add a emblem to each image that couldn't complete the upload process
+        for iter in self.list_failed_it:
+            self._add_emblem_in_failed_image(iter)
+        # if at least one image have fail, raise a error dialog
+        if len(self.list_failed_it) > 0:
+            d = ErrorDialog(self.window)
+            d.set_from_string(_('Some Files does not exist or are currently inaccessible.'))
+            for it in self.list_failed_it:
+                title = self.model.get(it, ImageStore.COL_TITLE)[0]
+                d.add_details(title)
+            d.show_all()
 
     def upload_error(self, failure):
         self.twisted_error(failure)
         self.upload_done()
-        
+
     def upload(self, response=None):
         """Upload worker function, called by the File->Upload callback.  As this
         calls itself in the deferred callback, it takes a response argument."""
@@ -784,29 +1014,43 @@ class Postr (UniqueApp):
         if self.current_upload_it:
             self.model.remove(self.current_upload_it)
             self.current_upload_it = None
-        
-        it = self.model.get_iter_first()
+
+        if len(self.list_failed_it):
+            it = self.model.iter_next(self.list_failed_it[-1])
+        else:
+            it = self.model.get_iter_first()
+
         if self.cancel_upload or it is None:
             self.upload_done()
             return
 
-        (filename, thumb, pixbuf, title, desc, tags, set_it, groups, privacy_it, safety_it, visible) = self.model.get(it,
-                                                                                                                      ImageStore.COL_FILENAME,
-                                                                                                                      ImageStore.COL_THUMBNAIL,
-                                                                                                                      ImageStore.COL_IMAGE,
-                                                                                                                      ImageStore.COL_TITLE,
-                                                                                                                      ImageStore.COL_DESCRIPTION,
-                                                                                                                      ImageStore.COL_TAGS,
-                                                                                                                      ImageStore.COL_SET,
-                                                                                                                      ImageStore.COL_GROUPS,
-                                                                                                                      ImageStore.COL_PRIVACY,
-                                                                                                                      ImageStore.COL_SAFETY,
-                                                                                                                      ImageStore.COL_VISIBLE)
+        (uri, thumb, pixbuf, title, desc,
+         tags, set_it, groups, privacy_it, safety_it,
+         visible, content_type_it, license_it) = self.model.get(it,
+                       ImageStore.COL_URI,
+                       ImageStore.COL_THUMBNAIL,
+                       ImageStore.COL_IMAGE,
+                       ImageStore.COL_TITLE,
+                       ImageStore.COL_DESCRIPTION,
+                       ImageStore.COL_TAGS,
+                       ImageStore.COL_SET,
+                       ImageStore.COL_GROUPS,
+                       ImageStore.COL_PRIVACY,
+                       ImageStore.COL_SAFETY,
+                       ImageStore.COL_VISIBLE,
+                       ImageStore.COL_CONTENT_TYPE,
+                       ImageStore.COL_LICENSE)
         # Lookup the set ID from the iterator
         if set_it:
-            (set_id,) = self.sets.get (set_it, 0)
+            (set_id,) = self.set_combo.get_id_for_iter(set_it)
+            if set_id == '-1':
+                new_photoset_name = self.set_combo.new_photoset_name
+                set_id = 0
+            else:
+                new_photoset_name = None
         else:
             set_id = 0
+            new_photoset_name = None
 
         if privacy_it:
             (is_public, is_family, is_friend) = self.privacy_combo.get_acls_for_iter(privacy_it)
@@ -818,28 +1062,378 @@ class Postr (UniqueApp):
         else:
             safety = None
 
-        self.update_progress(filename, title, thumb)
+        if content_type_it:
+            content_type = self.content_type_combo.get_content_type_for_iter(content_type_it)
+        else:
+            content_type = None
+
+        if license_it:
+            license = self.license_combo.get_license_for_iter(license_it)
+        else:
+            license = None
+
+        self.update_progress(uri, title, thumb)
         self.upload_index += 1
         self.current_upload_it = it
-        
-        if filename:
-            d = self.flickr.upload(filename=filename,
-                                   title=title, desc=desc,
-                                   tags=tags, search_hidden=not visible, safety=safety,
-                                   is_public=is_public, is_family=is_family, is_friend=is_friend)
-        elif pixbuf:
-            # This isn't very nice, but might be the best way
-            data = []
-            pixbuf.save_to_callback(lambda d: data.append(d), "png", {})
-            d = self.flickr.upload(imageData=''.join(data),
-                                   title=title, desc=desc, tags=tags,
-                                   search_hidden=not visible, safety=safety,
-                                   is_public=is_public, is_family=is_family, is_friend=is_friend)
-        else:
-            print "No filename or pixbuf stored"
+
+        try:
+            if uri:
+                d = self.flickr.upload(uri=uri,
+                                       title=title, desc=desc, tags=tags,
+                                       search_hidden=not visible,
+                                       safety=safety, is_public=is_public,
+                                       is_family=is_family,
+                                       is_friend=is_friend,
+                                       content_type=content_type,
+                                       progress_tracker=self.upload_progress_tracker)
+            elif pixbuf:
+                # This isn't very nice, but might be the best way
+                data = []
+                pixbuf.save_to_callback(lambda d: data.append(d), "png", {})
+                d = self.flickr.upload(imageData=''.join(data),
+                                       title=title, desc=desc, tags=tags,
+                                       search_hidden=not visible,
+                                       safety=safety, is_public=is_public,
+                                       is_family=is_family,
+                                       is_friend=is_friend,
+                                       content_type=content_type,
+                                       progress_tracker=self.upload_progress_tracker)
+            else:
+                print "No filename or pixbuf stored"
+        except gio.Error, (error):
+            # save the iterator and continue uploading process
+            self.list_failed_it.append(it)
+            self.current_upload_it = None
+            self.upload()
+            return
 
         if set_id:
             d.addCallback(self.add_to_set, set_id)
+        else:
+            self.upload_progress_tracker.complete_extra_step(EXTRA_STEP_SET_ID)
         if groups:
             d.addCallback(self.add_to_groups, groups)
-        d.addCallbacks(self.upload, self.upload_error)
+        else:
+            self.upload_progress_tracker.complete_extra_step(EXTRA_STEP_GROUPS)
+        if license is not None: # 0 is a valid license.
+            d.addCallback(self.set_license, license)
+        else:
+            self.upload_progress_tracker.complete_extra_step(EXTRA_STEP_LICENSE)
+        # creating a new photoset has implications on subsequent uploads,
+        # so this has to finish before starting the next upload
+        if new_photoset_name:
+            d.addCallback(self.create_photoset_then_continue, new_photoset_name)
+        else:
+            d.addCallbacks(self.upload, self.upload_error)
+            self.upload_progress_tracker.complete_extra_step(EXTRA_STEP_NEW_SET)
+
+    def create_photoset_then_continue(self, rsp, photoset_name):
+        photo_id=rsp.find("photoid").text
+        create_photoset = self.flickr.photosets_create(primary_photo_id=photo_id, title=photoset_name)
+        create_photoset.addCallback(self._process_photoset_creation, photoset_name)
+        create_photoset.addErrback(self.upload_error)
+        return rsp
+
+    def _process_photoset_creation(self, create_rsp, photoset_name):
+        photoset = create_rsp.find("photoset")
+        id = photoset.get("id")
+        self.set_combo.set_recently_created_photoset(photoset_name, id)
+        self.upload(create_rsp)
+        return create_rsp
+
+    def _add_emblem_in_failed_image(self, iter):
+        """ Add a Error emblem in the thumbnail"""
+        HALF_SIZE = 0.5
+
+        thumbnail = self.model.get_value(iter, ImageStore.COL_THUMBNAIL)
+        #Use a pixmap to create a new image
+        drawable = gtk.gdk.Pixmap(self.window.window, # gtk.gdk.Drawable
+                                    thumbnail.get_width(),
+                                    thumbnail.get_height())
+
+        # The thumbnail image is draw
+        drawable.draw_pixbuf(self.window.get_style().white_gc, #graphics context
+                                thumbnail, #the pixbuf
+                                0, 0, #Source X, Y coordinate
+                                0, 0) #Destination X, Y coordinate
+
+        error_icon = self.window.render_icon(
+                                stock_id=gtk.STOCK_DIALOG_ERROR,
+                                size=gtk.ICON_SIZE_DIALOG)
+
+        # It chose a size for the error icon proportional to the thumbnail image
+        size = min(int(thumbnail.get_width() * HALF_SIZE),
+                    int(thumbnail.get_height() * HALF_SIZE))
+
+        error_icon = error_icon.scale_simple(size, size,
+                                    gtk.gdk.INTERP_BILINEAR)
+
+        # The error icon is drawed in the bottom right edge of the image
+        drawable.draw_pixbuf(self.window.get_style().white_gc, #graphics context
+                            error_icon, #the pixbuf
+                            0, 0, #Source X,Y coordinate
+                            thumbnail.get_width()-size, #Destination X coordinate
+                            thumbnail.get_height()-size) #Destination Y coordinate
+
+        new_thumbnail = gtk.gdk.Pixbuf(gtk.gdk.COLORSPACE_RGB, #color mode
+                                True, #has alpha
+                                8, #bits
+                                thumbnail.get_width(), #width
+                                thumbnail.get_height()) #height
+
+        new_thumbnail.get_from_drawable(drawable, #the new image
+                                        drawable.get_colormap(),
+                                        0, 0, #Source X, Y coordinate
+                                        0, 0, #Destination X, Y coordinate
+                                        -1, -1) #The full width, height
+
+        self.model.set_value(iter, ImageStore.COL_THUMBNAIL, new_thumbnail)
+
+    def on_row_activated(self, treeview, iter, path, entry):
+        """This callback is used to focus the entry title after
+            one row is activated."""
+        entry.grab_focus()
+
+    def drag_begin_cb(self, thumbview, context, data=None):
+        self.drag_started = True
+
+    def drag_end_cb(self, thumbview, context, data=None):
+        self.drop_disabled = False
+        self.drag_started = False
+        self.thumbview.set_reorderable(False)
+
+        self.thumbview.enable_targets()
+        [obj.handler_unblock(i) for obj,i in self.drag_signals]
+
+    def on_button_press_cb(self, thumbview, event, data=None):
+        if self.drop_disabled:
+            return
+        self.thumbview.unable_targets()
+
+        self.drop_disabled = True
+        [obj.handler_block(i) for obj,i in self.drag_signals]
+        thumbview.set_reorderable(True)
+        return
+
+    def on_button_release_cb(self, thumbview, event, data=None):
+
+        if self.drop_disabled and (not self.drag_started):
+            self.drop_disabled = False
+            thumbview.set_reorderable(False)
+            self.thumbview.enable_targets()
+            [obj.handler_unblock(i) for obj,i in self.drag_signals]
+        return False
+
+
+    def save_upload_set(self):
+        dialog = gtk.FileChooserDialog(title=None,
+                                       action=gtk.FILE_CHOOSER_ACTION_SAVE,
+                                       buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                                                gtk.STOCK_SAVE, gtk.RESPONSE_OK))
+
+        dialog.set_default_response(gtk.RESPONSE_OK)
+
+        default_filename = datetime.strftime(datetime.today(), "upload_saved_on_%m-%d-%y.postr")
+        dialog.set_current_name(default_filename)
+
+        dialog.set_do_overwrite_confirmation(True)
+
+        filter = gtk.FileFilter()
+        filter.set_name("postr upload sets")
+        filter.add_pattern("*.postr")
+        dialog.add_filter(filter)
+
+        filter = gtk.FileFilter()
+        filter.set_name("All Files")
+        filter.add_pattern("*")
+        dialog.add_filter(filter)
+
+        response = dialog.run()
+        if response == gtk.RESPONSE_OK:
+            filename = dialog.get_filename()
+            dest = shelve.open(filename, 'n')
+
+            if self.is_connected:
+                dest["nsid"] = self.flickr.get_nsid()
+                username = self.flickr.get_username()
+                if username:
+                    dest["username"] = username
+
+            if self.set_combo.new_photoset_name:
+                dest["new_photoset_name"] = self.set_combo.new_photoset_name
+
+            iter = self.model.get_iter_root()
+            while iter:
+                path = self.model.get_string_from_iter(iter)
+                dest[path] = self._marshal_row(path, iter)
+                iter = self.model.iter_next(iter)
+
+            dest.close()
+            self.model.markClean()
+
+        dialog.destroy()
+
+    def _marshal_row(self, path, iter):
+        (uri,
+         title,
+         desc,
+         tags,
+         set_it,
+         groups,
+         privacy_it,
+         safety_it,
+         visible) = self.model.get(iter,
+                                   ImageStore.COL_URI,
+                                   ImageStore.COL_TITLE,
+                                   ImageStore.COL_DESCRIPTION,
+                                   ImageStore.COL_TAGS,
+                                   ImageStore.COL_SET,
+                                   ImageStore.COL_GROUPS,
+                                   ImageStore.COL_PRIVACY,
+                                   ImageStore.COL_SAFETY,
+                                   ImageStore.COL_VISIBLE)
+
+        if set_it:
+            # Can't use path, because next time we connect, the
+            # combo order/contents might be different.
+            (set_id,) = self.set_combo.get_id_for_iter(set_it)
+        else:
+            set_id = 0
+
+        if privacy_it:
+            privacy_path = self.privacy_combo.model.get_path(privacy_it)
+        else:
+            privacy_path = None
+
+        if safety_it:
+            safety_path = self.safety_combo.model.get_path(safety_it)
+        else:
+            safety_path = None
+
+        args = ( path,
+                 uri,
+                 title,
+                 desc,
+                 tags,
+                 set_id,
+                 groups,
+                 privacy_path,
+                 safety_path,
+                 visible )
+        return args
+
+    def load_upload_set(self):
+        dialog = gtk.FileChooserDialog(title=None,
+                                       action=gtk.FILE_CHOOSER_ACTION_OPEN,
+                                       buttons=(gtk.STOCK_CANCEL, gtk.RESPONSE_CANCEL,
+                                                gtk.STOCK_OPEN, gtk.RESPONSE_OK))
+
+        dialog.set_default_response(gtk.RESPONSE_OK)
+
+        filter = gtk.FileFilter()
+        filter.set_name("postr upload sets")
+        filter.add_pattern("*.postr")
+        dialog.add_filter(filter)
+
+        filter = gtk.FileFilter()
+        filter.set_name("All Files")
+        filter.add_pattern("*")
+        dialog.add_filter(filter)
+
+        response = dialog.run()
+        if response == gtk.RESPONSE_OK:
+            filename = dialog.get_filename()
+            source = shelve.open(filename, 'r')
+            if source:
+                should_ignore_photosets = False
+                if self.is_connected:
+                    if source.has_key("nsid"):
+                        nsid = source["nsid"]
+                        username = source.get("username")
+
+                        if self.flickr.get_nsid() != nsid:
+                            markup_args = (self.flickr.get_username(), username) if self.flickr.get_username() and username else (self.flickr.get_nsid(), nsid)
+                            markup_pattern = _("You are logged in as %s but loading\nan upload set for %s")
+                            confirm_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_YES_NO)
+                            confirm_dialog.set_default_response(gtk.RESPONSE_YES)
+                            confirm_dialog.set_markup(markup_pattern % markup_args)
+                            confirm_dialog.format_secondary_text(_("Do you want to continue "
+                                                                   "with the load?  You will "
+                                                                   "not import photoset information."))
+                            response = confirm_dialog.run()
+                            if response == gtk.RESPONSE_NO:
+                                dialog.destroy()
+                                return
+                            else:
+                                should_ignore_photosets = True
+                            confirm_dialog.destroy()
+                else:
+                    if source.has_key("nsid"):
+                        source_user = source.get("username", source["nsid"])
+                        markup_pattern = _("You are not logged in but loading\nan upload set for %s")
+                        confirm_dialog = gtk.MessageDialog(buttons=gtk.BUTTONS_YES_NO)
+                        confirm_dialog.set_default_response(gtk.RESPONSE_YES)
+                        confirm_dialog.set_markup(markup_pattern % source_user)
+                        confirm_dialog.format_secondary_text(_("Do you want to continue "
+                                                               "with the load?  You will "
+                                                               "not import photoset information."))
+                        response = confirm_dialog.run()
+                        if response == gtk.RESPONSE_NO:
+                            dialog.destroy()
+                            return
+                        else:
+                            should_ignore_photosets = True
+                        confirm_dialog.destroy()
+
+                if source.has_key("new_photoset_name"):
+                    self.set_combo.update_new_photoset(source["new_photoset_name"])
+
+                # the model's dirty state should not be changed
+                # when loading an upload set.
+                model_was_dirty = self.model.dirty()
+
+                index_offset = self.model.iter_n_children(None)
+                index = 0
+                while source.has_key(str(index)):
+                    row = source[str(index)]
+                    self._unmarshal_and_import_row(index + index_offset,
+                                                   row,
+                                                   should_ignore_photosets)
+                    index += 1
+                source.close()
+
+                # obviously a load will make the model dirty, but that
+                # information is already saved, so ensure that the model
+                # is only dirty after a load if it was dirty before
+                if not model_was_dirty:
+                    self.model.markClean()
+
+        dialog.destroy()
+
+    def _unmarshal_and_import_row(self, index, row, should_ignore_photosets):
+        (path, uri, title, desc, tags, set_id, groups, privacy_path, safety_path, visible) = row
+
+        self.add_image_uri(uri)
+        self._set_value_in_model(ImageStore.COL_TITLE, title, [index])
+        self._set_value_in_model(ImageStore.COL_DESCRIPTION, desc, [index])
+        self._set_value_in_model(ImageStore.COL_TAGS, tags, [index])
+
+        if not should_ignore_photosets and set_id:
+            set_iter = self.set_combo.get_iter_for_set(set_id)
+            if set_iter:
+                self._set_value_in_model(ImageStore.COL_SET, set_iter, [index])
+
+        self._set_value_in_model(ImageStore.COL_GROUPS, groups, [index])
+
+        if privacy_path:
+            privacy_iter = self.privacy_combo.model.get_iter(privacy_path)
+            self._set_value_in_model(ImageStore.COL_PRIVACY, privacy_iter, [index])
+
+        if safety_path:
+            safety_iter = self.safety_combo.model.get_iter(safety_path)
+            self._set_value_in_model(ImageStore.COL_SAFETY, safety_iter, [index])
+        self._set_value_in_model(ImageStore.COL_VISIBLE, visible, [index])
+
+    def update_tag_list(self):
+        self.tags_entry.update()
+

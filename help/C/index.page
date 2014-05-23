@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      type="guide"
+      id="index">
+
+    <info>
+        <title type="link">Postr</title>
+        <title type="text">Postr</title>
+        <desc>Flickr Uploader.</desc>
+        <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+        <credit type="author">
+            <name>Germán Póo-Caamaño</name>
+            <email>gpoo@gnome.org</email>
+        </credit>
+        <credit type="author">
+            <name>Sergio Infante</name>
+            <email>raulsergio9@gmail.com</email>
+        </credit>
+    <license>
+      <p>Creative Commons Share Alike 3.0</p>
+    </license>
+</info>
+
+
+<title>
+    <media type="image" mime="image/png" src="figures/postr-logo.png" ></media>
+    Postr: Photo Uploader for Flickr
+</title>
+  <section id="getting-started" style="2column">
+    <info>
+      <title type="link">Getting Started</title>
+    </info>
+    <title>Getting Started</title>
+  </section>
+
+  <section id="properties" style="2column">
+    <info>
+      <title type="link">Setting photograph's properties</title>
+    </info>
+    <title>Setting photograph's properties</title>
+  </section>
+
+  <section id="advanced" style="2column">
+    <info>
+      <title type="link">Advanced actions</title>
+    </info>
+    <title>Advanced actions</title>
+  </section>
+
+</page>

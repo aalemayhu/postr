@@ -15,10 +15,16 @@
 # this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
 # St, Fifth Floor, Boston, MA 02110-1301 USA
 
-import logging, md5, os, mimetools, urllib
+import logging, os, mimetools, urllib
+import gio
 from twisted.internet import defer
 from twisted.python.failure import Failure
 import proxyclient as client
+
+try:
+    from hashlib import md5
+except ImportError:
+    from md5 import md5
 
 try:
     from xml.etree import ElementTree
@@ -97,7 +103,7 @@ class Flickr:
         sig = reduce(lambda sig, key: sig + key + str(kwargs[key]),
                      sorted(kwargs.keys()),
                      self.secret)
-        kwargs['api_sig'] = md5.new(sig).hexdigest()
+        kwargs['api_sig'] = md5(sig).hexdigest()
 
     def __call(self, method, kwargs):
         kwargs["method"] = method
@@ -139,16 +145,15 @@ class Flickr:
         for key, val in inputs.items():
             lines.append("--" + boundary.encode("utf-8"))
             header = 'Content-Disposition: form-data; name="%s";' % key
-            # Objects with name value are probably files
-            if hasattr(val, 'name'):
-                header += 'filename="%s";' % os.path.split(val.name)[1]
+            if isinstance(val, gio.File):
+                header += 'filename="%s";' % val.get_basename()
                 lines.append(header)
                 header = "Content-Type: application/octet-stream"
             lines.append(header)
             lines.append("")
-            # If there is a read attribute, it is a file-like object, so read all the data
-            if hasattr(val, 'read'):
-                lines.append(val.read())
+            if isinstance(val, gio.File):
+                contents, length, etags = val.load_contents()
+                lines.append(contents)
             # Otherwise just hope it is string-like and encode it to
             # UTF-8. TODO: this breaks when val is binary data.
             else:
@@ -157,15 +162,16 @@ class Flickr:
         lines.append("--" + boundary.encode("utf-8"))
         return (boundary, '\r\n'.join(lines))
     
-    def upload(self, filename=None, imageData=None,
+    def upload(self, uri=None, imageData=None,
                title=None, desc=None, tags=None,
                is_public=None, is_family=None, is_friend=None,
-               safety=None, search_hidden=None):
+               safety=None, search_hidden=None, content_type=None,
+               progress_tracker=None):
         # Sanity check the arguments
-        if filename is None and imageData is None:
-            raise ValueError("Need to pass either filename or imageData")
-        if filename and imageData:
-            raise ValueError("Cannot pass both filename and imageData")
+        if uri is None and imageData is None:
+            raise ValueError("Need to pass either uri or imageData")
+        if uri and imageData:
+            raise ValueError("Cannot pass both uri and imageData")
 
         kwargs = {}
         if title:
@@ -184,13 +190,15 @@ class Flickr:
             kwargs['safety_level'] = safety
         if search_hidden is not None:
             kwargs['hidden'] = search_hidden and 2 or 1 # Why Flickr, why?
+        if content_type:
+            kwargs['content_type'] = content_type
         self.__sign(kwargs)
         self.logger.info("Upload args %s" % kwargs)
         
         if imageData:
             kwargs['photo'] = imageData
         else:
-            kwargs['photo'] = file(filename, "rb")
+            kwargs['photo'] = gio.File(uri)
 
         (boundary, form) = self.__encodeForm(kwargs)
         headers= {
@@ -199,9 +207,10 @@ class Flickr:
             }
 
         self.logger.info("Calling upload")
-        return client.getPage("http://api.flickr.com/services/upload/",
-                              proxy=self.proxy, method="POST",
-                              headers=headers, postdata=form).addCallback(self.__cb, "upload")
+        return client.upload("http://api.flickr.com/services/upload/",
+                             proxy=self.proxy, method="POST",
+                             headers=headers, postdata=form,
+                             progress_tracker=progress_tracker).addCallback(self.__cb, "upload")
 
     def authenticate_2(self, state):
         def gotToken(e):

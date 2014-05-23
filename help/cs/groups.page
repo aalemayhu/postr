@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="groups" xml:lang="cs">
+
+    <info>
+        <link type="guide" xref="index#properties"/>
+        <desc>Sdílení vašich fotografií s jinými lidmi.</desc>
+        <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+        <credit type="author">
+            <name>Germán Póo-Caamaño</name>
+            <email>gpoo@gnome.org</email>
+        </credit>
+        <credit type="author">
+            <name>Sergio Infante Montero</name>
+            <email>raulsergio9@gmail.com</email>
+        </credit>
+    </info>
+    <title>Pošlete své fotky svým zájmovým skupinám</title>
+    <steps>
+        <item><p>Zvolte obrázek, který se má nahrát</p></item>
+        <item><p>Klikněte na volbu Odeslat do skupin a zobrazí se seznam vašich skupin</p></item>
+        <item><p>Zvolte, do které skupiny či skupin se má obrázek odeslat</p></item>
+    </steps>
+    <note style="warning">
+    <p>Dříve než volbu Odeslat do skupin použijete, musíte vůbec nějakou skupinu mít.</p>
+    </note>
+</page>

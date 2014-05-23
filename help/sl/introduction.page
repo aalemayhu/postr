@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" id="introduction" xml:lang="sl">
+
+<info>
+    <link type="guide" xref="index"/>
+    <desc>Uvod v <app>Postr</app>, pošiljalnik flickr.</desc>
+    <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Uvod</title>
+
+  <p><app>Postr</app> je orodje za pošiljanje slik na <link href="http://flickr.com/"> Flickr</link> za namizje GNOME. <app>Postr</app> vam pomaga souporabljati vaše fotografije z vašo družino, prijatelji, stiki ali vsemi.</p>
+  <p><app>Postr</app> podpira najpogostejše lastnosti slike v  Flickr, kot so naslov, opis in oznake. Podpira tudi skupine, kjer lahko souporabljate slike s skupinami na katere ste v Flickr že naročeni.</p>
+  <p>Z <app>Postr</app> lahko določite svoj niz slik, novih ali že obstoječih, kjer jih lahko obdržite organizirate.</p>
+  <p>Za uporabo programa <app>Postr</app> potrebujete račun <link href="http://flickr.com/">Flickr</link>.</p>
+
+  <figure>
+    <title>Okno <app>Postr</app></title>
+    <desc>Glavno okno <app>Postr</app></desc>
+    <media type="image" src="figures/postr-main-window.png" mime="image/png" style="right">
+      <p>Glavno okno <app>Postr</app>.</p>
+    </media>
+  </figure>
+
+</page>

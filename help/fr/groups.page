@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="groups" xml:lang="fr">
+
+    <info>
+        <link type="guide" xref="index#properties"/>
+        <desc>Partagez vos photos avec d'autres personnes</desc>
+        <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+        <credit type="author">
+            <name>Germán Póo-Caamaño</name>
+            <email>gpoo@gnome.org</email>
+        </credit>
+        <credit type="author">
+            <name>Sergio Infante Montero</name>
+            <email>raulsergio9@gmail.com</email>
+        </credit>
+    </info>
+    <title>Envoyez vos photos aux groupes de votre choix</title>
+    <steps>
+        <item><p>Choisissez une image à envoyer</p></item>
+        <item><p>Cliquez sur l'option « Envoyer aux groupes ». Une liste des groupes s'affiche</p></item>
+        <item><p>Choisissez à quel(s) groupe(s) sera envoyée l'image</p></item>
+    </steps>
+    <note style="warning">
+    <p>Vous devez avoir sélectionné au moins un groupe avant de pouvoir utiliser l'option « Envoyer aux groupes »</p>
+    </note>
+</page>

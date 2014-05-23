@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="tags" xml:lang="sl">
+
+<info>
+  <link type="guide" xref="index#properties"/>
+  <desc>Dodajanje oznak vašim slikam.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Dodajanje oznak vašim slikam.</title>
+
+  <section id="what-is-a-tag">
+    <info>
+      <title type="link">Kaj je oznaka?</title>
+    </info>
+    <title>Kaj je oznaka?</title>
+    <p>Oznaka je nehierarhičen izraz, dodeljen določenim podatkov. Ta izraz pomaga predmet opisati in omogoča ponovno iskanje z brskanjem ali iskanjem. Oznake običajno neformalno in osebno izbere uporabnik.</p>
+  </section>
+
+  <section id="creating-a-tag">
+    <info>
+      <title type="link">Ustvarjanje oznake</title>
+    </info>
+    <title>Ustvarjanje oznake</title>
+    <p>Oznake lahko ustvarite s tipkanjem izrazov v polje Oznake v glavnem oknu <app>Postr</app> </p>
+  </section>
+
+</page>

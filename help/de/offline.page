@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="offline" xml:lang="de">
+<info>
+  <link type="guide" xref="index#advanced"/>
+  <desc>Sie können Ihre Arbeit später fortsetzen.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+  <credit type="author">
+    <name>Germán Póo-Caamaño</name>
+    <email>gpoo@gnome.org</email>
+  </credit>
+</info>
+
+<title>Die Übertragung später fortsetzen</title>
+
+  <p/>
+
+  <steps>
+    <item><p>Speichern Sie die Sitzung.</p></item>
+    <item><p>Wählen Sie einen Namen.</p></item>
+    <item><p>Beim nächsten Start können Sie eine der zuvor gespeicherten Sitzungen auswählen.</p></item>
+  </steps>
+
+  <note style="tip">
+    <p>Wenn Sie eine Sitzung laden, während Sie nicht mit dem Internet verbunden sind, gehen die festgelegten Eigenschaften verloren, die eine Internetverbindung erfordern. Dies betrifft Alben, Gruppen und Privatsphäre.</p>
+  </note>
+
+</page>

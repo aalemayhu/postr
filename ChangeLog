@@ -1,0 +1,4374 @@
+commit ff74d96d0bbba657330c30f7a305aee2d743579e
+Author: Germán Poo-Caamaño <gpoo@gnome.org>
+Date:   2012-09-20
+
+    Version 0.13
+
+    Signed-off-by: Germán Poo-Caamaño <gpoo@gnome.org>
+
+M	configure.ac
+M	postr.doap
+
+commit 2bfc2730092744561fa366b22fed390016faa3c6
+Author: Alexandre Franke <alexandre.franke@gmail.com>
+Date:	2012-09-26
+
+    Add French translation
+
+M	help/Makefile.am
+A	help/fr/fr.po
+
+commit cb7c30f79192bc29f3da370f9120c82c7782b2f3
+Author: Arvis Lacis <arvis.lacis@gmail.com>
+Date:	2012-08-09
+
+    Added Latvian translation
+
+M	po/LINGUAS
+A	po/lv.po
+
+commit 442560f51a92c27da5133f2fdadd7770a3d9d518
+Author: Piotr Drąg <piotrdrag@gmail.com>
+Date:	2012-07-23
+
+    Added Polish translation
+
+M	po/LINGUAS
+A	po/pl.po
+
+commit 0eb445b357c3893ccd402584d3975945b2680012
+Author: Andrej Žnidaršič <andrej.znidarsic@gmail.com>
+Date:	2012-04-09
+
+    Updated Slovenian translation
+
+M	help/sl/sl.po
+
+commit 0e5fa5d8099056a270724e30dfc517e6638900d2
+Author: Fran Diéguez <fran.dieguez@mabishu.com>
+Date:	2012-03-25
+
+    Added Galician translations
+
+    Signed-off-by: Fran Diéguez <fran.dieguez@mabishu.com>
+
+M	po/LINGUAS
+A	po/gl.po
+
+commit c55002684bbfe4282288e1641b72fac5f6173727
+Author: Tiffany Antopolski <tiffany.antopolski@gmail.com>
+Date:	2012-03-19
+
+    Added help button.
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 4289405a31e50af02eedf5a94b303b6364998e74
+Author: Мирослав Николић <miroslavnikolic@rocketmail.com>
+Date:	2012-03-19
+
+    Added Serbian translation
+
+M	po/LINGUAS
+A	po/sr.po
+A	po/sr@latin.po
+
+commit bf26c6f2c2793688f2ba48b1b4fa074c2653bfcc
+Author: Tiffany Antopolski <tiffany.antopolski@gmail.com>
+Date:	2011-09-19
+
+    Add Esperanto translation
+
+M	po/LINGUAS
+A	po/eo.po
+
+commit 38aacb0c3f36541c894745ae0186d5b25e79f08a
+Author: Tiffany Antopolski <tiffany@antopolski.com>
+Date:	2011-09-14
+
+    Add en_CA to LINGUAS
+
+M	po/LINGUAS
+
+commit 1f0eba2631510142eee8011bc3b126dfd453a29a
+Author: Tiffany Antopolski <tiffany@antopolski.com>
+Date:	2011-09-14
+
+    [l10n] Added updated Canadian English transliteration.
+
+A	po/en_CA.po
+
+commit 167f166d01aba27ad7bdceaed4e3ab05d57b259a
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2011-09-05
+
+    Added nb
+
+M	po/LINGUAS
+
+commit d88b0ecc6a5e418abbdb88bf5b7a82e09eb25f9a
+Author: Kjartan Maraas <kmaraas@gnome.org>
+Date:	2011-09-05
+
+    Added Norwegian bokmål translation
+
+A	po/nb.po
+
+commit f1ab9e5fe9b3a62cf33ad4bd1b9d964cc53cfee0
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2011-08-09
+
+    [l10n] Updated German doc translation
+
+M	help/de/de.po
+
+commit d97fd80d7d497bb5c5ed5bfd87a2db2b4bd19beb
+Author: Marek Černocký <marek@manet.cz>
+Date:	2011-08-08
+
+    Updated Czech translation
+
+M	help/cs/cs.po
+
+commit f9caa62c189cc2e8e6b21393e016f1f8668688b6
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2011-08-06
+
+    Updated Spanish translation
+
+M	help/es/es.po
+
+commit 7f006e8f947e2d0a267a757bfdbb223457c3d4b5
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2011-08-02
+
+    Added Mallard support to python install script (disutils)
+
+    - Install help pages
+    - Merge help translations and install them
+    - Merge desktop.in and omf.in translations and install them.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	setup.cfg
+M	setup.py
+
+commit c281928f778cd2d92600fbdf34e5c66154916a42
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2011-08-01
+
+    Reverted commit fe45fa - removed help/AZ
+
+    AZ are the translator initials, not the ISO code (sl which exists
+    and it has the same content).
+
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+D	help/AZ/sl.po
+
+commit 6e968dc09f177675b91e76e2ccc7535f1e2365f7
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2011-07-31
+
+    Updated help for uploading
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	help/C/uploading.page
+
+commit 557775cb14077e497b1bfd6497f0342f357006b8
+Author: Yuri Myasoedov <omerta13@yandex.ru>
+Date:	2011-07-27
+
+    Added Russian translation
+
+M	po/LINGUAS
+A	po/ru.po
+
+commit 832026b9bec944f71f958ce46914e594008756c0
+Author: Marek Černocký <marek@manet.cz>
+Date:	2011-05-10
+
+    Updated Czech translation
+
+M	help/cs/cs.po
+
+commit 5a7dcdeab05339198697786605e1929d41503663
+Author: Marek Černocký <marek@manet.cz>
+Date:	2011-04-24
+
+    Added Czech language
+
+M	help/Makefile.am
+
+commit df74ed664e4e81bd9892079ee45411cfb91b6444
+Author: Marek Černocký <marek@manet.cz>
+Date:	2011-04-24
+
+    Czech help translation
+
+A	help/cs/cs.po
+
+commit 80d4c1b1735b74b883d6a60a50a6ac307b04a068
+Author: Marek Černocký <marek@manet.cz>
+Date:	2011-04-24
+
+    Czech screenshot
+
+A	help/cs/figures/postr-main-window.png
+
+commit 85c5a5963d652b47da299d5de8f57e5a9bc138d1
+Author: Marek Černocký <marek@manet.cz>
+Date:	2011-04-24
+
+    Czech screenshot
+
+A	help/cs/figures/postr-login-flickr.png
+
+commit 2cb699e6289f15ae343ce1afcdc8b098c99e0b1c
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2011-04-18
+
+    [l10n] Updated German doc translation
+
+M	help/de/de.po
+
+commit 37609f6683f993e05b4f52b416cbe34374df9d5e
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2011-03-22
+
+    Updated Spanish translation
+
+M	help/es/es.po
+
+commit ef2813fe80c73291e9ff641b8de2ed837baeeed8
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2011-03-21
+
+    Fixed documentation style in titles and descriptions
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	help/C/groups.page
+M	help/C/index.page
+M	help/C/login.page
+M	help/C/permissions.page
+M	help/C/sets.page
+M	help/C/tags.page
+M	help/C/uploading.page
+
+commit 83f338a15747c30d59e93a0ea2467a7cca7958fc
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2011-03-18
+
+    Added Hungarian translation by Gyorgy Ballo
+
+A	po/hu.po
+
+commit a980edc230e8bf627034ca33c2104f3f91d6f425
+Author: Gabor Kelemen <kelemeng@gnome.hu>
+Date:	2011-03-18
+
+    Added hu to LINGUAS
+
+M	po/LINGUAS
+
+commit ee775e9023ed88effd9ae24daa2d89c6d2b41fea
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2011-03-16
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 8533b3c6f32bbd0a898d8631b7b072e17d12e461
+Author: Olav Vitters <olav@vitters.nl>
+Date:	2011-03-08
+
+    DOAP: fix download location
+
+M	postr.doap
+
+commit 8a9b595f00b11f4eb4defda2d8aa493601693762
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2011-02-02
+
+    Updated Spanish translation
+
+M	help/es/es.po
+
+commit cafabe520f217364d8ac32e4c59a0d8757a7abbe
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2011-01-31
+
+    Updated Spanish translation
+
+M	help/es/es.po
+
+commit b312df2f08f0524cd6988ca28082441161d833b4
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2011-01-28
+
+    Updated Spanish translation
+
+M	help/es/es.po
+
+commit 9137c3fa951ddc9b12b7ee53d9ec9a1108eb31fa
+Author: Joe Hansen <joedalton2@yahoo.dk>
+Date:	2011-01-27
+
+    Updated Danish translation
+
+A	po/da.po
+
+commit 61b627da7df099ccc5742f1b7dfc8d0e2d68087e
+Author: Kenneth Nielsen <k.nielsen81@gmail.com>
+Date:	2011-01-27
+
+    Added da to list of languages
+
+M	po/LINGUAS
+
+commit dde8fe7440f41ba32fa5f373f1326794e74194dc
+Author: Bruno Brouard <annoa.b@gmail.com>
+Date:	2011-01-26
+
+    Updated French translation
+
+M	po/fr.po
+
+commit b27c7d2bd95a3691df2c5dc597b4ba6784ca5bd4
+Author: Yinghua Wang <wantinghard@gmail.com>
+Date:	2011-01-13
+
+    Update Chinese (China) translation.
+
+M	po/zh_CN.po
+
+commit ed1e2dc5e013e6d58b437d4b0c5ff95a94b052a7
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2010-12-29
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit f693b5aa5f45241125536b6a734143f2bc7928ae
+Author: Mike Akiba <mike2718@gmail.com>
+Date:	2010-12-27
+
+    Add Chinese (China) translations.
+
+M	po/LINGUAS
+A	po/zh_CN.po
+
+commit 55f358693506f46b6800f0356c75daf8baf18f2e
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2010-12-22
+
+    Added Spanish translation
+
+M	help/Makefile.am
+
+commit 987ac6f9bf22b759b1a030c400807201042f3c30
+Author: Daniel Mustieles <daniel.mustieles@gmail.com>
+Date:	2010-12-22
+
+    Updated Spanish translation
+
+A	help/es/es.po
+
+commit acd95e09106ff7059a872ff7af1810df4305e736
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-12-15
+
+    Added Slovenian translation
+
+A	help/sl/sl.po
+
+commit bc0f02ea51992be97125dc10e5b69febb1d8bf82
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-12-15
+
+    Added Slovenian translation
+
+M	help/AZ/sl.po
+
+commit 194a8e8c6043ef295d12a2b334f17b22c5012322
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-12-15
+
+    Added sl for Slovenian translation
+
+M	help/Makefile.am
+
+commit fe45fa1943935d2bc75ab30ac05cce5bcb67d326
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-12-15
+
+    Added Slovenian translation
+
+A	help/AZ/sl.po
+
+commit 210b773d1ff4a41a59f38d76a16dbdb8d387d7ad
+Author: Petr Kovar <pknbe@volny.cz>
+Date:	2010-12-14
+
+    Add Czech translation by Marek Cernocky
+
+M	po/LINGUAS
+A	po/cs.po
+
+commit 40b0b07d30da2d04ae2dd7d77655d71a0a52290a
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-12-11
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit 968fd7aec9db413c888afceb7375dcc928d966ad
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-12-11
+
+    [l10n] Updated German doc translation
+
+M	help/de/de.po
+
+commit dfed2232a6bf229e2765f617da23242706ac7fbb
+Author: Djavan Fagundes <djavan@comum.org>
+Date:	2010-12-09
+
+    Updated Brazilian Portuguese translation
+
+M	po/pt_BR.po
+
+commit bb2dcb3f8ed53453b8f7abd5fd0b1560a8b1586e
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-08
+
+    [doc] Updated introduction and login documentation
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	help/C/introduction.page
+M	help/C/login.page
+
+commit 73fda9f01ffbc6d3bfa912a3059619fa0fdb09f8
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-06
+
+    [i18n] Updated strings for translation
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	po/de.po
+M	po/es.po
+M	po/fr.po
+M	po/it.po
+M	po/pt_BR.po
+M	po/sl.po
+M	po/sv.po
+
+commit 737fe8c438985e51ddec09e1a4c99fe374eda704
+Author: Cristian Marchi <cri.penta@gmail.com>
+Date:	2010-12-06
+
+    [i18n] Updated Italien translation
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	po/it.po
+
+commit 9fbf5019ce8dd85ac6d2a763df1d36dbfbefbf27
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-06
+
+    Updated documentation's screenshots and logo
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	help/C/figures/postr-login-flickr.png
+A	help/C/figures/postr-logo.png
+M	help/C/figures/postr-main-window.png
+M	help/C/index.page
+
+commit 9997a0a79b6217c07a1527ea68bdda0002572a2b
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-12-05
+
+    [l10n] Updated German translation
+
+M	po/de.po
+
+commit c119a6dbf57ffef3f2ee4a9da9e94e0975376bf7
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-12-05
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit b491af0383c8b2e677e8c995adbed98ff50eb398
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-05
+
+    Added autotools infrastructure
+
+    First attempt to use autotools with postr.	The python scripts
+    have not been updated in order to look the proper directories.
+    So, you can use autogen.sh/configure, make (install, distcheck,
+    etc.), everything will look fine but postr will not work in the
+    installed directory :-)
+
+    You still can use setup.py or run the uninstalled postr.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	Makefile.am
+A	NEWS
+A	autogen.sh
+A	configure.ac
+D	data/postr.desktop
+
+commit 3b5a9343f5294585fccf8ff647d86e23a024f682
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-05
+
+    Updated .gitignore with those autogenerated files
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	.gitignore
+
+commit c36a423f5a76a8ceefc20318ca443faeddd0ecf2
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-04
+
+    Added MAINTAINERCLEANFILES
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	help/Makefile.am
+
+commit 94383ef41717a3e21995b3e0951b968235c735c2
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-04
+
+    [i18n] Added files and updated strings to translate
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	data/postr.desktop.in.in
+M	po/POTFILES.in
+A	po/POTFILES.skip
+M	po/de.po
+M	po/es.po
+M	po/fr.po
+M	po/it.po
+M	po/pt_BR.po
+M	po/sv.po
+
+commit fa3ac993f1988ea8e0a2fcf3591448095847f4f0
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-03
+
+    [doc] Fix attributes to makes them valid
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	help/C/groups.page
+M	help/C/index.page
+M	help/C/introduction.page
+M	help/C/login.page
+M	help/C/offline.page
+M	help/C/permissions.page
+M	help/C/sets.page
+M	help/C/tags.page
+M	help/C/uploading.page
+
+commit 9d02cfffbe85e8bc095e4a43706a45f24d34ad3a
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-12-03
+
+    Updated Slovenian translation
+
+M	po/sl.po
+
+commit eeb12266d638624e45a0b3f42e5a80a89efcd91a
+Author: Matej Urbančič <mateju@svn.gnome.org>
+Date:	2010-12-03
+
+    Added Slovenian translation
+
+A	po/sl.po
+
+commit 8a314c987d2ec780f19b20707b9433b6d6b2c540
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-02
+
+    Updated list of contributors in AUTHORS
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	AUTHORS
+
+commit 8302d43c626e8c6fe6b51e861c04c5c1b1e8d41a
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-12-02
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 416132c2d5bfaafb97927c8c7155f11213bb1d5d
+Author: Jorge González <jorgegonz@svn.gnome.org>
+Date:	2010-12-02
+
+    Updated Spanish translation
+
+M	po/es.po
+
+commit 989a66f6c3c2aead910ecf1fc13c156f7072effc
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-12-02
+
+    [l10n] Updated German doc translation
+
+M	help/de/de.po
+
+commit 648a0c66ad0129228b08543aa361a5d7a5778029
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-12-02
+
+    [l10n] Updated German translation
+
+M	po/de.po
+
+commit 54f95333f6dd1500c5299f5310f8c648a1ff84b0
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-01
+
+    [i18n] Updated Spanish translation
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	po/es.po
+
+commit 39af7c1ffb29cb2560ffb2154bea23ba196f133c
+Author: Sergio Infante Montero <raulsergio9@gmail.com>
+Date:	2010-12-01
+
+    Update documentation using Mallard, and add some screenshots
+
+    Update some details of documentation using Mallard, added two
+    screenshots (empty window and login window) when the application
+    is used for first time.  It is an improvement of the skeleton.
+    More work is needed, though.
+
+    https://bugzilla.gnome.org/show_bug.cgi?id=601815
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	help/C/figures/postr-login-flickr.png
+A	help/C/figures/postr-main-window.png
+M	help/C/groups.page
+M	help/C/index.page
+M	help/C/introduction.page
+M	help/C/login.page
+M	help/C/permissions.page
+M	help/C/tags.page
+M	help/C/uploading.page
+M	help/Makefile.am
+
+commit 7e0604ddcb023402483acc98830e916c1c9a768f
+Author: Antonio Fernandes C. Neto <fernandes@pelivre.org>
+Date:	2010-12-01
+
+    [i18n] Updated pt_BR translation
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	po/pt_BR.po
+
+commit 90e85b6567d9820ff7e235f0f4063b67d6d34fb6
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-01
+
+    Updated to bsddb3 insteado of former dbhash/bsddb
+
+    dbhash/bsddb was declared deprecated on Python 2.6.  Its
+    replacement is pybsddb (aka bsddb3).
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/util.py
+
+commit d35662d034077396062db82bd5cff8ad3142aee6
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-01
+
+    Fix progress_tracker on upload
+
+    With the patch #ec1f54c2 it was introduced a bug when the user
+    tries to upload pictures.  The progress_tracker argument was
+    missing.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit ec1f54c2224bdb3a55b8c41c73868ad7ef865ec8
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2010-09-12
+
+    Throw an error if a image disappears in the upload process (#537554)
+
+    Save a list of all the image that it couldn't upload. Once the upload
+    process is done, the missing images are left in the TreeView and
+    adds an emblem over the pictures. Also throw a error message.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/ErrorDialog.py
+M	src/postr.py
+
+commit 1cd85641a13f44c3d6c95d054ce37150b47784f9
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-12-01
+
+    Fix rename of a set when it is new
+
+    When the user decides to rename a new set create, he or she
+    can renamed it and it should update the combobox of sets.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/SetCombo.py
+
+commit b4ffe4f03750711fc7bdbab57bc9dc603ed652cf
+Author: Claude Paroz <claude@2xlibre.net>
+Date:	2010-11-30
+
+    Updated French translation
+
+M	po/fr.po
+
+commit 969952059ebe2f3791f4d1602d7a875a88ba7d76
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-11-29
+
+    [i18n] Added sv to LINGUAS
+
+M	po/LINGUAS
+
+commit 117264951cda47f018ef3b506c47b9654d21aa65
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-11-29
+
+    [i18n] Added missing files for docs creation
+
+A	help/Makefile.am
+A	help/postr.omf.in
+
+commit 9b7f5d17903663d6f5344ea43bfe4cf76b7c7289
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-11-29
+
+    [i18n] Added missing file to POTFILES.in
+
+M	po/POTFILES.in
+
+commit 409789deb7555264164af5295e954a7c3353dc59
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-11-29
+
+    [i18n] Added LINGUAS
+
+A	po/LINGUAS
+
+commit a5a2843aa5c5fa5258da21e7f418447e6ebb9688
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-11-29
+
+    [l10n] Added initial German doc translation
+
+A	help/de/de.po
+
+commit 39c404efe66a51af77f96e74f0af62643528dfe0
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-09-28
+
+    [i18n] Added missing file to make intltool working.
+
+A	po/POTFILES.in
+
+commit ae79b1e657518e5a3abd2ffb719acb4be756b892
+Author: Mario Blättermann <mariobl@gnome.org>
+Date:	2010-09-28
+
+    [i18n] Updated German translation
+
+M	po/de.po
+
+commit 1484c42f2e18e241480437899a0de5563c0c9c87
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-09-12
+
+    Make the postr.glade glade3 compatible
+
+    It also update the minimum gtk+ version required.
+
+M	src/postr.glade
+
+commit b7d8946791d52dfecf55badbe6c5cd23ba527bdb
+Merge: 983c0b2 d957e4c
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-09-02
+
+    Merge branch 'pyunique'
+
+commit d957e4cfc3bc55dda4bc7206b03fde6cd5459d23
+Author: Karl Mikaelsson <derfian@lysator.liu.se>
+Date:	2010-08-23
+
+    Make postr window present itself when an image has been added.
+
+    When adding an image to Postr, there was no feedback that there was a
+    new image queued for uploading in the Postr window. This patch makes
+    the Postr window present itself when an image has been added.
+
+M	src/postr.py
+
+commit cb6a4ab7074ef3597a4947c7054001d5b80b8439
+Author: Karl Mikaelsson <derfian@lysator.liu.se>
+Date:	2010-08-23
+
+    Don't import constants directly.
+
+    Don't import RESPONSE_OK and RESPONSE_INVALID from PyUnique, use them
+    directly from the module instead. This makes the code more clear on
+    what RESPONSE_OK constant is being used, as gtk has one too.
+
+M	src/postr.py
+
+commit d24d90e1a73ed3b8d5069a3c15df983cd4119f2d
+Author: Karl Mikaelsson <derfian@lysator.liu.se>
+Date:	2010-08-18
+
+    Allow for multiple running pyunique programs to exist peacefully.
+
+    Use the program name as base name for lock instead of a fixed PyUnique
+    string.
+
+M	src/PyUnique.py
+
+commit e8789200a4b28015102961b0cf35f308eaaced91
+Author: Karl Mikaelsson <derfian@lysator.liu.se>
+Date:	2010-08-06
+
+    Some cleanup and whitespace changes, to make code more readable.
+
+M	src/PyUnique.py
+
+commit 88be7c77f9e1e17ae9b063d17497173bc3660f93
+Author: Karl Mikaelsson <derfian@lysator.liu.se>
+Date:	2010-05-12
+
+    Eliminate race conditions in PyUnique.
+
+    A race condition was present in the pyunique code, where several
+    applications could be started at the same time, each trying to
+    register
+    the DBus objects at the same time. This is solved by requiring the
+    application to have registered a special DBus name ("lock")
+    before they
+    can move on. Credits to Mathias Hasselmann for inspiration and DBus
+    magic hints.
+
+M	src/PyUnique.py
+
+commit 9388d023d3835b239940cb0b80f5ff382ef00274
+Author: Karl Mikaelsson <derfian@lysator.liu.se>
+Date:	2010-02-03
+
+    Modify postr ever so slightly to accomodate for using pyunique
+
+M	src/PyUnique.py
+M	src/postr.py
+
+commit 863a97bede56868a7b862782f9a6351479cfbe98
+Author: Karl Mikaelsson <derfian@lysator.liu.se>
+Date:	2010-02-03
+
+    Add PyUnique code
+
+A	src/PyUnique.py
+
+commit 983c0b27a90af34464a059f18b618f179ebab57b
+Author: Adam Plumb <adamplumb@gmail.com>
+Date:	2010-08-19
+
+    Add icon menu in nautilus extension (#617309)
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	nautilus/postrExtension.py
+
+commit 7e8214028a804b6286dc398a08211e61518ce0de
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2010-07-22
+
+    Select a row after remove an image (#625059)
+
+    After remove a group of selected rows, select the next image of
+    the last image of the removed group
+
+    Signed-off-by: Karl Mikaelsson <derfian@lysator.liu.se>
+
+M	src/postr.py
+
+commit 3fdd5261aefd749b78c01b82a3f424421eee9832
+Author: Olav Vitters <olav@vitters.nl>
+Date:	2010-04-18
+
+    Fix doap file
+
+M	postr.doap
+
+commit 3c6d98a22fb408203eca113909860bbc998cecc6
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2010-02-27
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 7a34bdf63f248d53d18193a4feb295d8ef1604b6
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2010-02-01
+
+    Rotate thumbnail's in File Chooser (#608494)
+
+    Added function get_thumbnail to look up the image's thumbnail
+    using the GNOME Thumbnail Factory.	It creates the thumbnail
+    when does not exist.
+
+    The GNOME Thumbnail Factory rotates the thumbnail according the
+    EXIF information.
+
+M	src/postr.py
+
+commit 219b5185f44e47d1328a208e00bc1785b64e39d4
+Author: David Ignacio <dignacio@litl.com>
+Date:	2009-12-15
+
+    track progress for extra upload steps
+
+    after the upload of the photo is finished, there are still 4 potential
+    extra steps to be performed before continuing to the next photo:
+    add to set, send to group, set licensing, create new set
+
+    this patch causes the image upload progress tracker to reflect these
+    operations as well
+
+M	src/postr.py
+M	src/proxyclient.py
+
+commit 36ec2467cd99abe3cce18347760188651505126a
+Author: David Ignacio <dignacio@litl.com>
+Date:	2009-12-15
+
+    add a more verbose upload progress bar (bug 529504)
+
+    the hack is almost too embarassing to detail how it is done
+    in the commit message.  if you want to know what is going on
+    have to go a step further.
+
+    in short, as the image writes bytes out to the socket, update
+    an image-specific progress bar
+
+M	src/ProgressDialog.py
+M	src/flickrest.py
+M	src/postr.py
+M	src/proxyclient.py
+
+commit 9c6d50ad4b2da243683a3ceb714cbcfffcf02f56
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-12-21
+
+    Added tag autocomplete (#507242)
+
+    Use the 200 most popular tags of the user and the 20 hottest
+    tag of the day to autocomplete the tag field.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	src/TagsEntry.py
+M	src/postr.glade
+M	src/postr.py
+
+commit f6b677455874f223ec71e625e67d657e47991a5f
+Author: Sergio Infante Montero <raulsergio9@gmail.com>
+Date:	2009-12-15
+
+    Changed images on buttons by descriptive text (#562160)
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.glade
+
+commit 6eb7d45bc93e9e4f2fc53cc600df0c4480cc5d81
+Author: Djavan Fagundes <djavan@comum.org>
+Date:	2009-12-15
+
+    Added Brazilian Portuguese translation (#604533)
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	po/pt_BR.po
+
+commit 005b6d880cbbc5d64f65b4358c326c3e755e0a9e
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-12-14
+
+    Change the select All shortcut (#600640)
+
+    Replace the shortcut Ctrl+A with Ctrl+E for the select
+    all images. And it's added the sortcut Ctrl+I to invert
+    the selection.
+
+    Now, it is possible to select the text in a GtkEntry and
+    GtkTextView using Ctrl+A.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.glade
+
+commit ac20120f109ee029a09761dfe810fecff4ec1c5d
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-12-14
+
+    Use GIO GFiles instead of python file objects (#518273)
+
+    This allow users to upload files that exist on remote systems,
+    such as SMB. Previously only files on local filesystems could
+    be loaded.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/ImageStore.py
+M	src/flickrest.py
+M	src/postr.py
+
+commit f30db6b248bfd69f6682dba80e5e201b8a8d1516
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-12-14
+
+    Allow the creation of a new photoset in an upload session
+
+    Fix #507232.
+
+    This patch adds another default entry in the "Add to Set" combobox
+    to create a photoset w/the upload.	By default, the photoset will
+    be named, "new photoset (%m-%d-%y)" but can be renamed via the
+    "rename" button that appears next to it when this option is selected.
+
+    If the upload is interrupted, or if the upload session is saved,
+    the new photoset's name will be preserved on load.	The newly created
+    photoset behaves the same way as an already existing set, in that all
+    photos must be specified to the new set in order to be included.
+    Only one new photoset can be created per upload.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/SetCombo.py
+M	src/postr.glade
+M	src/postr.py
+
+commit 2307308d32c8a0ad49ef7553532960f73272b070
+Author: Ross Burton <ross@burtonini.com>
+Date:	2009-12-14
+
+    Synced flickrest agains bzr upstream
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/flickrest.py
+
+commit 4ff15e49611418cfa59f3cf1bf577ba8a9ba7dba
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-13
+
+    Fixed wrong icon size in menu (#535742)
+
+    There was a property missing in the GtkImage (icon_size) and
+    there was other events added that were not relevant.
+
+M	src/postr.glade
+
+commit 2cf5f43e9bf3cc8853781466da88eae77c1b739d
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-13
+
+    Added the documentation's skeleton
+
+A	help/C/groups.page
+A	help/C/index.page
+A	help/C/introduction.page
+A	help/C/login.page
+A	help/C/offline.page
+A	help/C/permissions.page
+A	help/C/sets.page
+A	help/C/tags.page
+A	help/C/uploading.page
+A	help/README
+
+commit fae5d758f5f428c07ed138817e4c4807fb7383f5
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-11-13
+
+    Use hashlib if available (#601813)
+
+    Replace md5 with hashlib without dropping support for
+    Python 2.4
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/flickrest.py
+
+commit 2dbcb5e248c3b45775c5b96ac5310a36bbf642af
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-13
+
+    Updated the webpage in the About dialog
+
+M	src/AboutDialog.py
+
+commit 9e2e16359ee245b0b57dffcc2ae6c104a0d2bd45
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-13
+
+    Add default license used on Flickr
+
+    There is no way to get the default license used on Flickr,
+    but it is posible to set it as None and it does the trick.
+    Otherwise, postr sent the license choosen by the user
+    explicitely.
+
+M	src/LicenseCombo.py
+
+commit b40e2e2001bb83cb64195bc2ada597c89a226d91
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-12
+
+    Updated DOAP content
+
+    Updated with the new web page and the download page and
+    fixed the URL to download 0.12.4.
+
+M	postr.doap
+
+commit 130b9f5eb2187e3249a3a550f6c62b1dae746bc6
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-11-11
+
+    Allow image list to be re-ordered using D&D (#601536)
+
+    Allows the user organize the photo list, once the images are in
+    the list through the use of Drag and Drop.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/ImageList.py
+M	src/postr.py
+
+commit 2dc0cd883354ef434f4d16291dff8f2c80145579
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-11-11
+
+    Clean up the code that manage the image selector
+
+    Replace on_double_click_selection() and on_return_key_selection()
+    for on_row_activated, which produces exactly the same result.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit d4d81e1461ff94e0141e1785e9484121694df871
+Author: Karl Svensson <kalle@maxflow.org>
+Date:	2009-11-10
+
+    Add combo box to choose license (#601301)
+
+    Expose the flickr license API methods with yet another combo box.
+    Enables sharing work under Creative Commons licenses.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	src/LicenseCombo.py
+
+commit 2f036530bbad1e72d9d6129d82ce25db0c913466
+Author: Karl Svensson <kalle@maxflow.org>
+Date:	2009-11-10
+
+    Added missing file to implemente Content Type upload
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+A	src/ContentTypeCombo.py
+M	src/ImageStore.py
+M	src/postr.glade
+M	src/postr.py
+
+commit af066e250e68a6af043486637b9d375f709d5d50
+Author: Karl Svensson <kalle@maxflow.org>
+Date:	2009-11-10
+
+    Add combo box for choosing content type (#507243)
+
+    The flickr API includes a method for setting the content type
+    of an upload, with options including photo, screenshot and other.
+
+    This is exposed as an additional combo box in the privacy/safety
+    pane.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/ImageStore.py
+M	src/flickrest.py
+M	src/postr.glade
+M	src/postr.py
+
+commit 0ee68d594e0efbadde114e28034be4762690633c
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-11-10
+
+    Display the flickr username instead of nsid if present
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit 7a51363cfa6561576a8d5a8a1eee841309ccffcf
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-11-08
+
+    Preserve the model state when load a session (#530105)
+
+    Preserve the model's dirty state through loading an upload state.
+    Obviously the load will dirty the model, but that should be ignored
+    since that data has already been saved.  (#530105)
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit febe5c80876f38c9c2958a962b4c873504d6b438
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-11-08
+
+    Fix removal of photos from the photo list (#601129)
+
+    When remove the last photos from the list, it actually
+    remove them through  Make a list that stores all the iterators
+    of the selected rows and then actual removal of rows.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit af2a86ba2ee16b983d038c3e0da592ce48fa33ce
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-11-08
+
+    Make missing strings translatable (#601037)
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/ErrorDialog.py
+M	src/postr.py
+
+commit aaad4ecb754be28e85bdb4505724223a805c04c4
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-11-08
+
+    Only show save/quit confirmation if unsaved
+
+    Only show save/quit confirmation dialog if the model
+    has unsaved data.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/ImageStore.py
+M	src/postr.py
+
+commit aefce4b3af617af78a99071e48a48229e26dbd5b
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-11-08
+
+    Add save/load session funcionality (#530105)
+
+    Allows the user to save the current upload session for later.
+    This preserves any titles, descriptions, tags, photosets, groups,
+    permissions, and visibility settings for any files in the upload
+    window.
+
+    This file can be loaded as well.  There are a few edge cases
+    with photoset data if the currently logged in user does not
+    match the user that performed the export.  In those cases
+    photoset data is dropped.
+
+    Also adds a "Save" option to the quit confirm dialogs to
+    export the pending upload set.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/SetCombo.py
+M	src/postr.glade
+M	src/postr.py
+
+commit 81b9f139d9a31cdc45296be3becf633f38c54fd6
+Author: Francisco Rojas <frojas@alumnos.utalca.cl>
+Date:	2009-11-06
+
+    Enable instant edition when select a photo (#562162)
+
+    When a user double click or press the Return key on the photo,
+    the focus is moved to the next entry in order to start the
+    edition.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit a9fc7516bb1e0541396caad040b8415ba2bc30fe
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-05
+
+    Define a default max file size to upload
+
+    In order to work offline, we must assume a default max file
+    size to upload.  A pro account has a limit of 20M and a free
+    account 10M.  We assume the best case (a pro account).
+
+M	src/StatusBar.py
+
+commit 6c680c8109fadb1b692ed53473cc78e29f6dad9c
+Author: Daniel Nylander <po@danielnylander.se>
+Date:	2009-11-05
+
+    Updated Swedish translation
+
+M	po/sv.po
+
+commit 46a93948c6de7f5b05cbe62aed881e8571bac14b
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-11-05
+
+    Code clean up
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit fea82885c85c1509cdca39c3cff01f2d8267f1a3
+Author: David Ignacio <deignacio@gmail.com>
+Date:	2009-11-05
+
+    Disable remove photos menu and button if no photos have been added
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 3f799707bbd7f1a1157728f7d9010509b49b3168
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-04
+
+    Version 0.12.90
+
+    Changed the version to avoid confusions betweem the stable
+    version and the development one.
+
+M	src/version.py
+
+commit 2b2dfb0e6f052d74f1ccabda530f9e2c9bc99415
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-04
+
+    Updated DOAP content
+
+    Updated with the latest resources availables and make it GNOME
+    compliant.
+
+M	postr.doap
+
+commit 649685c986bf4a95603686d3384ab4ec6396f05a
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-04
+
+    Updated .gitignore
+
+R058	.bzrignore	.gitignore
+
+commit 8f9d5b7b35d3079de7c5a862b528bbf982edc49b
+Author: Matthew Martin <mtt.martin@gmail.com>
+Date:	2009-11-04
+
+    Added support for Gtk.Spell (#588571)
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	src/postr.py
+
+commit bf84cc03e88615ad4b0b67fb569231395804f400
+Author: Tim Lauridsen <tla@rasmil.dk>
+Date:	2009-11-04
+
+    Fixed destination to install Nautilus extension (#593153)
+
+    pkg-config is used to determine the destination folder
+    to install the plugin for Nautilus.
+
+    Signed-off-by: Germán Póo-Caamaño <gpoo@gnome.org>
+
+M	setup.py
+
+commit 08f23abdee0ef5beb4f0661d3c6f18ae1ebbd8f0
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-04
+
+    Avoid hard coded file size limit (#551472)
+
+    Uses the API to ask Flickr the maximum file size allowed to
+    upload pictures.
+
+M	src/StatusBar.py
+M	src/postr.py
+
+commit 45c010c1812b97ce20dd1e6e8f1082f3c067da41
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-04
+
+    Delete deprecated entry (#572721)
+
+    The Encoding entry is deprecated in the Desktop Entry
+    specification (1.1).
+
+M	data/postr.desktop
+
+commit 30422f4678d1b4ff1d930ae00610fb4d022269d1
+Author: Germán Póo-Caamaño <gpoo@gnome.org>
+Date:	2009-11-04
+
+    Verify when a file does not exist (#576969)
+
+    When postr is invoked through the shell using a filename as
+    argument, it does not check if the file exists.  Hence, the
+    program fails.
+
+M	src/postr.py
+
+commit 03297f889bda178a9d889f1064b944817d3d0d60
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-12-19
+
+    Fix removal of images in upload queue if the upload fails (#549965,
+    Claudio
+    Saavendra).
+
+M	src/postr.py
+
+commit 0b3dd4e41f0a3a221df58c1888d96d62d269a2cb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-07-13
+
+    Add Spanish translation (thanks Juan Carlos)
+
+A	po/es.po
+
+commit a59d399e7f870884df3404898ee595f2fb4f4a66
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-07-13
+
+    Don't let the right side of the pane shrink (thanks César Octavio
+    López Natarén)
+
+M	src/postr.glade
+
+commit 65c2798368411561fe4f7ffae215782057d8fd47
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-06-18
+
+    Don't show remaining quota if the user is pro as they have no quota
+    (thanks Kalle Svensson)
+
+M	src/StatusBar.py
+
+commit 475e6cebb397b37df526b49ac1af640a30d7108b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-06-15
+
+    Flickr upload limit is now 20Mb, not 10Mb (#538290)
+
+M	src/postr.py
+
+commit 7a55da0818cb6b953d7f44d17b3b9c78e765e9b2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-28
+
+    Try again to fix URL opening for people using iceweasel -remote
+
+M	src/AuthenticationDialog.py
+
+commit 4118926345d823683fe0f6fd62600a2832725c9b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-27
+
+    Escape the authentication URL so that it should work for more browsers
+    (#447203)
+
+M	src/AuthenticationDialog.py
+
+commit 4482ac765ee52a1ca18dab3f419705810ea90f6c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-24
+
+    Print the exception or failure to the console when reporting errors
+
+M	src/ErrorDialog.py
+
+commit da56daf8809747d12faba33f71aa658dd5eb967d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-24
+
+    Hook up the toolbar Upload button again
+
+M	src/postr.glade
+
+commit f149050f2934fec6099f199f98b2aa2c9e55d4b0
+Merge: 561eb31 5804945
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-13
+
+    Remove the status bar and have a funky banner instead (#511755)
+
+commit 5804945cc6d3c1fbdf902072e9dcfc772f96ee25
+Merge: 5f06b7f 561eb31
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-11
+
+    Merge from postr.dev
+
+commit 561eb311d610b33f6e96625eac21641db8a8779f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-11
+
+    Base the size of the group thumbnails on the font size
+
+M	src/GroupSelector.py
+
+commit fe58936bc0d0b1cdcf1b342f592ad93b70f275c7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-11
+
+    Size the set thumbnails based on the font size
+
+M	src/SetCombo.py
+
+commit 5f06b7fd1fad0d1f6f1feaa4b1f9316483b4b2a8
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-11
+
+    Move the Upload button to the status bar
+
+M	src/postr.glade
+
+commit 7428a402f9f67781f099a56fb9e2aef0c8fd0f69
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-05
+
+    Paint the statusb bar in a different colour
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 668f0c702217000adbcd7a443a045687240fa0fb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-05-05
+
+    Change the status bar to be a descriptive label at the top, and show
+    the buddyicon
+
+M	src/StatusBar.py
+M	src/postr.glade
+M	src/postr.py
+
+commit 046246dcb3b8e1c0444afeb23b761a224047556b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-26
+
+    Don't show No description in the list view
+
+M	src/ImageList.py
+
+commit 8dfd41cc86edb0471e1161d9773d72207702fd0a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-26
+
+    Fix the packing on the set combo
+
+M	src/postr.glade
+
+commit 9de2ddfbd9ac6a6c551e34d3ff7a6d64e53f0510
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Move an import to where its used
+
+M	src/postr.py
+
+commit 2d5662c0dbb2949d881433d9dbffceb653671dd4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Fix formatting
+
+M	src/postr.py
+
+commit 4d8d1785ecfaa6bca8d3d6b3022b010d345ec0a4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Add a parent argument to AboutDialog
+
+M	src/AboutDialog.py
+M	src/postr.py
+
+commit 11c7a7ead45e06146e9276d29968d64c3f97ff78
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Fix error callback
+
+M	src/postr.py
+
+commit d2584ed2307285f0e5f8b0e6807b62fee982d495
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Hook up the Upload button to the callback again, whoops
+
+M	src/postr.glade
+
+commit b2f5581aa220190f71e2c7e9694e3e30b7e8f511
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Fix silly typos and don't pass a non-existant variable as the
+    parent window
+
+M	src/SetCombo.py
+
+commit ac74ca52dba1638f566840d574babefdabea1a04
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    At this point we don't know what the parent window is
+
+M	src/GroupSelector.py
+
+commit be6b960793c01eef71d16d2931760900bece17d2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Factor out the set combo into a custom widget
+
+A	src/SetCombo.py
+M	src/postr.glade
+M	src/postr.py
+
+commit c145a1b21f1361c8ec24dca90c6e55d53cd2ff73
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Show the postr icon in the preview when no image is selected
+
+M	src/postr.py
+
+commit 416792ce2b72e17872b476a2690e48112d9e9b64
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Center the image preview
+
+M	src/postr.glade
+
+commit 0526af553b924d672ddecb45ddd186c87956d9a4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Make the Quit buttons default in the exit confirm dialogs
+
+M	src/postr.py
+
+commit 8da39bee63181487253e218066c9341303f12062
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Version 0.12
+
+M	src/version.py
+
+commit 293f3bb5ce48ff0577d9eeeb41f82bd030464212
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-23
+
+    Install nautilus extension to extension-1.0 and extension-2.0
+
+M	setup.py
+
+commit 0c44b2e72df0f0ba59a3e6e11a4e52a4601a18a9
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-22
+
+    Add Add/Remove buttons to the main window (#518230)
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 96ec0f8da24c611fa188c56d8779b1e02278f716
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-22
+
+    Don't make clicking on the group name toggle the selected renderer
+
+M	src/GroupSelector.py
+
+commit 7a61a4a4309a3397161fe22d6be73b1105dc4e17
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-21
+
+    Handle error code 6 when adding to a group, which means the photo
+    is in the moderation queue
+
+M	src/postr.py
+
+commit 3f2b9fbfe095afefd78ed1680a891d99c1ee135d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-21
+
+    Show a dialog if there are photos to upload when quit is pressed
+    (#527960, thanks Germán Póo-Caamaño
+
+M	src/postr.py
+
+commit 345e636432cef13ee340441c8c84b136175cc701
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-21
+
+    Update the status bar after uploading (#519053)
+
+M	src/postr.py
+
+commit 3e78bcbe973e4f02cf23b1aec963a8de13fdd66e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-21
+
+    Add switch user menu item (#507737)
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 677d8efbfd264a377e97d3406d6dd77a564cf921
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-20
+
+    Bump version to 0.11
+
+M	src/version.py
+
+commit bc71241900e9f81d70b18ee28083c9a329324bfe
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-20
+
+    Set the horizontal scrollbar policy to automatic, so that wrapping
+    works (#526643)
+
+M	src/postr.glade
+
+commit c3895d3f4e06c2ebd0d41bf1c03029156f65ce6d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-20
+
+    Remove bad import which was breaking the group selector
+
+M	src/GroupSelector.py
+
+commit 6534ddff7bec26dfda5ddb6ac47293f13fbc70ee
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-01
+
+    Add TODO
+
+M	setup.py
+
+commit cbfaa1a56d6948734d46d43d7d9ded4db4a92ab2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-01
+
+    Search for groups ignoring case
+
+M	src/GroupSelector.py
+
+commit a46dac924df1a09a39b3244f7ed281712e2a509f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-04-01
+
+    Set the size request of the group selector to show three rows
+
+M	src/GroupSelector.py
+
+commit d04ecb24de82fc45cffde7a89638edbe8758dfe1
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-03-09
+
+    Search substrings when looking for group names
+
+M	src/GroupSelector.py
+
+commit ee6fd2d65834e22c59504701b99ef119d633615c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-03-09
+
+    Enable searching in the group list
+
+M	src/GroupSelector.py
+
+commit 8bad2d90dbc7eeb89dfffaa386d22f3c79aef546
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-03-09
+
+    Delete the buddyicon database if it needs upgrading
+
+M	src/util.py
+
+commit c5ce4bd6bca8c5de7f0737cb090a4944d300678b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-02-25
+
+    Show the user's full name in the status bar
+
+M	src/StatusBar.py
+
+commit 8d49e8d5a2115258436665715c2bb09b1b6934d0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-24
+
+    Show the logged in full name or username in the statusbar.
+
+    Based on a patch by jcrosby.gnome@gmail.com.
+
+M	src/StatusBar.py
+
+commit b536e3f38ef6de645c520693ee64f9fe30c8bdd1
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-24
+
+    Update to flickrest r60, with username support
+
+M	src/flickrest.py
+
+commit 7b29df4356debb635789e37d634d515601795a42
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add TODO
+
+M	src/postr.py
+
+commit f1eb4fc29e06f5b6b54d4fc3fbd2f857a5d191dc
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Fix privacy uploading (flickrest r59)
+
+M	src/flickrest.py
+
+commit e85dd43d38d548937eef8b194c44bff3a52a41c8
+Merge: 782fd9f fc83ac9
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add a group selection widget
+
+commit fc83ac9c8610a0b6dccce60cb44d8913fbd0308e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add photo to groups when uploading
+
+M	src/postr.py
+
+commit 4254ce733bb799b0de55d6291910dd434ae55add
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add comment
+
+M	src/postr.py
+
+commit bbf06708b63ea62c54ef55a06750d04dffb288f8
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Hook up the group selector to the store
+
+M	src/postr.py
+
+commit 10331f7c44520aa0f99923ea9219e27e93b62cf1
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add a changed signal, and handle None groups when setting
+
+M	src/GroupSelector.py
+
+commit cd1f208d60c90f993a79cb10c59122bf93c7799b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add group list column
+
+M	src/ImageStore.py
+
+commit ae46472177dc3e4e8bb1d88a7c529be50e8bdff1
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add group list accessors
+
+M	src/GroupSelector.py
+
+commit ddb416e9dd1e459b9d9f8a6c7ce20587fd729b01
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Enable fixed height mode
+
+M	src/GroupSelector.py
+
+commit a4be106d4b05c25b9f362b293c16c694185b6d99
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Update (C) dates
+
+M	src/AboutDialog.py
+M	src/AuthenticationDialog.py
+M	src/DummyUnique.py
+M	src/ErrorDialog.py
+M	src/GroupSelector.py
+M	src/ImageList.py
+M	src/ImageStore.py
+M	src/PrivacyCombo.py
+M	src/ProgressDialog.py
+M	src/SafetyCombo.py
+M	src/StatusBar.py
+M	src/postr.py
+M	src/util.py
+
+commit 3eb073c8b7b9f5c6f9eb1211cfa5865c79b0bb98
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Fix indentation
+
+M	src/GroupSelector.py
+
+commit 69c1f761920f1d6724330f846252d961566434d2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Hook up toggling the check boxes
+
+M	src/GroupSelector.py
+
+commit ae5e749f3bf9f2b167182ad5a404b66ef0b42870
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Use a cache when looking up buddy icons
+
+M	src/util.py
+
+commit 01b727883f378d37edb35bbdccb2bc64716af704
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add ID column
+
+M	src/GroupSelector.py
+
+commit a91286d491fed7717335cca250a793577a9e3b87
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Use names for columns
+
+M	src/GroupSelector.py
+
+commit 7dc91e17307a1d9511c124a8b3875956571ce683
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Allow resizing of the buddyicon, and use 24x24px icons for the
+    group selector
+
+M	src/GroupSelector.py
+M	src/util.py
+
+commit f3acb6d059b1fe17bd1419c9a80ff490dbd0b927
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add TODO
+
+M	src/util.py
+
+commit 89ac32a72f2e49d1ef1f68efb422a10953c4fbd5
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Add utility function to get the XDG cache path
+
+M	src/util.py
+
+commit 0b1ae661e98fa04c518898aa8d6f487bcc19e8b4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Actually add the group selector widget
+
+A	src/GroupSelector.py
+
+commit 894eeeb1d531badb3819b3eba06333ad458d9a64
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-20
+
+    Initial group selector widget, does nothing useful so far
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 782fd9f2e93331fafe438240ec6fc202470bb121
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-19
+
+    Add utility method to fetch buddyicons
+
+M	src/util.py
+
+commit 97ac078b91703f3d2e0efd17a12c3aa168ec1ec4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-19
+
+    Update (C) dates
+
+M	src/AboutDialog.py
+
+commit 5f3a452a0857f945545ae9e15954649a8a010a27
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Only set privacy options if set
+
+M	src/postr.py
+
+commit 3e2cf4fae05689a8ee786312b315dfd00f7eb3a0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Make all upload arguments options (flickrest r58)
+
+M	src/flickrest.py
+
+commit ec1e13ad7f01526f4f517cf84d7072f89722d79c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Hook up the Safety combo
+
+M	src/postr.py
+
+commit 3bdf28a252d5d1a1e0dcba7d0565f1935a89fcaf
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add accessors, similar to PrivacyCombo
+
+M	src/SafetyCombo.py
+
+commit 5e398fb9638ebc71c504b3db557bba7006c8bce9
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add safety column to image store
+
+M	src/ImageStore.py
+
+commit cbb3fa27608cc4859ecae0f28a0f4a0ce589803a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    flickrest r57, with safety argument
+
+M	src/flickrest.py
+
+commit a7f88ccc8bc435ecb322af0aa0ef4ed2ea7ed19a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Call selection_changed on startup to initialise the interface widgets
+
+M	src/postr.py
+
+commit 81f7cc4f2269b1aee95cb679aff7175a78cf916a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Hook up the privacy combo
+
+M	src/postr.py
+
+commit b7fcf0e9b6786540ebc23a32eaf0260ad716f708
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add Privacy column
+
+M	src/ImageStore.py
+
+commit 73fcc8395c3be79d33c8c7ec90f7a3559c4bb8fe
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add accessor, and return a tuple not a dict
+
+M	src/PrivacyCombo.py
+
+commit e0631b35a2f94a36097aef49c6c52573a7563e65
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Update to flickrest r56 for privay controls
+
+M	src/flickrest.py
+
+commit 2cda30b99cd7389f190893c2b11b7a976898e99a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add combobox field/iterator value support to enable/disable field
+
+M	src/postr.py
+
+commit 1c1d87b5364edebd3f24483d9bd9684d7443cfd6
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Set the minumum size of the preview to 128x128
+
+M	src/postr.py
+
+commit 296d095b98d0a8ebca3b8f500a1eaabd90d92dbf
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add support for the hidden check box
+
+M	src/postr.py
+
+commit 596d5c807f36dd98bfdbe6c5b5d45f263cffb51d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Update to flickrest r54, with search_hidden support
+
+M	src/flickrest.py
+
+commit 6e9531478d4b3bbb45530b787375322d89ae1506
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add a boolean column for 'visible in search results'
+
+M	src/ImageStore.py
+
+commit 1018369dde2661bdbfc6c0206702b92c7b9cb90a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add a new Privacy and Safety expander and widgets. They don't do
+    anything yet, though
+
+M	src/postr.glade
+M	src/postr.py
+
+commit cbc055ffefe4f15543ddf05ead3081871cad7074
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add SafetyCombo widget
+
+A	src/SafetyCombo.py
+
+commit 6d44f85c334c8def2ad9fe63cb7e02468760cdcc
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-10
+
+    Add PrivacyCombo widget
+
+A	src/PrivacyCombo.py
+
+commit a7facd794c947e527ec9aea7db6d6904480d8934
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-09
+
+    Add some documentation
+
+M	src/util.py
+
+commit ea660d40273abd3e9c59581c5328e24942a4e4b4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-09
+
+    Refactor the glade code, and add a function to add a set to widgets
+    to a size group
+
+M	src/util.py
+
+commit 0ba4b3e4af42bd369cbc8fc8a46750e92216ce7f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Fix the scaling algorithm so it works
+
+M	src/util.py
+
+commit a7058b1368be96a2154f2b3c114cda15d68831c7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Set the size request of the preview to 1,1 so it can shrink
+
+M	src/postr.py
+
+commit f2f068784c861c2516fc5cb94879128478898da7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    If we have a cached token, verify it
+
+M	src/flickrest.py
+
+commit 87832c07765125ceb1b79d78063220a81e00828f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Raise an exception if the glade widget cannot be found
+
+M	src/util.py
+
+commit 4fd92c6ce16f659ac678bfeef115644a5ecf60e0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Don't get so many fields when updating the preview
+
+M	src/postr.py
+
+commit babc2062bea09e1d996c4eaf60fc5d1c7ae17a94
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Fix store column IDs
+
+M	src/ImageStore.py
+
+commit ce7e6d4311e550053dee00904cd6a2fa4cefb67e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Remove COL_INFO, and instead use a data func
+
+M	src/ImageList.py
+M	src/ImageStore.py
+M	src/postr.py
+
+commit 3a1f850ff1ddf03013c683e5bd037e5aa97edebb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Refactor duplicated upload complete code
+
+M	src/postr.py
+
+commit 7b8b15c8d4b8143f22eb2d0b9d29a4bdf001ddba
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Update some comments
+
+M	src/postr.py
+
+commit 66f79de6715487fc13c6dec8cc181e816082c39c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-08
+
+    Make the state of the Upload button reflect reality
+
+M	src/postr.py
+
+commit 6de9a1abd47d03a256c55042cfb11e26f313b8bf
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-07
+
+    Use a TextView for the description, to allow multi-line descriptions
+
+M	src/postr.glade
+M	src/postr.py
+
+commit ecee33bccb41319f3377714dea2d81d967bdd514
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-07
+
+    Clear the thumbnail image on startup, glade3 doesn't like empty images
+
+M	src/postr.py
+
+commit 7ca5b1610557f3abf56c93aea369692a35706926
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-06
+
+    Don't trample existing drag target lists
+
+M	src/ImageList.py
+
+commit 87dc4f87df91ea2cb1e57390a4fd2ec104d78b19
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-04
+
+    Add German translation
+
+A	po/de.po
+
+commit 0347b53f8cdd9bd3e7ab5f8ac83174851ba2c28a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-04
+
+    Version 0.10
+
+M	postr.doap
+M	src/version.py
+
+commit 4d30d3b3920b7cfbe41689651494e8238a14a2ec
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-04
+
+    Call show_all rather than show on error dialogs, otherwise there is
+    no content
+
+M	src/StatusBar.py
+M	src/postr.py
+
+commit 68ab719ffb8fc93ab157eb0163a839440a9bd628
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-04
+
+    Check the file size so files which flickr will reject are not
+    attempted (#502691)
+
+M	src/postr.py
+
+commit c846a2d32b1850426ebac16336be1493631139cc
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-04
+
+    Add error dialog method to show an arbitrary string
+
+M	src/ErrorDialog.py
+
+commit ec31512f7c77c0baaff14748049cdf735b10b617
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-04
+
+    Read the GNOME proxy settings and pass them to flickrpc
+
+M	src/postr.py
+
+commit 9b492e7973a3b84ed484801f9386dd15e64f4713
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-03
+
+    change getPage to take URL-style proxies, and update flickrest
+
+M	src/flickrest.py
+M	src/proxyclient.py
+
+commit 0089fbe3139d1e040211f2d7843331cf199da84e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-03
+
+    Handle proxies which are URLs
+
+M	src/flickrest.py
+
+commit 9150c7f729db75cbfb19edbe2931fe831fa2c1b4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-03
+
+    Add proxy support, and lookup the http_proxy environment variable
+    on startup
+
+M	src/flickrest.py
+
+commit f2abc2b384a03d0329c3931b5faca9832dd7c274
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-03
+
+    Add a patched version of twisted.web.client which supports proxies.
+    Patch taken
+    from http://twistedmatrix.com/trac/ticket/1774.
+
+M	src/flickrest.py
+A	src/proxyclient.py
+
+commit 4e84ae50c37d42760617c1b884b922520c6083e4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-02
+
+    Actually connect the Upload button to the handler
+
+M	src/postr.glade
+
+commit e11b049ba0a07fc32965d4bafeac393c4d7d6b9c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2008-01-02
+
+    Add Upload button to the UI (#479863)
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 98036719f4034c01646b0d62fd06fee18e4396b7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-11-04
+
+    If Unicode conversion fails, attempt to convert from 8859-1 (#493016)
+
+M	src/iptcinfo.py
+
+commit 15e00c9139e7cf3118d0d947d26c47bc29d9388d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-09-23
+
+    Version 0.9
+
+M	src/version.py
+
+commit ca78b0ad06d68887b59856220c5b5934d674ab1f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-09-07
+
+    Handle images with EXIF tags by coercing the value to strings,
+    and handle empty strings correctly
+
+M	src/postr.py
+
+commit efb730dcb6375100d8864e4eedd8a7e8d3dbfa6a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-08-25
+
+    Add 24x24 icon (thanks Michael Monreal)
+
+A	data/24x24/postr.png
+M	setup.py
+
+commit 28c1cc9b05bdf722263310a37b2f5e55a7e15bd5
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-08-24
+
+    Move the version number to src/version.py.
+    Include the version number in setup.py.
+    Display the version number in the about dialog.
+    Thanks Claudio Saavedra.
+
+M	setup.py
+M	src/AboutDialog.py
+A	src/version.py
+
+commit 1db07e18f6ed69d01a795b148198acdb3831d031
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-08-24
+
+    Use the stock About item,  Thanks Claudio Saavedra.
+
+M	src/postr.glade
+
+commit 934fbd8941e95d7cd31098d58bb2e61b77efbb0e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-08-21
+
+    Version 0.8
+
+M	postr.doap
+M	setup.py
+
+commit 66db4485c29c35d564db4f5434a1379999a7af3b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-08-11
+
+    Update
+
+M	TODO
+
+commit bde1710701e50f6313404d6d3271d8a21a624482
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-23
+
+    Make cancel somewhat work at least
+
+M	src/ProgressDialog.py
+M	src/postr.py
+
+commit 45b9a2c2bc0acc57be4f529cefa7720d29adcc22
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-23
+
+    Remove completed photos from the store as they are done, not at the
+    end. This helps continue when the upload fails
+
+M	src/postr.py
+
+commit 99e0497efd72889e4bd53fa6d01e69a77db66a71
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-23
+
+    Only connect to the add_to_set callback if there is a set defined
+
+M	src/postr.py
+
+commit aa6079622ac7826b1ec37361f5ea33afdb7b9d97
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-23
+
+    When we get an error whilst uploading, reset the UI
+
+M	src/postr.py
+
+commit 289b1ea4b07112ab0dea690fce5ce67bc9d37591
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-23
+
+    Update the status bar correctly after upload
+
+M	src/postr.py
+
+commit c899914d0e027adba1a993a4f450b7476b7e0ffa
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-23
+
+    Align progress text at the top
+
+M	src/ProgressDialog.py
+
+commit d5891e137be765f2e9169d0219682ad8deac8e81
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Remove executable bit from postr.py
+
+M	src/postr.py
+
+commit c5b6f6af96770005bab01df823c8f257058dc763
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Don't install the source SVGs for the bitmap icons
+
+M	setup.py
+
+commit 165a662133a948f1883454f80b8fd13918e3fcfb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Update (C) year
+
+M	README
+
+commit 8d05573b62e03df08432c043536905fa2764978f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Correctly handle setting to_upload to 0, fix a few other bugs
+
+M	src/StatusBar.py
+
+commit 77b4d581d3d4ee14acdbc51979063119d9d53dfe
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Change a comment to documentation
+
+M	src/postr.py
+
+commit 68f132c7fa32289c2410c951ed08df5d3b1c0338
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Cleanup error function
+
+M	src/postr.py
+
+commit f16427038fa5511dc983f7089b57526e8282b8ac
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Add error handling to the status bar
+
+M	src/StatusBar.py
+
+commit 7732a1e6cbfaf0a0a05718a567eb06d4db498286
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Create a status bar object
+
+A	src/StatusBar.py
+M	src/postr.glade
+M	src/postr.py
+
+commit 77563420d8a4e40598f6a469724123a40048e987
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Move get_thumb_size to util.py
+
+M	src/postr.py
+M	src/util.py
+
+commit a76c03fc60d3649b1d14ee551a9cd1c2bb66cb34
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Move a small utility function to postr.py from ErrorDialog
+
+M	src/ErrorDialog.py
+M	src/postr.py
+
+commit 41f38d4074fc30010db7a9e0a66e109f5a9df576
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Allow selection of all images in the file chooser, and show an error
+    if the image cannot be loaded by gdkpixbuf
+
+M	src/ErrorDialog.py
+M	src/postr.py
+
+commit c8632cd97e82e1a69d443b8cd2322f32bf00cc35
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Rename Select->Delete to File->Remove
+
+M	src/postr.glade
+M	src/postr.py
+
+commit d0f9232de8e7586abe10eca0f89d5af9421127f6
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-20
+
+    Select a new row when deleting
+
+M	src/postr.py
+
+commit 8ce472e739402bd216b56e0a1372692c1d441dbd
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Add copyright notices
+
+M	postr
+M	src/AboutDialog.py
+M	src/AuthenticationDialog.py
+M	src/DummyUnique.py
+M	src/ErrorDialog.py
+M	src/ImageList.py
+M	src/ImageStore.py
+M	src/ProgressDialog.py
+M	src/postr.py
+M	src/util.py
+
+commit fcc6926a73b970e6de9e9db56287aa26fa6f47bf
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Update flickrest, adding new signature calculation and cached
+    token removal
+
+M	src/flickrest.py
+
+commit bde30d505b8e5be3d6e2a6f842cfa4759d83683e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Factor out the dummy UniqueApp object
+
+A	src/DummyUnique.py
+M	src/postr.py
+
+commit c0e80702f0aec9459a181078e743f4c3467354cb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Disable debugging
+
+M	src/postr.py
+
+commit c0390f67af3accdfbd38fd63b433742a7bf56c4c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Use Pythonic TreeModel iterating rather than C style
+
+M	src/postr.py
+
+commit 6ed3297c059fe8223a6c8029515bf2b7b0138735
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Add some comments
+
+M	src/postr.py
+
+commit 62549efd787390a76c6220e1fdcfc0206926f856
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Show how much is due to be uploaded in the status bar
+
+M	src/postr.py
+
+commit 284a486014b3bba9675012a97824bbfaa92b2014
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Set error dialog's parent
+
+M	src/postr.py
+
+commit 42b3db80b572eb12965f00f17685b9fa06df9e20
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Remove TODO, I understand the issue
+
+M	src/ErrorDialog.py
+
+commit 13fa7ffa52642f75b9df5a80dc77ac9e124c707c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Add a ProgressDialog class instead of using glade
+
+A	src/ProgressDialog.py
+M	src/postr.glade
+M	src/postr.py
+
+commit e814bc4135285663047e7bdf58611cf93b30055b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Add test
+
+M	src/AboutDialog.py
+
+commit bbea310ebb4f628bebaaace92bab5082cbcd44a2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Don't have parent as an argument to the AboutDialog constructor
+
+M	src/AboutDialog.py
+M	src/postr.py
+
+commit 78ca97281bb9df4aa248c7ea3547837013156838
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Add size column to ImageStore, and set it when adding an image
+
+M	src/ImageStore.py
+M	src/postr.py
+
+commit 7e29870333a386c931f5359e8dbb1477fe4914da
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    When uploading, show the progress in the title bar
+
+M	src/postr.py
+
+commit 0b2bd1852da3f18ce5bacc134d7051bdb4225826
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-07-19
+
+    Change import order so that local source tree is attempted first
+
+M	postr
+
+commit 49df28905650640f7c639c17ed1271b95f112eb7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-13
+
+    Escape strings when generating Pango markup
+
+M	src/postr.py
+
+commit 41c68420d8014f421c18e765bd3263ce331dbaa6
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-13
+
+    Version 0.7
+
+M	postr.doap
+M	setup.py
+
+commit 2f1b685edee6866c2d06315d35aa239ae668ce33
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-12
+
+    Add Swedish translation, thanks Daniel Nylander
+
+A	po/sv.po
+
+commit 7e85c5553e3fbf9f7ff41906bac55bb92603c4c3
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-11
+
+    Don't crash if the set iterator isn't set when uploading
+
+M	src/postr.py
+
+commit c1f9daee08b76f810b2bd08dcf9a72d59615931d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-05
+
+    Unquote the URI when accepting drags, fixing file names with spaces
+
+M	src/postr.py
+
+commit 57f2382a5dd1a25d5907b9f32ca5f4234fd98a81
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-05
+
+    Display the exception when import postr fails
+
+M	postr
+
+commit 4887860919e8907cc61f28632d1b160992e8e77b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-05
+
+    Bump version to 0.6
+
+M	postr.doap
+M	setup.py
+
+commit d95ef05361e6274fc887fe36fc5afb45e6632fa0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-05
+
+    Use a different IPTC parser, support munging lists from the data,
+    and actually import IPTC metadata
+
+D	src/iptc.py
+A	src/iptcinfo.py
+M	src/postr.py
+
+commit d179c8c4769cbaa4ceb49da03af8ae6d55071820
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-06-05
+
+    Add a TODO
+
+M	src/AuthenticationDialog.py
+
+commit bc159abdaa9a893c682172e50fe12a460da84170
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-05-13
+
+    Don't hardcode grey for the tags in the treeview, but use the theme
+
+M	src/postr.py
+
+commit e6febdf01395e4d69f2e0920b6e2a9f0cbecbd74
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-05-13
+
+    Move the newline in the info string
+
+M	src/postr.py
+
+commit e2f651ff29020bdac828b788bad214f308a8909b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-05-13
+
+    Cleanup rotation logic
+
+M	src/postr.py
+
+commit d30613635ddbd337621ae50f41383fbb1180fb7c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-05-13
+
+    Add value for no rotation
+
+M	src/postr.py
+
+commit b3ec98913b35f0e88a3dcb071786023432857de8
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-05-13
+
+    Clean up info markup
+
+M	src/postr.py
+
+commit 9549219590993535f2152a2b787b8f93f067302d
+Merge: c759648 93c083f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-05-05
+
+    Merge patch from Lucas Rocha to change the icon view to a tree view.
+
+commit 93c083f6b76082ff960c262c02c02d445e34d91a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-05-05
+
+    Merge patch from Lucas Rocha <lucasr@gnome.org> to change the icon
+    view to a
+    tree view.
+
+M	src/ImageList.py
+M	src/ImageStore.py
+M	src/postr.glade
+M	src/postr.py
+
+commit c759648a923ff5b02450fb606199d41bbbb13949
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-10
+
+    Remove Application category
+
+M	data/postr.desktop
+
+commit 9745c8535095d9dd86c8e6272804b1105ecc36cb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-10
+
+    Remove hashbang
+
+M	src/iptc.py
+
+commit 4a07cd109eb3d20342053a2cc6366877033e4573
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-10
+
+    Remove hashbang, it won't work
+
+M	src/postr.py
+
+commit f54ffad4d66f8e0c2cfb4ae1eeb03ccbfc250e09
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-09
+
+    Add (mostly) a dialog to display twisted errors
+
+A	src/ErrorDialog.py
+M	src/postr.py
+
+commit 1f72a146ee4949c99c51d932e80c9ce5dc4f0574
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-09
+
+    Add French translation (thanks Yoan Blanc)
+
+A	po/fr.po
+M	setup.py
+
+commit abcc14741afef4cd61c95a28815b4d6739035048
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-06
+
+    Use the icon
+
+M	src/AboutDialog.py
+M	src/postr.py
+
+commit ca29288e89befa934646c455949355fddc8bbf0c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-06
+
+    Consolidate data files
+
+R100	icons/16x16/postr.png	data/16x16/postr.png
+R100	icons/16x16/postr.svg	data/16x16/postr.svg
+R100	icons/22x22/postr.png	data/22x22/postr.png
+R100	icons/22x22/postr.svg	data/22x22/postr.svg
+R100	icons/32x32/postr.png	data/32x32/postr.png
+R100	icons/32x32/postr.svg	data/32x32/postr.svg
+R100	src/postr.desktop	data/postr.desktop
+R100	icons/scalable/postr.svg	data/scalable/postr.svg
+M	setup.py
+
+commit 9013a344a66449fe21770d61e91c18308b52ffac
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-06
+
+    Add rocking icon from Andreas Nilsson
+
+A	icons/16x16/postr.png
+A	icons/16x16/postr.svg
+A	icons/22x22/postr.png
+A	icons/22x22/postr.svg
+A	icons/32x32/postr.png
+A	icons/32x32/postr.svg
+A	icons/scalable/postr.svg
+M	setup.py
+M	src/postr.desktop
+
+commit af4807eba04e8284dc5e431779360d47805560ff
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-04-04
+
+    Increment version
+
+M	setup.py
+
+commit a489bc330d1ef271625590f4c1901a36ea3248be
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-03-26
+
+    Add some comments
+
+M	src/postr.py
+
+commit 965fbd494d2c59202fac582cac23ebfbc5289037
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-03-26
+
+    Start refactoring into sane code
+
+A	src/ImageList.py
+A	src/ImageStore.py
+M	src/postr.glade
+M	src/postr.py
+
+commit ce2e6b178168ea2ccceae5e6912db69cd9204cb4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-03-26
+
+    Add basic functionality to add a photo to a set on upload
+
+M	src/postr.glade
+M	src/postr.py
+
+commit ae80a02a17b08a0730d7b42bdbb82e5053e4c189
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-03-26
+
+    Update flickrpc to rev 48, fixing the return value from upload()
+
+M	src/flickrest.py
+
+commit 3a3d4ccd1a0a256d8495df2a501e05b9a7da685e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-02-09
+
+    Version 0.5
+
+M	postr.doap
+
+commit 3a7b6638b40d0562e2b9a1f8e0009da2a93e3926
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-02-06
+
+    Handle exceptions when parsing EXIF or IPTC
+
+M	src/postr.py
+
+commit cedd604b34fe88f68516c1d8be6325fbb666035c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-02-03
+
+    Fix
+
+M	postr.doap
+
+commit 96f4025615099230eea9cf029bb2e2d00f959dfb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-02-03
+
+    Add DOAP file
+
+A	postr.doap
+
+commit 5e6f27544ce322217833f4bc06c855f2f931154d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-27
+
+    Work with Python 2.5 (rev 44)
+
+M	src/flickrest.py
+
+commit 031d9d51b6ad5ea24ce4cf6857b500631b55ed0e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-21
+
+    Version 0.4
+
+M	setup.py
+
+commit 523a01ae4e2a52138cb875dd1d13b9d3c71025f8
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-21
+
+    Add Italian translation, although it doesn't get installed yet
+
+A	po/it.po
+
+commit 299bb28b95b897d22c26fa4d770759cac321b8e5
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-21
+
+    Update to flickrest rev 42
+
+M	src/flickrest.py
+
+commit f597846099ee9b7b0bc3f27df2249b202ce46e4f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-21
+
+    Update flickrest to rev 41
+
+M	src/flickrest.py
+
+commit 2dcf7ae2884868145fe1f79a0ae3c03a2fb817c6
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Use named args for i18n
+
+M	src/postr.py
+
+commit fd98e8afc8c73fd58b994d6f6980c2f57ce0aa53
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Markup translatable strings
+
+M	nautilus/postrExtension.py
+
+commit fb06a781c1859b7625021b30d093e9fe11b9f9a5
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Initial markup of translatable strings
+
+M	postr
+M	src/AboutDialog.py
+M	src/AuthenticationDialog.py
+M	src/postr.py
+
+commit e9d8f93ce6eb0b50a39a97ffd5e1c6ba1ebc65bd
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Whitespace
+
+M	src/postr.py
+
+commit 0b9bb2ca3522b7182cd04fd1580458610d46caa6
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Small refactor, and fix authentication when the exec string has
+    no quotes
+
+A	src/AboutDialog.py
+A	src/AuthenticationDialog.py
+M	src/postr.py
+A	src/util.py
+
+commit c496a355a1968add75ca3b01fe692fc6313212ed
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Remove impossible TODO and ensure code should work on GTK+ < 2.10
+
+M	src/postr.py
+
+commit 2b6972954c8183e00c5b3d8dd816eedcb02bb2af
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Fix spawning the browser when the exec string contains quotes
+
+M	src/postr.py
+
+commit 30be2408052f12d72febcd11992d587ac32f5a8d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Remove global uploading, and rewrite quit dialog to use action buttons
+
+M	src/postr.py
+
+commit a4ef988736a310a12503a483daf1e6bf5211169e
+Merge: f119864 2ffa01e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Patch from German to show a dialog if quiting whilst uploading
+
+commit 2ffa01ec1d2a1eab52231f130c977f027bf16898
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2007-01-09
+
+    Added question before to quit if upload is in progress
+
+M	src/postr.glade
+M	src/postr.py
+
+commit f1198648dee2590f4712d9b86410ed86233836a4
+Merge: 5b5f92a f1c7e62
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Merge fix for locate_program from German, and use file.is_mime_type()
+    to check file type
+
+commit f1c7e6261e900a2386b99301e9454e89b5fbe5e4
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2007-01-09
+
+    Fixed locate_program and added support for any kind of image
+
+M	nautilus/postrExtension.py
+
+commit 5b5f92a87cedcab4018b1ce8c5173b20c056925a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Add %F to Exec and TryExec fields
+
+M	src/postr.desktop
+
+commit 5c46cdcfbe1e6fbf34fb02fa7eb488997b4af93b
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Move extension to nautilus/ so that it isn't installed twice
+
+M	TODO
+R100	src/postrExtension.py	nautilus/postrExtension.py
+M	setup.py
+
+commit 5de5f50fab4c019c1ee59ff5ebab10b631f358b1
+Merge: 81bd872 5312bb9
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-09
+
+    Add nautilus extension to run Postr
+
+commit 5312bb9bedc5200b8f6045385654ad1d3d6db096
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2007-01-08
+
+    Fixed locate_program to find a program exists in the PATH
+
+M	src/postrExtension.py
+
+commit dfba0be5e1707e317c675c4bc1040d3319d59573
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2007-01-08
+
+    Added a nautilus extension to run Postr
+
+A	src/postrExtension.py
+
+commit 81bd872bdc3069b839d21988405f1294fca4999a
+Merge: 60fbf27 58dd8f7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-08
+
+    Merge patch from Germán Poó Caamaño
+
+commit 58dd8f755bc54291781e564970f2150aa5676d98
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2007-01-08
+
+    Changed rotation numbers by a enumeration for self documentation
+
+M	src/postr.py
+
+commit 60fbf27acfe5d6ae51821dad230248ee5fff1422
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-08
+
+    Add shortcuts for Delete and Select All
+
+M	src/postr.glade
+
+commit 17f30f254d89a3b128cb517452a676a15338c68b
+Merge: 726a116 113177a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Merge async flickrest work so that authentication is interactive
+    and doesn't block
+
+commit 113177a973a0d8e225a8cbe0d2538ff9489050ad
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Update flickrest
+
+M	src/flickrest.py
+
+commit befa8863fe289880031555fa934db25497b8a1db
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Clean up authentication dialog, work on GTK+ 2.8
+
+M	src/postr.py
+
+commit 1c7e57aae2d0bc929d05c39e2796dc9ac0112505
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Use action buttons
+
+M	src/postr.py
+
+commit a51607764ce0a19e88e484181be077064308a8fd
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Update
+
+M	TODO
+
+commit 24d5124b1f2b9572cdc1c18269d3e7b3dd8dcf61
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add TODO
+
+M	src/postr.py
+
+commit 370f8885b4792b187e98e59bdb1ad157440d7b9c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Update TODO
+
+M	TODO
+
+commit 5ecbccf6c34ceaa4cc37b56e0add8671934c9f3d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Disable upload until connected
+
+M	src/postr.py
+
+commit 7e207e354de38d5e3ebc8fb30137013e14c71f50
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add TODO
+
+M	src/postr.py
+
+commit d21cce8900b10b5cc07e9f33ad9ee0cd491b699c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Remove old comments
+
+M	src/postr.py
+
+commit f1d2cbfbaf4777bb223eb6bd4bfc4bd4037dec05
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add a basic async auth dialog
+
+M	src/postr.py
+
+commit 4d42cf9b09cff7555f66f6d7b8cdbd3015cdee08
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add docs
+
+M	src/postr.py
+
+commit 68c3f2e83f5d84b8953fc74e4409c5fc28d10e7c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add async auth flickrest. This still blocks the UI though at the
+    moment.
+
+M	src/flickrest.py
+M	src/postr.py
+
+commit 726a116a2a4e74a135523168cd8643b62564f1b3
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add a preview widget when adding files
+
+M	src/postr.py
+
+commit 7b73ec66342658e0fc6194393eff38cd72fd72d5
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Fix progressbar widget name, and disable the Upload menu item when
+    uploading
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 9d5329316ca3088981191b285ade11102003d784
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Don't handle errors, let get_widget throw an exception
+
+M	src/postr.py
+
+commit eff293401c52eadbca92a215ebe4af8b8160b6ac
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    More documentation
+
+M	src/postr.py
+
+commit 000a28461ac9c701e0c0612612519d26ac1aeac0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add docs
+
+M	src/postr.py
+
+commit 5ce6a48bc289c72de2c415c3755f9ab7d4eab943
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Use a helper to get the glade widgets instead of calling get_widget
+    lots
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 56b97a946d21bc2bee3c3bf648c129c7cd68a02a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Rotate the preview if required
+
+M	src/postr.py
+
+commit 9d483d39f16ce69f696d5402334e66ba39715604
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-07
+
+    Add iptc.py, and read IPTC data when adding images
+
+M	TODO
+A	src/iptc.py
+M	src/postr.py
+
+commit f9101f9fd203413d10fd44040ceebf5ad7452a78
+Author: Ross Burton <ross@burtonini.com>
+Date:	2007-01-06
+
+    Update
+
+M	TODO
+
+commit 1101030ed8b1403ec685af7432e57210f522dc31
+Merge: 0e20888 79169a0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-22
+
+    Remember the last used folder when adding images (thanks Emmanuelle
+    Bassi)
+
+commit 79169a094f5c9942347bd1d8b23d0868433b1cad
+Author: Emmanuele Bassi <ebassi@gnome.org>
+Date:	2006-12-22
+
+    remember the last opened folder
+
+M	src/postr.py
+
+commit 0e20888c1f585f1daf0f8ab3fb49e07080cb803e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-21
+
+    Add contributors
+
+M	AUTHORS
+
+commit 8b53964c4bc8b83338ff6f82c7cf57753323a2f0
+Merge: dc88cab 4cb1723
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-21
+
+    Add optional dependency on GtkUnique
+
+commit 4cb1723af30b75b64715018fd520c9bc07989d39
+Merge: 9cd671e dc88cab
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-21
+
+    Merge from postr.dev
+
+commit 9cd671edc29aabe40cc10994e51bed2c2e1be5c1
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-21
+
+    Create a dummy UniqueApp for when PyGtkUnique isn't present
+
+M	src/postr.py
+
+commit dc88caba5afef53a62f9c25ec4c780b8112231d8
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-21
+
+    Only except ImportError, and open files passed on the command line
+
+M	postr
+
+commit 93a9162e2bc051902c4d411c75e4b0e0fec95e8a
+Merge: 1de256c d517ab2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Merge from postr.dev
+
+commit d517ab2e2889389d8e86b92ed35c19196822f636
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Add documentation
+
+M	src/postr.py
+
+commit 1f55941e41cf515bcac19e5cc2681d73cac77c57
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Remove done()
+
+M	src/postr.py
+
+commit f2161a43548bb80fdb45e3a44855a8e26050412d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Add comments
+
+M	src/postr.py
+
+commit 1de256c2e44383ea434f6bb537ebb562f68122ef
+Merge: 204e5b8 f75e620
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Merge from postr.dev
+
+commit f75e6208ff6872aee3d2aa5b04c8ed71046bc275
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Rejiggle an array
+
+M	src/postr.py
+
+commit 204e5b8bac0812ad013ad506a4b2cd39fddd5344
+Merge: 4fe664e 7ee41f5
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Merge from postr.dev
+
+commit 7ee41f5993e3ebb224c2048d39cebedb855dc2cf
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-20
+
+    Set the uploading flag
+
+M	src/postr.py
+
+commit 4fe664e791171b21b83a07d61c81501740c4d662
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Use gtkunique
+
+M	postr
+M	src/postr.py
+
+commit d8834b2410ed159a624076044f9ac7bf8a24c065
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Update
+
+M	TODO
+
+commit 6ca6650c8ea8cd8acbd3ed4a37544a118c3977ae
+Merge: f8f951e f14156d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Port to flickrapi, and thus Twisted
+
+commit f14156d03747e8b89205da4e049efa87b23bed16
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Remove flickrapi
+
+D	src/flickrapi.py
+
+commit 6292ac7e2f61ea6488d90aea22b9b3547b24e4c1
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Rationalise the reactor use
+
+M	postr
+M	src/postr.py
+
+commit b65f21a89a9d0cccd1ba6effd4c7630ef5a296d6
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Move flickr object into Postr
+
+M	src/postr.py
+
+commit b44f0355a7223ca375a17cd76a3a3dbfe7fd9eda
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Fix progress, uploading, and fetch quota when done
+
+M	src/postr.py
+
+commit 67da41ee6a2f2762d5e1b19d3178ea4f10c176b4
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-19
+
+    Initial port to flickrest
+
+M	postr
+D	src/decorators.py
+A	src/flickrest.py
+M	src/postr.py
+
+commit f8f951e56de077ca170d2e34def03b4ac80b2ffb
+Merge: 5c4647a 5f7650e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-17
+
+    Merge patch to read the web browser from GConf instead of hard-coding
+    firefox,
+    thanks Dean Sas.  I added a fallback to firefox if the key is unset.
+
+commit 5f7650efaeb3dd9d4917ca7f102487bd5d07cbde
+Author: Dean Sas <dean@deansas.org>
+Date:	2006-12-17
+
+    Use browser specified in gconf rather than hard coded firefox
+
+M	src/postr.py
+
+commit 5c4647a5807e6514aecdbf34d6ce9185addbf1ea
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-16
+
+    Import pygtk
+
+M	postr
+
+commit c9b4daf4ae99564e238f89019b2791cb173b9926
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-16
+
+    Add more items
+
+M	TODO
+
+commit 3682359ea9f2571f3f1925daff0d7195527fc991
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-16
+
+    Version 0.3
+
+M	setup.py
+
+commit a3c7c43ec6f2e835bd0743496e41b11599a4450e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-14
+
+    Update to FlickrAPI version 10 to fix uploading failure
+
+M	src/flickrapi.py
+
+commit 9d8df12c458b0d6076b607edf70711827de8a3f3
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-14
+
+    Remove out of date TODO
+
+M	src/postr.py
+
+commit 613df5987672414d881c094a5d9f86208c54d292
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-14
+
+    Fix token reference
+
+M	src/postr.py
+
+commit 0180e0abb9460296570555bd8edaae21ab2c1702
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-14
+
+    Fix token reference
+
+M	src/postr.py
+
+commit 905f9ebd88789adfaa5edd9f623157307ce43368
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-05
+
+    Fetch token in __init__ not in toplevel
+
+M	src/postr.py
+
+commit 1abfb1b66c8d7829bdae299d37349867c6f25714
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-12-05
+
+    Set version to 0.2
+
+M	setup.py
+
+commit ae707731ea27e583eef75e3f658dc191f133b44f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-11-27
+
+    Remove async queue, create uploading thread on demand.  The side
+    effect is that the off-by-ones in the uploading are all fixed.
+
+M	postr
+M	src/postr.py
+
+commit bd7fb92988bd32e960e2c4a68602d7814a290ec0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-11-20
+
+    Block and unblock the field change signals to avoid trampling field
+    when changing image
+
+M	src/postr.py
+
+commit 7a395a199514d7686ed41b491fcdf434991ad40e
+Merge: 42813f4 16f9fe3
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-11-10
+
+    Commit label fix when uploading
+
+commit 16f9fe31343bc92db7d058ca2eb96399d9528d29
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2006-11-10
+
+    Fixed label in progress bar while uploading
+
+M	src/postr.py
+
+commit 42813f44c810e3363cad367f729965ba2071fa7b
+Merge: aed4f03 a72ae40
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-11-10
+
+    Merge in German Poo-Caamano's patch to make the progress dialog a
+    lot nicer.
+
+commit a72ae4009d33d115605e8adc5ce3db09b6f3c862
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2006-11-10
+
+    Deleted old 'pulse' code and fixed the progressbar to start from 0
+    instead 1
+
+M	src/postr.py
+
+commit a1b9e9138fb542ef99f4bf0b2906c9c131411d6a
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2006-11-09
+
+    Improved the way to load when postr is not installed
+
+M	postr
+
+commit 1bf510ad70976b724529ef773bfff2a2ce394e0e
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2006-11-09
+
+    Add the option to run it even if is not installed
+
+M	postr
+
+commit c19e882fa9d67e2ac73dba79809de8815d330516
+Author: German Poo-Caaman~o <gpoo@gnome.org>
+Date:	2006-11-09
+
+    Fixed task_max_size and task_counter when a task is done
+
+M	src/postr.glade
+M	src/postr.py
+
+commit ec78d4b843a9e2fe8fab9f97dab1782da2143991
+Author: German Poo Caaman~o <gpoo@mimos>
+Date:	2006-11-09
+
+    Added progress information while uploading files.
+
+M	src/postr.glade
+M	src/postr.py
+
+commit fd78b74297ed1d8808c5479a9ff8f62c88953256
+Author: German Poo Caaman~o <gpoo@mimos>
+Date:	2006-11-09
+
+    Improved progress dialog: Now show the title/thumb of the upload file
+
+M	src/postr.glade
+M	src/postr.py
+
+commit aed4f039c3430a783d9adc3e44a1ec18e0a36092
+Merge: 9805fd2 52a7806
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-11-07
+
+    Merge from stable.
+
+commit 52a78064653b2c29be856671d512afaeaef9de59
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-11-07
+
+    Catch exceptions when calling os.getlogin() as it can fail
+
+M	src/postr.py
+
+commit 9805fd260949ff951770ee8c98097e85719d9dbd
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-10-02
+
+    Update TODO
+
+M	TODO
+
+commit 751e26d502c3915c4c87dfcd3ec7fe2efefe8e86
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-13
+
+    Improve and rename the threadsafe decorator to as_idle, thanks to
+    James Hensbridge
+
+M	src/decorators.py
+M	src/postr.py
+
+commit 2cb683a5baa36128dcbeaae3fd074e83ca29edb2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-12
+
+    Update
+
+M	TODO
+
+commit d9794327a9eb634ca784c08a12fc889b9258be2e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-12
+
+    Add upload progress bar
+
+M	TODO
+M	src/postr.glade
+M	src/postr.py
+
+commit 2bbe1f75925b685327428c428ebfa5de1d1367ec
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-12
+
+    Split decorators into a separate file
+
+A	src/decorators.py
+M	src/postr.py
+
+commit f1cdb983f135dc77ae29a0bb5b7fe6864dd6803d
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-12
+
+    Improve the threaded decorator, thanks James Hensbridge
+
+M	src/postr.py
+
+commit 4c8265f41d671677bd72e6f34195fc45c2dfc187
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Refactor the add photo code
+
+M	src/postr.py
+
+commit ab70f4696e510feccb040a8b0d112a8d3bb33419
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Always destroy the add photos dialog
+
+M	src/postr.py
+
+commit ff86ec46bc4ada289fe833575885fadf6c221bce
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Add rocking decorator to hide the idle handler in threaded calls
+
+M	src/postr.py
+
+commit 40dbe6df52490b22890d62c83f53400be9db72d6
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Add TODO
+
+M	src/postr.py
+
+commit 843f405e92884d4419395133fa2ea118a111c2b3
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Recurse if a folder is dropped
+
+M	TODO
+M	src/postr.py
+
+commit d4025d816cf1efd883d91c70f37aa73e12f40d24
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Remove the zoom statusbar, clip the size of the preview, and other
+    changes to upset Daniel
+
+M	src/postr.py
+
+commit 683597bc2429daa1d5e909f9bc02dffb9ec28574
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Special love for Daniel
+
+M	src/postr.py
+
+commit f5cbcffec4f5a1b3129964cb77c1532347e259c3
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Add more
+
+M	TODO
+
+commit db6a5fd78828e27b55bd92243fd3612e9898f793
+Merge: 5a94924 0411307
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Add a preview image on the RHS (Daniel Stone)
+
+commit 041130753cc918d030a50eeca41005ec97ee5192
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:	2006-09-11
+
+    Display zoom factor when viewing a photo.
+    Show in the status bar how much we're zoomed by.
+
+M	src/postr.py
+
+commit 25de20308c269a588f9907626d04f1c6a3fe038f
+Author: Daniel Stone <daniel@fooishbar.org>
+Date:	2006-09-11
+
+    Add RHS thumbnail scaling support.
+    Scale the RHS thumbnail, constrained by aspect ratio.
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 5a94924261acda8ffe62832e3eb7ffcd28132bdc
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-11
+
+    Fix spelling
+
+M	src/postr.py
+
+commit 6b08a0b43a68d42fd713ab840802ea0b543c0122
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Remove get/set_quota
+
+M	src/postr.py
+
+commit 0a6969c6da4de0a76a6f441428b12f7a0fa9d51c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Don't use idle_add but the enter/leave functions
+
+M	src/postr.py
+
+commit 81652c3f26999ba07584068a25bb1be6928b3e06
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Add rocking threaded wrapper and use for getting the quota
+
+M	src/postr.py
+
+commit c1f7773b0d91947c423e3737483cb5bcd594cdb0
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Add some more comments
+
+M	src/postr.py
+
+commit 402a9830520c779307a71284dc22e63e12de5b58
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Update TODO
+
+M	TODO
+
+commit 5efaf6aef8b30507fba02a6d443f17f47664913a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Fix the threading
+
+M	src/postr.py
+
+commit 685dcf09ea4ad94debed8a7e12731ba1f53b10fb
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Rename uri to filename, and implement File->Add
+
+M	src/postr.py
+
+commit 8bf056271aaf1568ef7f0b310f3f7db6bef22e04
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Add Edit->Delete menu item
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 46775cd8239b2faa674f535d85d1490b1d9f6f9e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Add menu items to edit the selection
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 7b6f30eb921c478862b8d59d830e39a52b240e3c
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-10
+
+    Show upload quota in a statusbar
+
+M	TODO
+M	src/postr.glade
+M	src/postr.py
+
+commit 9800de0a73bc2ebf4345e55234347ad6d37868c7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-09
+
+    Add uploading event
+
+M	src/postr.py
+
+commit a34aa12e74841d8a0e7899cf6276eeb1934f5e34
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-09
+
+    Allow multiple selections and batch edits
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 00904f15ec76bddedbfb1b3afb177fd4e44d6f38
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-08
+
+    Fix starter script
+
+M	postr
+
+commit 975216b56f97c4d86d9b208b1b9ddea24348f11f
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-08
+
+    Clean up selection code
+
+M	src/postr.py
+
+commit 2052d9a13375182f150d12b9e14d1e834af9d509
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Implement a single quit callback
+
+M	src/postr.glade
+M	src/postr.py
+
+commit d88b576d89cc136058ae1db06c12c1f4d435c5d2
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    More refactoring
+
+M	src/postr.py
+
+commit 6ed48c43de70553996bee90526ed0389324a3f1a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Start refactoring the source
+
+M	src/postr.glade
+M	src/postr.py
+
+commit 36c622a4efca832e19ebf95da27bdc1ca51b9d1e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Rename jpegData to imageData
+
+M	src/flickrapi.py
+M	src/postr.py
+
+commit 0737702cf7e6a9cd37b74d87273553eb508a304e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Implement dragging of image data
+
+M	TODO
+M	src/postr.py
+
+commit 33cb8d0763dc7c84f8430f4a4e014d00262c0ac1
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Move gtk.main
+
+M	postr
+M	src/postr.py
+
+commit d2ebbc121b10bc52d8ee2cab822c6b042d3162da
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Removed stupid idea
+
+D	postr-noinst
+
+commit a44616f0e7a4ec6f708ba2d390ea81b50096bc8e
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Remove dead code
+
+M	src/postr.py
+
+commit 28294260175f333d49d1d376d5a0af550cd0e673
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-07
+
+    Add script to run postr from source tree
+
+A	postr-noinst
+
+commit a0681e3c9684246e280c23cf05380e1edd93a80a
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-06
+
+    Add TODO
+
+M	src/flickrapi.py
+
+commit 3d30ebf0bb7be6c639f18eada38102ec1f43de59
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-05
+
+    Destroy the about dialog when its closed
+
+M	src/postr.py
+
+commit e931af21f3cd9f98c0b99362ddc5359d5b0c86f3
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-05
+
+    Add a desktop file
+
+M	setup.py
+A	src/postr.desktop
+
+commit 1f450bc3651bdedfddd622ebead17701c9aa3b66
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-05
+
+    Re-arrange source and use distutils to install
+
+M	.bzrignore
+A	postr
+A	setup.py
+R100	EXIF.py src/EXIF.py
+A	src/__init__.py
+R100	flickrapi.py	src/flickrapi.py
+R100	postr.glade	src/postr.glade
+R099	postr.py	src/postr.py
+
+commit fecb6f83ef1ef0575cb459c81d5eb3536cfa20fd
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-02
+
+    Ignore Glade backup and project files
+
+A	.bzrignore
+
+commit 6cb493477e8cd4a7f78878aa5c1d195a44aa4a48
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-02
+
+    Add stuff to TODO
+
+M	TODO
+
+commit f4653ad0769952246a7f7e61ffa4f3a54db3ef24
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-09-02
+
+    Mention flickrapi.py
+
+M	AUTHORS
+
+commit 810170f9ef68c7b09cc746788f18d3fe7eb4e721
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-08-16
+
+    Add TODO
+
+A	TODO
+
+commit edb51b3a5eb485b26fd644a8bfcc347602a3db15
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-08-15
+
+    Add about dialog
+
+M	postr.py
+
+commit b8e2b8fea34b762db06cfdc6319fa1c9f020fe43
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-08-15
+
+    Don't use a custom flickrapi
+
+M	flickrapi.py
+M	postr.py
+
+commit ad971e21490f871088c89562a4b63956f045f340
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-08-15
+
+    Do the uploading in a thread
+
+M	postr.py
+
+commit 468b824d7a3bda28b2d82adc07fa40f01b566442
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-08-15
+
+    Remove the status bar and clean up the menu bar
+
+M	postr.glade
+
+commit c89bdc3c2c9d211d13ed429dd1439490473583b7
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-08-15
+
+    Add documentation and copyright
+
+A	AUTHORS
+A	COPYING
+A	README
+M	postr.py
+
+commit 7d8d79aeb16e52995c3ef984ee336d2fecd27d39
+Author: Ross Burton <ross@burtonini.com>
+Date:	2006-08-15
+
+    Initial commit.
+
+A	EXIF.py
+A	flickrapi.py
+A	postr.glade
+A	postr.py

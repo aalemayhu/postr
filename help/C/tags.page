@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/"
+      xmlns:e="http://projectmallard.org/experimental/"
+      type="topic" style="task" id="tags">
+
+<info>
+  <link type="guide" xref="index#properties"/>
+  <desc>Adding tags to your pictures.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Adding tags to your pictures</title>
+
+  <section id="what-is-a-tag">
+    <info>
+      <title type="link">What is a tag?</title>
+    </info>
+    <title>What is a tag?</title>
+    <p>A tag is a non-hierarchical term assigned to a piece of information. This term helps describe an item and allows it to be found again by browsing or searching. Tags are generally chosen informally and personally by the user.</p>
+  </section>
+
+  <section id="creating-a-tag">
+    <info>
+      <title type="link">Creating a tag</title>
+    </info>
+    <title>Creating a tag</title>
+    <p>Tags are created by typing the term on Tags field on <app>Postr</app> main window</p>
+  </section>
+
+</page>

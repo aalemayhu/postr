@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="permissions" xml:lang="cs">
+<info>
+  <link type="guide" xref="index#properties"/>
+  <desc>Nastavení oprávnění k vašim fotografiím.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Soukromí, zabezpečení a licence</title>
+
+  <section id="privacy">
+    <info>
+      <title type="link">Soukromí</title>
+    </info>
+    <title>Soukromí vašich fotografií</title>
+    <p>Můžete zvolit mezi:</p>
+        <list>
+            <item><p>Veřejná</p></item>
+            <item><p>Jen rodina</p></item>
+            <item><p>Jen přátelé a rodina</p></item>
+            <item><p>Soukromá</p></item>
+        </list>
+  </section>
+
+  <section id="safety">
+    <info>
+      <title type="link">Zabezpečení</title>
+    </info>
+    <title>Definování zabezpečení vašeho obsahu</title>
+    <p>Můžete zvolit mezi:</p>
+        <list>
+            <item><p>Bezpečná</p></item>
+            <item><p>Moderovaná</p></item>
+            <item><p>Důvěrná</p></item>
+        </list>
+  </section>
+  
+  <section id="content-type">
+    <info>
+      <title type="link">Typ obsahu</title>
+    </info>
+    <title>Typ obsahu vašeho obsahu</title>
+    <p>Můžete zvolit mezi:</p>
+        <list>
+            <item><p>Fotka</p></item>
+            <item><p>Snímek obrazovky</p></item>
+            <item><p>Jiný</p></item>
+        </list>
+  </section>
+  
+  <section id="license">
+    <info>
+      <title type="link">Licence</title>
+    </info>
+    <title>Volba licence for vaše fotografie</title>
+    <p>Můžete zvolit mezi:</p>
+        <list>
+            <item><p>Výchozí</p></item>
+            <item><p>Všechna práva vyhrazena</p></item>
+            <item><p>Licence Attribution License</p></item>
+            <item><p>Licence Attribution-NoDerivs License</p></item>
+            <item><p>Licence Attribution-NonCommercial-NoDerivs License</p></item>
+            <item><p>Licence Attribution-NonCommercial License</p></item>
+            <item><p>Licence Attribution-NonCommercial-ShareAlike License</p></item>
+            <item><p>Licence Attribution-ShareAlike License</p></item>
+            <item><p>Neznámé omezení autorských práv</p></item>
+            <item><p>Licence United States Government Work</p></item>
+        </list>
+  </section>
+
+</page>

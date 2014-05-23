@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="offline" xml:lang="sl">
+<info>
+  <link type="guide" xref="index#advanced"/>
+  <desc>Kako nadaljevati svoje delo kasneje.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+  <credit type="author">
+    <name>Germán Póo-Caamaño</name>
+    <email>gpoo@gnome.org</email>
+  </credit>
+</info>
+
+<title>Nadaljujete pošiljanje kasneje</title>
+
+  <p/>
+
+  <steps>
+    <item><p>Shrani sejo.</p></item>
+    <item><p>Izberite ime.</p></item>
+    <item><p>Naslednjič lahko naložite predhodno shranjeno sejo.</p></item>
+  </steps>
+
+  <note style="tip">
+    <p>V primeru, da naložite sejo kadar niste povezani, bodo lastnosti, ki se zanašajo na vašo povezavo izgubljeno. Te lastnosti so: nizi, skupine in zasebnost.</p>
+  </note>
+
+</page>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="uploading" xml:lang="de">
+<info>
+  <link type="guide" xref="index#getting-started"/>
+  <desc>Teilen Sie Ihre Fotos mit Ihrer Familie, Ihren Freunden oder mit der Welt</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Hochladen von Fotos zu Flickr</title>
+    <steps>
+        <item><p>Klicken Sie auf <gui>Fotos hinzufügen …</gui></p></item>
+        <item><p>Wählen Sie im Fenster <gui>Fotos hinzufügen</gui> die Fotos aus, die Sie zu Flickr hochladen wollen. Sie können nur ein Foto oder auch mehrere gleichzeitig auswählen.</p></item>
+        <item><p>Wählen Sie ein Bild aus und bearbeiten Sie den Titel, die Markierungen, die Privatspähre, die Sicherheitsstufe und weitere Daten des Bildes.</p></item>
+        <item><p>Sobald Sie fertig sind, klicken Sie auf den Knopf <gui>Hochladen</gui>.</p></item>
+    </steps>
+    <note style="tip">
+      <p>Sie können auch Fotos aus dem Fenster der Dateiverwaltung (<gui>Nautilus</gui>) in die linke Leiste ziehen und dort ablegen.</p>
+    </note>
+</page>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="tags" xml:lang="fr">
+
+<info>
+  <link type="guide" xref="index#properties"/>
+  <desc>Ajouter des étiquettes à vos images.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Ajouter des étiquettes à vos images</title>
+
+  <section id="what-is-a-tag">
+    <info>
+      <title type="link">Qu'est-ce qu'une étiquette ?</title>
+    </info>
+    <title>Qu'est-ce qu'une étiquette ?</title>
+    <p>Une étiquette est un terme non hiérarchique assigné à une information. Elle sert à décrire un objet et lui permet d'être retrouvé par un navigateur ou un programme de recherche. Les étiquettes sont généralement choisies de manière informelle et personnelle par l'utilisateur.</p>
+  </section>
+
+  <section id="creating-a-tag">
+    <info>
+      <title type="link">Créer une étiquette</title>
+    </info>
+    <title>Créer une étiquette</title>
+    <p>Les étiquettes sont créées en saisissant leur nom dans le champ de saisie « Étiquettes » de la fenêtre principale de <app>Postr</app></p>
+  </section>
+
+</page>

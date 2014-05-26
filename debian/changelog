@@ -14,6 +14,9 @@ postr (0.13-1) UNRELEASED; urgency=low
   * debian/control:
     - gnome-doc-utils, python-nautilus python-gtk2-dev and intltool added to
       Build-Depends.
+  * debian/patches:
+    - Fix lintian error package-installs-python-bytecode with
+      03-handle-python-bytecode-compilation.patch
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

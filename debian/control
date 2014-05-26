@@ -9,6 +9,7 @@ Build-Depends:
  , python
  , python-nautilus
  , python-gtk2-dev
+ , intltool (>= 0.40.0)
 Build-Depends-Indep:
  python-support (>= 0.90.0~)
 Standards-Version: 3.8.4

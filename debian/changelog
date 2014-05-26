@@ -12,7 +12,7 @@ postr (0.13-1) UNRELEASED; urgency=low
     - 02-fix-glade-path.patch added, fix looking for postr.glade in wrong
       directory.
   * debian/control:
-    - gnome-doc-utils, python-nautilus and python-gtk2-dev added to
+    - gnome-doc-utils, python-nautilus python-gtk2-dev and intltool added to
       Build-Depends.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200

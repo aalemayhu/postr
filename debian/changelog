@@ -1,4 +1,4 @@
-postr (0.13-1) UNRELEASED; urgency=low
+postr (0.13-1) unstable; urgency=low
 
   [ David Paleino ]
   * debian/patches/:
@@ -6,17 +6,16 @@ postr (0.13-1) UNRELEASED; urgency=low
       (LP: #281999)
 
   [ Alexander Alemayhu ]
-  * New maintainer (Closes: #711833)
-  * New upstream release
+  * New upstream release version 0.13
   * debian/patches/:
     - 02-fix-glade-path.patch added, fix looking for postr.glade in wrong
       directory.
+    - 03-handle-python-bytecode-compilation.patch added, fix lintian error
+      package-installs-python-bytecode.
   * debian/control:
     - gnome-doc-utils, python-nautilus python-gtk2-dev and intltool added to
       Build-Depends.
-  * debian/patches:
-    - Fix lintian error package-installs-python-bytecode with
-      03-handle-python-bytecode-compilation.patch
+    - Setting PAPT as new maintainer (Closes: #711833)
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

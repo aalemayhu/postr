@@ -16,6 +16,7 @@ postr (0.13-1) unstable; urgency=low
     - gnome-doc-utils, python-nautilus python-gtk2-dev and intltool added to
       Build-Depends.
     - Setting PAPT as new maintainer (Closes: #711833)
+    - Update Vcs-* to new repository on Github.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

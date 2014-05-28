@@ -20,6 +20,8 @@ postr (0.13-1) unstable; urgency=low
     - Update Vcs-* to new repository on Github.
   * debian/copyright:
     - Use Format, fix lintian warning obsolete-field-in-dep5-copyright.
+  * debian/watch:
+    - bartm wrote an updated watch file.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

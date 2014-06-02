@@ -24,6 +24,8 @@ postr (0.13-1) unstable; urgency=low
     - bartm wrote an updated watch file.
   * debian/postr.1:
     - Added man page written by Yoann Gauthier.
+  * debian/postr.manpages:
+    - Inspired by the how-can-i-help package by adding postr.manpages.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

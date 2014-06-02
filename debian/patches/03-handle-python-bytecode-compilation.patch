@@ -1,7 +1,9 @@
-Index: postr/Makefile.in
-===================================================================
---- postr.orig/Makefile.in
-+++ postr/Makefile.in
+From: Alexander Alemayhu <alexander@bitraf.no>
+Subject: Fix lintian error package-installs-python-bytecode.
+Forwarded: no
+
+--- a/Makefile.in
++++ b/Makefile.in
 @@ -40,8 +40,7 @@ DIST_COMMON = README $(am__configure_dep
  	$(dist_appicon22_DATA) $(dist_appicon24_DATA) \
  	$(dist_appicon32_DATA) $(dist_appiconsc_DATA) \

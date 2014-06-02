@@ -1,3 +1,7 @@
+From: Alexander Alemayhu <alexander@bitraf.no>
+Subject: Fix looking for postr.glade in wrong directory.
+Forwarded: no
+
 --- a/src/postr.py
 +++ b/src/postr.py
 @@ -82,7 +82,7 @@ class Postr(UniqueApp):

@@ -26,6 +26,8 @@ postr (0.13-1) unstable; urgency=low
     - Added man page written by Yoann Gauthier.
   * debian/postr.manpages:
     - Inspired by the how-can-i-help package by adding postr.manpages.
+  * debian/copyright:
+    - Fix lintian tag unversioned-copyright-format-uri.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

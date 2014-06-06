@@ -1,5 +1,9 @@
 Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
 
+Files: debian/postr.1
+Copyright: @ 2015, Yoann Gauthier <yoann.gauthier9@gmail.com>
+License: GPL-3
+
 Files: debian/*
 Copyright: © 2007-2010, Ross Burton <ross@debian.org>
  © 2010, David Paleino <dapal@debian.org>

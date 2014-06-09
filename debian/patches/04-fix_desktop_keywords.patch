@@ -1,0 +1,13 @@
+Description: Fix Desktop Keyword warning
+ Fix desktop-entry-lacks-keywords-entry lintian tag for clean package
+Author: Yoann Gauthier <yoann.gauthier9@gmail.com>
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/data/postr.desktop.in.in
++++ b/data/postr.desktop.in.in
+@@ -13,3 +13,4 @@
+ X-GNOME-Bugzilla-Product=postr
+ X-GNOME-Bugzilla-Component=general
+ X-GNOME-Bugzilla-Version=@VERSION@
++_Keywords=flickr;upload;picture;postr;image;tool;gnome;
+\ No newline at end of file

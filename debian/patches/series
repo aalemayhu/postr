@@ -2,3 +2,4 @@
 01-fix_encoding.patch
 02-fix-glade-path.patch
 03-handle-python-bytecode-compilation.patch
+04-fix_desktop_keywords.patch

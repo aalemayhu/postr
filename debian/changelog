@@ -29,6 +29,11 @@ postr (0.13-1) unstable; urgency=low
   * debian/copyright:
     - Fix lintian tag unversioned-copyright-format-uri.
 
+  [ Yoann Gauthier ]
+  * debian/patches/:
+    - 04-fix_desktop_keywords.patch added, fix lintian error 
+      desktop-entry-lacks-keywords-entry. 
+
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 
 postr (0.12.4-2) unstable; urgency=low

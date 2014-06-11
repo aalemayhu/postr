@@ -33,6 +33,11 @@ postr (0.13-1) unstable; urgency=low
   * debian/patches/:
     - 04-fix_desktop_keywords.patch added, fix lintian error 
       desktop-entry-lacks-keywords-entry. 
+    - 05-fix_missing_license_paragraph.patch added, fix lintian error
+      missing-license-paragraph-in-dep5-copyright gpl-3.
+  * debian/copyright:
+    - Added GPL-3 license text, fix lintian error
+      missing-license-paragraph-in-dep5-copyright gpl-3.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Thu, 22 May 2014 19:56:02 +0200
 

@@ -3,4 +3,3 @@
 02-fix-glade-path.patch
 03-handle-python-bytecode-compilation.patch
 04-fix_desktop_keywords.patch
-05-fix_missing_license_paragraph.patch

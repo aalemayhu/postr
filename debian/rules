@@ -4,5 +4,11 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+override_dh_auto_configure:
+	autoreconf -f -i
+	intltoolize --force
+	aclocal
+	dh_auto_configure
+
 %:
-	dh $@
+	dh $@ --with autoreconf

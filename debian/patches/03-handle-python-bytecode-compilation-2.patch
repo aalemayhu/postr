@@ -1,0 +1,17 @@
+From: Alexander Alemayhu <alexander@bitraf.no>
+Subject: Fix lintian error package-installs-python-bytecode.
+Forwarded: no
+
+--- a/Makefile.am
++++ b/Makefile.am
+@@ -35,10 +35,6 @@ postr_PYTHON = \
+ 	src/util.py \
+ 	src/version.py
+ 
+-# Nautilus extension
+-postrnautilusdir = $(nautilusextensiondir)/
+-postrnautilus_PYTHON = nautilus/postrExtension.py
+-
+ # icons
+ iconthemedir = $(datadir)/icons/hicolor
+ appicon16dir = $(iconthemedir)/16x16/apps

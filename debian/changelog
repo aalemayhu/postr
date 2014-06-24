@@ -13,8 +13,8 @@ postr (0.13-1) UNRELEASED; urgency=low
     - 03-handle-python-bytecode-compilation.patch-2 added, fix lintian error
       package-installs-python-bytecode.
   * debian/control:
-    - dh-autoreconf, gnome-doc-utils, python-nautilus python-gtk2-dev and
-      intltool added to Build-Depends.
+    - dh-autoreconf, dh-python, gnome-doc-utils, python-nautilus python-gtk2-dev
+      and intltool added to Build-Depends.
     - Setting PAPT as new maintainer (Closes: #711833)
     - Setting Alexander Alemayhu and Yoann Gauthier as uploaders.
     - Update Vcs-* to new repository on Github.
@@ -31,6 +31,7 @@ postr (0.13-1) UNRELEASED; urgency=low
     - Fix lintian tag unversioned-copyright-format-uri.
   * debian/rules:
     - Fix lintian tag outdated-autotools-helper-file for config.{guess, sub}.
+    - Use dh-python.
 
   [ Yoann Gauthier ]
   * debian/patches/:

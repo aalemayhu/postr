@@ -11,4 +11,4 @@ override_dh_auto_configure:
 	dh_auto_configure
 
 %:
-	dh $@ --with autoreconf
+	dh $@ --with autoreconf,python2

@@ -17,7 +17,6 @@ postr (0.13-1) unstable; urgency=low
       and intltool added to Build-Depends.
     - Setting PAPT as new maintainer (Closes: #711833)
     - Setting Alexander Alemayhu and Yoann Gauthier as uploaders.
-    - Update Vcs-* to new repository on Github.
     - Update standard-version from 3.8.4 to 3.9.5.
   * debian/copyright:
     - Use Format, fix lintian warning obsolete-field-in-dep5-copyright.

@@ -1,4 +1,4 @@
-postr (0.13-1) UNRELEASED; urgency=low
+postr (0.13-1) unstable; urgency=low
 
   [ David Paleino ]
   * debian/patches/:

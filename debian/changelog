@@ -15,8 +15,8 @@ postr (0.13-1) unstable; urgency=low
   * debian/control:
     - dh-autoreconf, dh-python, gnome-doc-utils, python-nautilus python-gtk2-dev
       and intltool added to Build-Depends.
-    - Setting PAPT as new maintainer (Closes: #711833)
-    - Setting Alexander Alemayhu and Yoann Gauthier as uploaders.
+    - Setting Alexander Alemayhu as new maintainer (Closes: #711833)
+    - Setting Yoann Gauthier as uploader.
     - Update standard-version from 3.8.4 to 3.9.5.
   * debian/copyright:
     - Use Format, fix lintian warning obsolete-field-in-dep5-copyright.

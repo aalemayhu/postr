@@ -1,0 +1,90 @@
+Author: Alexander Alemayhu<alexander@bitraf.no>
+Description: Replace http with https for the flickr urls.
+Forwarded: no
+
+--- postr-0.13.orig/src/SetCombo.py
++++ postr-0.13/src/SetCombo.py
+@@ -82,7 +82,7 @@ class SetCombo(gtk.ComboBox):
+                            0, photoset.get("id"),
+                            1, photoset.find("title").text)
+ 
+-            url = "http://static.flickr.com/%s/%s_%s%s.jpg" % (photoset.get("server"), photoset.get("primary"), photoset.get("secret"), "_s")
++            url = "https://static.flickr.com/%s/%s_%s%s.jpg" % (photoset.get("server"), photoset.get("primary"), photoset.get("secret"), "_s")
+             getPage (url).addCallback(self.__got_set_thumb, it).addErrback(self.twisted_error)
+ 
+     def update(self):
+--- postr-0.13.orig/src/flickrest.py
++++ postr-0.13/src/flickrest.py
+@@ -47,7 +47,7 @@ class FlickrError(Exception):
+  SIZE_LARGE) = range (0, 5)
+ 
+ class Flickr:
+-    endpoint = "http://api.flickr.com/services/rest/?"
++    endpoint = "https://api.flickr.com/services/rest/?"
+     
+     def __init__(self, api_key, secret, perms="read"):
+         self.__methods = {}
+@@ -73,7 +73,7 @@ class Flickr:
+     def set_proxy(self, proxy):
+         # Handle proxies which are not URLs
+         if proxy and "://" not in proxy:
+-            proxy = "http://" + proxy
++            proxy = "https://" + proxy
+         self.proxy = proxy
+     
+     def __repr__(self):
+@@ -208,7 +208,7 @@ class Flickr:
+             }
+ 
+         self.logger.info("Calling upload")
+-        return client.upload("http://api.flickr.com/services/upload/",
++        return client.upload("https://api.flickr.com/services/upload/",
+                              proxy=self.proxy, method="POST",
+                              headers=headers, postdata=form,
+                              progress_tracker=progress_tracker).addCallback(self.__cb, "upload")
+@@ -245,7 +245,7 @@ class Flickr:
+             keys = { 'perms': self.perms,
+                      'frob': frob }
+             self.__sign(keys)
+-            url = "http://flickr.com/services/auth/?api_key=%(api_key)s&perms=%(perms)s&frob=%(frob)s&api_sig=%(api_sig)s" % keys
++            url = "https://flickr.com/services/auth/?api_key=%(api_key)s&perms=%(perms)s&frob=%(frob)s&api_sig=%(api_sig)s" % keys
+             return {'url': url, 'frob': frob}
+         return self.auth_getFrob().addCallback(gotFrob)
+ 
+@@ -299,4 +299,4 @@ class Flickr:
+         elif size == SIZE_LARGE:
+             suffix = "_b"
+ 
+-        return "http://static.flickr.com/%s/%s_%s%s.jpg" % (photo.get("server"), photo.get("id"), photo.get("secret"), suffix)
++        return "https://static.flickr.com/%s/%s_%s%s.jpg" % (photo.get("server"), photo.get("id"), photo.get("secret"), suffix)
+--- postr-0.13.orig/src/postr.py
++++ postr-0.13/src/postr.py
+@@ -223,11 +223,11 @@ class Postr(UniqueApp):
+                 user = client.get_string("/system/http_proxy/authentication_user")
+                 password = client.get_string("/system/http_proxy/authentication_password")
+                 if user and user != "":
+-                    url = "http://%s:%s@%s:%d" % (user, password, host, port)
++                    url = "https://%s:%s@%s:%d" % (user, password, host, port)
+                 else:
+-                    url = "http://%s:%d" % (host, port)
++                    url = "https://%s:%d" % (host, port)
+             else:
+-                url = "http://%s:%d" % (host, port)
++                url = "https://%s:%d" % (host, port)
+ 
+             self.flickr.set_proxy(url)
+         else:
+--- postr-0.13.orig/src/util.py
++++ postr-0.13/src/util.py
+@@ -98,9 +98,9 @@ def get_buddyicon(flickr, data, size=48)
+         return load_thumb(page, size)
+     
+     if int(data.get("iconfarm")) > 0:
+-        url = "http://farm%s.static.flickr.com/%s/buddyicons/%s.jpg" % (data.get("iconfarm"), data.get("iconserver"), data.get("nsid"))
++        url = "https://farm%s.static.flickr.com/%s/buddyicons/%s.jpg" % (data.get("iconfarm"), data.get("iconserver"), data.get("nsid"))
+     else:
+-        url = "http://www.flickr.com/images/buddyicon.jpg"
++        url = "https://www.flickr.com/images/buddyicon.jpg"
+ 
+     if __buddy_cache.has_key(url):
+         from twisted.internet import defer

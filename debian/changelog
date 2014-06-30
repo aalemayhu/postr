@@ -1,3 +1,11 @@
+postr (0.13-2) UNRELEASED; urgency=medium
+
+  * debian/patches/:
+    - 05-use-https-where-needed-for-flickr.patch added, fixes bug which renders
+      the application unusable. (Closes: 753133)
+
+ -- Alexander Alemayhu <alexander@bitraf.no>  Mon, 30 Jun 2014 18:01:49 +0200
+
 postr (0.13-1) unstable; urgency=low
 
   [ David Paleino ]

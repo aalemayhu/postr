@@ -3,3 +3,4 @@
 02-fix-glade-path.patch
 03-handle-python-bytecode-compilation-2.patch
 04-fix_desktop_keywords.patch
+05-use-https-where-needed-for-flickr.patch

@@ -7,6 +7,8 @@ postr (0.13-2) unstable; urgency=high
     - fix lintian vcs-field-not-canonical tag, by updating the Vcs-* fields.
   * debian/postr.1:
     - Correct copyright year for manpage. Change it from 2015 to 2014.
+  * debian/patches/series:
+    - Forgot to append 05-use-https-where-needed-for-flickr.patch.
 
  -- Alexander Alemayhu <alexander@bitraf.no>  Mon, 30 Jun 2014 18:01:49 +0200
 

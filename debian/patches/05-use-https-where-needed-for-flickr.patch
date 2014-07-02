@@ -2,8 +2,8 @@ Author: Alexander Alemayhu<alexander@bitraf.no>
 Description: Replace http with https for the flickr urls.
 Forwarded: no
 
---- postr-0.13.orig/src/SetCombo.py
-+++ postr-0.13/src/SetCombo.py
+--- a/src/SetCombo.py
++++ b/src/SetCombo.py
 @@ -82,7 +82,7 @@ class SetCombo(gtk.ComboBox):
                             0, photoset.get("id"),
                             1, photoset.find("title").text)
@@ -13,8 +13,8 @@ Forwarded: no
              getPage (url).addCallback(self.__got_set_thumb, it).addErrback(self.twisted_error)
  
      def update(self):
---- postr-0.13.orig/src/flickrest.py
-+++ postr-0.13/src/flickrest.py
+--- a/src/flickrest.py
++++ b/src/flickrest.py
 @@ -47,7 +47,7 @@ class FlickrError(Exception):
   SIZE_LARGE) = range (0, 5)
  
@@ -57,8 +57,8 @@ Forwarded: no
  
 -        return "http://static.flickr.com/%s/%s_%s%s.jpg" % (photo.get("server"), photo.get("id"), photo.get("secret"), suffix)
 +        return "https://static.flickr.com/%s/%s_%s%s.jpg" % (photo.get("server"), photo.get("id"), photo.get("secret"), suffix)
---- postr-0.13.orig/src/postr.py
-+++ postr-0.13/src/postr.py
+--- a/src/postr.py
++++ b/src/postr.py
 @@ -223,11 +223,11 @@ class Postr(UniqueApp):
                  user = client.get_string("/system/http_proxy/authentication_user")
                  password = client.get_string("/system/http_proxy/authentication_password")
@@ -74,8 +74,8 @@ Forwarded: no
  
              self.flickr.set_proxy(url)
          else:
---- postr-0.13.orig/src/util.py
-+++ postr-0.13/src/util.py
+--- a/src/util.py
++++ b/src/util.py
 @@ -98,9 +98,9 @@ def get_buddyicon(flickr, data, size=48)
          return load_thumb(page, size)
      

@@ -1,3 +1,13 @@
+postr (0.13.1-1) unstable; urgency=medium
+
+  * New upstream release version 0.13.1
+  * debian/patches:
+    - 05-use-https-where-needed-for-flickr.patch removed, upstream added our
+      patch to their release :)
+    - 02-fix-glade-path.patch removed, this patch is not needed anymore.
+
+ -- Alexander Alemayhu <alexander@bitraf.no>  Sun, 06 Jul 2014 10:50:07 +0200
+
 postr (0.13-2) unstable; urgency=high
 
   * debian/patches/:

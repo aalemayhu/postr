@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="uploading" xml:lang="sl">
+<info>
+  <link type="guide" xref="index#getting-started"/>
+  <desc>Delite svoje fotografije z družino, prijatelji ali vsemi</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Pošiljanje fotografij na Flickr</title>
+    <steps>
+        <item><p>Kliknite na <gui>Dodaj fotografije ...</gui>.</p></item>
+        <item><p>Iz okna <gui>Dodajanje fotografij</gui> izberite fotografije, ki jih želite poslati na Flickr. Izberete lahko več fotografij hkrati.</p></item>
+        <item><p>Izberite sliko in uredite naslov, opis, oznake, zasebnost, varnost, vrsto, dovoljenja in druge podatke slike</p></item>
+        <item><p>Ko končate, dodajte dodaten opis in kliknite na gumb Pošlji</p></item>
+    </steps>
+    <note style="tip">
+      <p>Fotografije lahko tudi povlečete iz upravlajlnika datotek (<gui>Nautilus</gui>) in jih izpustite na levi pladenj.</p>
+    </note>
+</page>

@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" id="introduction" xml:lang="de">
+
+<info>
+    <link type="guide" xref="index"/>
+    <desc>Einführung in den <app>Postr</app> Flickr-Uploader.</desc>
+    <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Einführung</title>
+
+  <p><app>Postr</app> ist ein Werkzeug zum Hochladen von Bildern zu <link href="http://flickr.com/"> Flickr</link> für die GNOME-Arbeitsumgebung. <app>Postr</app> ermöglicht Ihnen, Ihre Bilder Ihrer Familie, Freunden, Kontakten oder auch allgemein öffentlich zugänglich zu machen.</p>
+  <p><app>Postr</app> unterstützt die am häufigsten genutzten Eigenschaften eines Bildes in Flickr, wie Titel, Beschreibung und Markierungen. Außerdem werden Gruppen unterstützt, so dass Sie Ihre Bilder für die Benutzergruppen freigeben können, die Sie in Flickr abonniert haben.</p>
+  <p>Mit <app>Postr</app> können Sie eine Reihe von Bildern zusammenfassen, um sie besser zu organisieren. Es kann sich dabei sowohl um neue als auch bereits vorhandene Bilder handeln.</p>
+  <p>Um <app>Postr</app> verwenden zu können, benötigen Sie ein Konto bei <link href="http://flickr.com/">Flickr</link>.</p>
+
+  <figure>
+    <title><app>Postr</app>-Fenster</title>
+    <desc><app>Postr</app>-Hauptfenster</desc>
+    <media type="image" src="figures/postr-main-window.png" mime="image/png" style="right">
+      <p><app>Postr</app>-Hauptfenster.</p>
+    </media>
+  </figure>
+
+</page>

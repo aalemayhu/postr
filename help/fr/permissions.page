@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="permissions" xml:lang="fr">
+<info>
+  <link type="guide" xref="index#properties"/>
+  <desc>Définir les autorisations pour vos photos.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Confidentialité, sécurité et licence</title>
+
+  <section id="privacy">
+    <info>
+      <title type="link">Confidentialité</title>
+    </info>
+    <title>Confidentialité de vos photos</title>
+    <p>Vous pouvez choisir entre :</p>
+        <list>
+            <item><p>Public</p></item>
+            <item><p>Seulement la famille</p></item>
+            <item><p>Seulement les amis et la famille</p></item>
+            <item><p>Privé</p></item>
+        </list>
+  </section>
+
+  <section id="safety">
+    <info>
+      <title type="link">Sécurité</title>
+    </info>
+    <title>Définir la sécurité de votre contenu</title>
+    <p>Vous pouvez choisir entre :</p>
+        <list>
+            <item><p>Sécurisé</p></item>
+            <item><p>Modéré</p></item>
+            <item><p>Restreint</p></item>
+        </list>
+  </section>
+  
+  <section id="content-type">
+    <info>
+      <title type="link">Type de contenu</title>
+    </info>
+    <title>Type de contenu</title>
+    <p>Vous pouvez choisir entre :</p>
+        <list>
+            <item><p>Photo</p></item>
+            <item><p>Capture d'écran</p></item>
+            <item><p>Autre</p></item>
+        </list>
+  </section>
+  
+  <section id="license">
+    <info>
+      <title type="link">Licence</title>
+    </info>
+    <title>Choisir une licence pour vos photos</title>
+    <p>Vous pouvez choisir entre :</p>
+        <list>
+            <item><p>Défaut</p></item>
+            <item><p>Tous droits réservés</p></item>
+            <item><p>Licence Paternité</p></item>
+            <item><p>Licence Paternité-Aucun Travaux Dérivés</p></item>
+            <item><p>Licence Paternité-Non Commerciale - Aucun Travaux Dérivés</p></item>
+            <item><p>Licence Paternité-Non Commerciale</p></item>
+            <item><p>Licence Paternité-Non Commerciale-Partage des Conditions Initiales à l'Identique</p></item>
+            <item><p>Licence Paternité-Partage des Conditions Initiales à l'Identique</p></item>
+            <item><p>Aucune restriction de droits d'auteur connus</p></item>
+            <item><p>Travail du gouvernement américain</p></item>
+        </list>
+  </section>
+
+</page>

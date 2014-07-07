@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="offline" xml:lang="fr">
+<info>
+  <link type="guide" xref="index#advanced"/>
+  <desc>Comment continuer votre travail plus tard.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+  <credit type="author">
+    <name>Germán Póo-Caamaño</name>
+    <email>gpoo@gnome.org</email>
+  </credit>
+</info>
+
+<title>Continuer l'envoi plus tard</title>
+
+  <p/>
+
+  <steps>
+    <item><p>Sauvegarder la session.</p></item>
+    <item><p>Choisir un nom.</p></item>
+    <item><p>La prochaine fois, vous pourrez charger une session précédemment enregistrée.</p></item>
+  </steps>
+
+  <note style="tip">
+    <p>Si vous chargez une session quand vous êtes hors-ligne, les propriétés concernées par cette connexion seront perdues. Ces propriétés sont : les albums de photos, les groupes et la confidentialité.</p>
+  </note>
+
+</page>

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<page xmlns="http://projectmallard.org/1.0/" xmlns:e="http://projectmallard.org/experimental/" type="topic" style="task" id="permissions" xml:lang="es">
+<info>
+  <link type="guide" xref="index#properties"/>
+  <desc>Configurar los permisos de sus fotografías.</desc>
+  <revision pkgversion="0.13" version="0.1" date="2009-11-13" status="incomplete"/>
+    <credit type="author">
+        <name>Germán Póo-Caamaño</name>
+        <email>gpoo@gnome.org</email>
+    </credit>
+    <credit type="author">
+        <name>Sergio Infante</name>
+        <email>raulsergio9@gmail.com</email>
+    </credit>
+</info>
+
+<title>Privacidad, seguridad y licencia</title>
+
+  <section id="privacy">
+    <info>
+      <title type="link">Privacidad</title>
+    </info>
+    <title>Privacidad de sus fotografías</title>
+    <p>Puede elegir entre:</p>
+        <list>
+            <item><p>Público</p></item>
+            <item><p>Sólo familia</p></item>
+            <item><p>Sólo amigos y familia</p></item>
+            <item><p>Privado</p></item>
+        </list>
+  </section>
+
+  <section id="safety">
+    <info>
+      <title type="link">Seguridad</title>
+    </info>
+    <title>Definir la seguridad de sus contenidos</title>
+    <p>Puede elegir entre:</p>
+        <list>
+            <item><p>Seguro</p></item>
+            <item><p>Moderado</p></item>
+            <item><p>Restringido</p></item>
+        </list>
+  </section>
+  
+  <section id="content-type">
+    <info>
+      <title type="link">Tipo de contenido</title>
+    </info>
+    <title>Tipo de contenido de sus contenidos</title>
+    <p>Puede elegir entre:</p>
+        <list>
+            <item><p>Foto</p></item>
+            <item><p>Captura de pantalla</p></item>
+            <item><p>Otro</p></item>
+        </list>
+  </section>
+  
+  <section id="license">
+    <info>
+      <title type="link">Licencia</title>
+    </info>
+    <title>Seleccionar una licencia para sus fotografías.</title>
+    <p>Puede elegir entre:</p>
+        <list>
+            <item><p>Predeterminado</p></item>
+            <item><p>Todos los derechos reservados</p></item>
+            <item><p>Licencia de Atribución</p></item>
+            <item><p>Licencia de Atribución-No derivada</p></item>
+            <item><p>Licencia de Atribución-Compartir Igual-No derivada</p></item>
+            <item><p>Licencia de Atribución-No Comercial</p></item>
+            <item><p>Licencia de Atribución-Compartir Igual-No comercial</p></item>
+            <item><p>Licencia de Atribución-Compartir Igual</p></item>
+            <item><p>No hay restricciones de copyright</p></item>
+            <item><p>Trabajo del gobierno de Estados Unidos</p></item>
+        </list>
+  </section>
+
+</page>

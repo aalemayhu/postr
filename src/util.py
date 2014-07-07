@@ -16,7 +16,7 @@
 # St, Fifth Floor, Boston, MA 02110-1301 USA
 
 import gtk, os
-
+import bsddb3
 
 def greek(size):
     """Take a quantity (like 1873627) and display it in a human-readable rounded
@@ -71,7 +71,6 @@ def get_buddyicon(flickr, data, size=48):
     """Lookup the buddyicon from the data in @data using @flickr and resize it
     to @size pixels."""
     from twisted.web.client import getPage
-    import bsddb3
 
     global __buddy_cache
     if __buddy_cache is None:
@@ -98,9 +97,9 @@ def get_buddyicon(flickr, data, size=48):
         return load_thumb(page, size)
     
     if int(data.get("iconfarm")) > 0:
-        url = "http://farm%s.static.flickr.com/%s/buddyicons/%s.jpg" % (data.get("iconfarm"), data.get("iconserver"), data.get("nsid"))
+        url = "https://farm%s.static.flickr.com/%s/buddyicons/%s.jpg" % (data.get("iconfarm"), data.get("iconserver"), data.get("nsid"))
     else:
-        url = "http://www.flickr.com/images/buddyicon.jpg"
+        url = "https://www.flickr.com/images/buddyicon.jpg"
 
     if __buddy_cache.has_key(url):
         from twisted.internet import defer
